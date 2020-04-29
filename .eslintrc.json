@@ -52,6 +52,19 @@
                 "ignoreTrailingComments": true,
                 "ignoreComments": true
             }
+        ],
+        "object-curly-spacing": [
+            "warn",
+            "always"
+        ],
+        "no-undef": [
+            "warn"
+        ],
+        "react/display-name": [
+            "off"
+        ],
+        "react/prop-types": [
+            "off"
         ]
     }
 }
