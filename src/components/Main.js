@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import LoadingDialog from './LoadingDialog';
 import WinnerCard from './WinnerCard';
 import './Main.css';
 
@@ -29,7 +29,7 @@ class Main extends React.Component {
     return (
       <main>
         {isLoading ? (
-          <CircularProgress />
+          <LoadingDialog />
         ) : (
           <section className="winner-card-container">
             {tournaments.map(d => {
