@@ -33,7 +33,7 @@ class Main extends React.Component {
         ) : (
           <section className="winner-card-container">
             {tournaments.map(d => {
-              return <WinnerCard key={d.key} teamName={d.name} />;
+              return <WinnerCard key={d.key} teamName={d.cid} />;
             })}
           </section>
         )}

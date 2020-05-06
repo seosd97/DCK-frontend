@@ -9,7 +9,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #83919B;
+  font-weight: 400;
+  background: #353839;
+
+  --text-color-normal: #E8EDDF;
+  --text-color-hover: #a6aa9f;
 }
 
 code {
