@@ -10,15 +10,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
-  background: var(--black);
+  background: var(--white);
 
-  --white: #E8EDDF;
-  --white-hover: #a6aa9f;
+  --white: #faf9f8;
+  --white-hover: #ebebeb;
   --black: #333533;
-  --light-black: #353839;
+  --light-black: #5f6566;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  text-decoration: none;
 }

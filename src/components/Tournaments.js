@@ -27,16 +27,11 @@ class Tournaments extends React.Component {
   }
 
   render() {
-    const isSuccess = this.state.status == 'success';
     return (
       <section id="tournaments-container">
-        {isSuccess ? (
-          this.state.tournamentList.map(t => {
-            return <TournamentInfo key={t.id} name={t.name} />;
-          })
-        ) : (
-          <span>{this.state.status}</span>
-        )}
+        {this.state.tournamentList.map(t => {
+          return <TournamentInfo key={t.id} name={t.name} />;
+        })}
       </section>
     );
   }
