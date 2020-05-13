@@ -2,6 +2,7 @@ import React from 'react';
 import { TextField, Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import Axios from 'axios';
+import _ from 'underscore';
 import './RegisterMatch.css';
 
 const TextInput = withStyles({
@@ -27,19 +28,49 @@ const TextInput = withStyles({
   }
 })(TextField);
 
-const LoadMatchData = e => {
-  e.preventDefault();
-};
+class RegisterMatch extends React.Component {
+  constructor() {
+    super();
 
-export default () => {
-  return (
-    <div id="match-register-container">
-      <div>
-        <TextInput id="match-id-field" label="match id" />
-        <Button id="load-btn" variant="contained" onClick={LoadMatchData}>
-          Load
-        </Button>
+    this.state = {
+      matchData: {}
+    };
+
+    this.input = React.createRef();
+  }
+
+  LoadMatchData(e) {
+    e.preventDefault();
+
+    const { matchData } = this.state;
+
+    //if (!_.isEmpty(this.state.matchData) && matchData.id == )
+
+    const id = Number(this.input.current.value);
+    Axios.get(`http://localhost:8080/riotapi/match/${id}`)
+      .then(res => {
+        this.setState({
+          matchData: JSON.parse(res.data)
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  render() {
+    return (
+      <div id="match-register-container">
+        <div>
+          <TextInput id="match-id-field" label="match id" inputRef={this.input} />
+          <Button id="load-btn" variant="contained" onClick={this.LoadMatchData.bind(this)}>
+            Load
+          </Button>
+        </div>
+        {!_.isEmpty(this.state.matchData) && <div>{this.state.matchData.platformId}</div>}
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
+
+export default RegisterMatch;
