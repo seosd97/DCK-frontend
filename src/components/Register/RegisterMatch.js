@@ -1,7 +1,6 @@
 import React from 'react';
 import { TextField, Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import MatchInfo from '../MatchInfo';
 import Axios from 'axios';
 import _ from 'underscore';
 import './RegisterMatch.css';
@@ -70,7 +69,6 @@ class RegisterMatch extends React.Component {
             Load
           </Button>
         </div>
-        {!_.isEmpty(this.state.matchData) && <MatchInfo matchData={this.state.matchData} />}
       </div>
     );
   }

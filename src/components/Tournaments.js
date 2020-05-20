@@ -29,8 +29,8 @@ class Tournaments extends React.Component {
   render() {
     return (
       <section id="tournaments-container">
-        {this.state.tournamentList.map(t => {
-          return <TournamentInfo key={t.id} name={t.name} />;
+        {this.state.tournamentList.map((t, i) => {
+          return <TournamentInfo key={i} tid={t.id} name={t.name} />;
         })}
       </section>
     );

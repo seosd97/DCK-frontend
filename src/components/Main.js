@@ -26,19 +26,7 @@ class Main extends React.Component {
     const { tournaments } = this.state;
     const isLoading = tournaments == null || !Array.isArray(tournaments);
 
-    return (
-      <main>
-        {isLoading ? (
-          <LoadingDialog />
-        ) : (
-          <section className="winner-card-container">
-            {tournaments.map(d => {
-              return <WinnerCard key={d.key} teamName={d.cid} />;
-            })}
-          </section>
-        )}
-      </main>
-    );
+    return <main>{isLoading && <LoadingDialog />}</main>;
   }
 }
 
