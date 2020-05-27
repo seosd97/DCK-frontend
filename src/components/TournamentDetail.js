@@ -9,6 +9,7 @@ class TournamentDetail extends React.Component {
     super();
 
     this.state = {
+      tournamentName: '',
       groupStageMatches: [],
       semiFinalMatches: [],
       fianlMatches: []
@@ -21,6 +22,7 @@ class TournamentDetail extends React.Component {
         const matches = res.data.matches;
 
         this.setState({
+          tournamentName: res.data.name,
           groupStageMatches: matches.filter(i => i.type === 'groupstage'),
           semiFinalMatches: matches.filter(i => i.type === 'semifinal'),
           fianlMatches: matches.filter(i => i.type === 'finale')
@@ -32,9 +34,10 @@ class TournamentDetail extends React.Component {
   }
 
   render() {
-    const { groupStageMatches, semiFinalMatches, fianlMatches } = this.state;
+    const { tournamentName, groupStageMatches, semiFinalMatches, fianlMatches } = this.state;
     return (
       <div>
+        <h1>{tournamentName}</h1>
         {!_.isEmpty(groupStageMatches) ? (
           <MatchCard matchType="groupstage" matches={groupStageMatches} />
         ) : (

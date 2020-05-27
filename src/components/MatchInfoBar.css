@@ -1,7 +1,12 @@
 #match-info-bar-root {
+    display: block;
     position: relative;
     margin: 0 auto;
-    width: 200px;
+    /* width: 200px; */
+}
+
+#match-info-bar-root:hover {
+    background-color: #f1f1f1;
 }
 
 #match-result-container {

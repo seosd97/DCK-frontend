@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import _ from 'underscore';
 import './MatchInfoBar.css';
 
@@ -12,7 +13,7 @@ export default props => {
   });
 
   return (
-    <div id="match-info-bar-root">
+    <Link to={`/match/${matchData.id}`} id="match-info-bar-root">
       <span id="match-round">Round {matchData.round}</span>
       <div id="match-result-container">
         {!_.isUndefined(blueTeam) && (
@@ -29,6 +30,6 @@ export default props => {
           </div>
         )}
       </div>
-    </div>
+    </Link>
   );
 };
