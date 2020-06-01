@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import MatchBar from './MatchInfoBar';
 import _ from 'underscore';
 import './TournamentMatchCard.css';
@@ -9,7 +10,11 @@ export default props => {
     <div id="match-list">
       <span></span>
       {matches.map((m, i) => {
-        return <MatchBar key={i} matchData={m} />;
+        return (
+          <Link key={i} to={`/match/${m.gid}`} className="match-item">
+            <MatchBar matchData={m} />
+          </Link>
+        );
       })}
     </div>
   );

@@ -1,0 +1,67 @@
+#match-root {
+    margin: 0 auto;
+    max-width: 1200px;
+    font-family: 'Teko', sans-serif;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+#match-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--white-hover);
+    padding: 10px 0;
+    box-sizing: inherit;
+}
+
+#match-result-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.1rem;
+    font-weight: bold;
+    height: 70px;
+}
+
+.match-team-info-red {
+    width: 100%;
+    background-color: rgb(216, 95, 86);
+    /* border-left: 3px solid rgb(216, 95, 86); */
+    color: var(--white);
+    text-align: center;
+    margin-left: 5rem;
+    line-height: 70px;
+    height: 100%;
+}
+
+.match-team-info-blue {
+    width: 100%;
+    background-color: rgb(99, 143, 226);
+    /* border-right: 3px solid rgb(99, 143, 226); */
+    color: var(--white);
+    text-align: center;
+    margin-right: 5rem;
+    line-height: 70px;
+    height: 100%;
+}
+
+.game-result {
+    font-size: 2.5rem;
+}
+
+.game-result-winner {
+    color: var(--black);
+}
+
+.game-result-loser {
+    color: rgb(133, 133, 133);
+}
+
+.verses-colon {
+    margin: 15px;
+    color: rgb(133, 133, 133);
+    font-weight: lighter;
+    
+}
