@@ -1,7 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
 import LoadingDialog from './LoadingDialog';
-import WinnerCard from './WinnerCard';
 import './Main.css';
 
 class Main extends React.Component {

@@ -1,0 +1,11 @@
+#match-info-root {
+    background-color: #f1f1f1;
+    width: 100%;
+    padding: 20px 30px;
+    box-sizing: border-box;
+}
+
+#match-info-duration {
+    font-size: 1.5rem;
+    color: var(--black);
+}

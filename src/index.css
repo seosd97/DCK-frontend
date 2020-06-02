@@ -16,6 +16,9 @@ body {
   --white-hover: #ebebeb;
   --black: #333533;
   --light-black: #5f6566;
+
+  --team-color-red: rgb(216, 95, 86);
+  --team-color-blue: rgb(99, 143, 226);
 }
 
 code {
@@ -25,4 +28,24 @@ code {
 
 a {
   text-decoration: none;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.tc-blue {
+  color: var(--team-color-blue);
+}
+
+.tc-red {
+  color: var(--team-color-red)
 }
