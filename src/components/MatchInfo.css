@@ -8,4 +8,12 @@
 #match-info-duration {
     font-size: 1.5rem;
     color: var(--black);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#match-info-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }

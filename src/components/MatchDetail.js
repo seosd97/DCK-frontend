@@ -56,7 +56,7 @@ class MatchDetail extends React.Component {
               <div className="match-team-info-red">{redTeam.teamName}</div>
             </div>
 
-            <div id="match-result-content">
+            <div id="match-result-overview">
               <MatchInfo matchData={matchData} />
             </div>
           </React.Fragment>

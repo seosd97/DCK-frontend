@@ -1,0 +1,18 @@
+.img-20x20 {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .img-30x30 {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .img-40x40 {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .img-round {
+    border-radius: 30%;
+  }

@@ -11,14 +11,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   background: var(--white);
-
-  --white: #faf9f8;
-  --white-hover: #ebebeb;
-  --black: #333533;
-  --light-black: #5f6566;
-
-  --team-color-red: rgb(216, 95, 86);
-  --team-color-blue: rgb(99, 143, 226);
 }
 
 code {
@@ -30,22 +22,50 @@ a {
   text-decoration: none;
 }
 
-.text-align-left {
-  text-align: left;
+.width-100 {
+  width: 100%;
 }
 
-.text-align-center {
-  text-align: center;
+.flex-col {
+  display: flex;
+  flex-direction: column;
 }
 
-.text-align-right {
-  text-align: right;
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }
 
-.tc-blue {
-  color: var(--team-color-blue);
+.flex-col-r {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
-.tc-red {
-  color: var(--team-color-red)
+.flex-row-r {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.flex-j-s {
+  justify-content: flex-start;
+}
+
+.flex-j-c {
+  justify-content: center;
+}
+
+.flex-j-e {
+  justify-content: flex-end;
+}
+
+.flex-align-s {
+  align-items: flex-start;
+}
+
+.flex-align-c {
+  align-items: center;
+}
+
+.flex-align-e {
+  align-items: flex-end;
 }

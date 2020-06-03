@@ -1,0 +1,19 @@
+.summoner-elem {
+    margin: 10px 0;
+}
+
+.summoner-name {
+    width: 120px;
+    font-size: 1rem;
+    padding: 7px 5px;
+    box-sizing: border-box;
+}
+
+.kda-area {
+    width: 50px;
+    margin: 0 3px;
+}
+
+.element-margin {
+    margin: 0 3px;
+}

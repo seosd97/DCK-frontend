@@ -1,0 +1,42 @@
+body {
+    --white: #faf9f8;
+    --white-hover: #ebebeb;
+    --black: #333533;
+    --light-black: #5f6566;
+    --green: #2daf7f;
+    --orange: #e19205;
+    --team-color-red: #ce3328;
+    --team-color-blue: #2891ce;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.tc-blue {
+    color: var(--team-color-blue);
+}
+
+.tc-red {
+    color: var(--team-color-red)
+}
+
+.tc-normal {
+    color: var(--light-black);
+}
+
+.tc-green {
+    color: var(--green);
+}
+
+.tc-orange {
+    color: var(--orange);
+}

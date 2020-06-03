@@ -38,3 +38,35 @@ export const getChampionByKey = async (key, lang = 'ko_KR') => {
 
   return championCacheById[key];
 };
+
+export const getSpellByID = async (id, lang = 'ko_KR') => {
+  const version = await getVersion();
+  const spells = await Axios.get(
+    `http://ddragon.leagueoflegends.com/cdn/${version}/data/${lang}/summoner.json`
+  );
+
+  for (let i in spells.data.data) {
+    const spell = spells.data.data[i];
+
+    if (spell.key === String(id)) {
+      return spell;
+    }
+  }
+
+  return null;
+};
+
+export const getRuneByID = async (id, lang = 'ko_KR') => {
+  const version = await getVersion();
+  const runes = await Axios.get(
+    `http://ddragon.leagueoflegends.com/cdn/${version}/data/${lang}/runesReforged.json`
+  );
+
+  for (let i in runes.data) {
+    const rune = runes.data[i];
+
+    if (rune.id === id) {
+      return rune;
+    }
+  }
+};
