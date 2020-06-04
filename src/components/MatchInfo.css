@@ -15,5 +15,7 @@
 #match-info-content {
     display: flex;
     justify-content: center;
+    /* flex-wrap: wrap; */
     width: 100%;
+    font-size: 1rem;
 }

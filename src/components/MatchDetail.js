@@ -36,6 +36,7 @@ class MatchDetail extends React.Component {
             <h1 id="match-title">
               {matchData.gameType.toUpperCase() + ` ROUND ${matchData.round}`}
             </h1>
+
             <div id="match-result-header">
               <div className="match-team-info-blue">{blueTeam.teamName}</div>
               <span

@@ -30,24 +30,47 @@ class MatchSummonerInfo extends React.Component {
     const kda = ((summonerData.kill + summonerData.assist) / summonerData.death).toFixed(2);
     const flexClass = this.props.reverse ? 'flex-row-r' : 'flex-row';
     return (
-      <div className={`${flexClass} flex-j-c summoner-elem`}>
-        <span
+      <div>
+        <div
           className={`summoner-name ${this.props.reverse ? 'text-align-right' : 'text-align-left'}`}
         >
           {summonerData.summonerName}
-        </span>
-        <div className="element-margin flex-col">
-          <SpellIcon sid={summonerData.spell1_id} />
-          <SpellIcon sid={summonerData.spell2_id} />
         </div>
-        <div className="element-margin flex-col">
-          <RuneIcon styleId={summonerData.perkPrimaryStyle} rid={summonerData.rune0} />
-          <RuneIcon styleId={summonerData.perkSubStyle} onlyStone />
-        </div>
-        <ChampionIcon cid={summonerData.cid} />
-        <div className="kda-area flex-col flex-align-c">
-          <span>{`${summonerData.kill} / ${summonerData.death} / ${summonerData.assist}`}</span>
-          <span className={this.getKDAColor(kda)}>{isNaN(parseInt(kda)) ? 'perfect' : kda}</span>
+        <div className={`${flexClass} summoner-elem`}>
+          <div className="element-margin flex-col">
+            <SpellIcon sid={summonerData.spell1_id} />
+            <SpellIcon sid={summonerData.spell2_id} />
+          </div>
+          <div className="element-margin flex-col">
+            <RuneIcon styleId={summonerData.perkPrimaryStyle} rid={summonerData.rune0} />
+            <RuneIcon styleId={summonerData.perkSubStyle} onlyStone />
+          </div>
+          <ChampionIcon cid={summonerData.cid} />
+
+          <div className="kda-area element-margin flex-col flex-align-c">
+            <span>{`${summonerData.kill} / ${summonerData.death} / ${summonerData.assist}`}</span>
+            <span className={this.getKDAColor(kda)}>{isNaN(parseInt(kda)) ? 'perfect' : kda}</span>
+          </div>
+
+          <div className="kda-area element-margin flex-col flex-align-c">
+            <span>CS {summonerData.totalMinionsKilled}</span>
+            <span>(10.0)</span>
+          </div>
+
+          <div className="flex-row element-margin">
+            <div className="flex-col">
+              <SpellIcon sid={summonerData.spell1_id} />
+              <SpellIcon sid={summonerData.spell2_id} />
+            </div>
+            <div className="flex-col">
+              <SpellIcon sid={summonerData.spell1_id} />
+              <SpellIcon sid={summonerData.spell2_id} />
+            </div>
+            <div className="flex-col">
+              <SpellIcon sid={summonerData.spell1_id} />
+              <SpellIcon sid={summonerData.spell2_id} />
+            </div>
+          </div>
         </div>
       </div>
     );

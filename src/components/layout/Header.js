@@ -6,24 +6,26 @@ import AddIcon from '@material-ui/icons/AddToPhotos';
 export default () => {
   return (
     <header>
-      <Link to="/" id="logo-img">
+      <Link id="logo-img" to="/">
         <img src={process.env.PUBLIC_URL + '/dck_circle.png'} width="50" height="50"></img>
       </Link>
-      <Link className="header-menu" to="/tournaments">
-        Tournaments
-      </Link>
-      <Link className="header-menu" to="/teams">
-        Teams
-      </Link>
-      <Link className="header-menu" to="/summoners">
-        Player
-      </Link>
-      <Link className="header-menu" to="/rankings">
-        Ranking
-      </Link>
-      <Link to="/register" id="add-icon">
-        <AddIcon />
-      </Link>
+      <div className="header-menu">
+        <Link className="header-menu-item" to="/tournaments">
+          Tournaments
+        </Link>
+        <Link className="header-menu-item" to="/teams">
+          Teams
+        </Link>
+        <Link className="header-menu-item" to="/summoners">
+          Player
+        </Link>
+        <Link className="header-menu-item" to="/rankings">
+          Ranking
+        </Link>
+        <Link id="register-icon" to="/register">
+          <AddIcon />
+        </Link>
+      </div>
     </header>
   );
 };
