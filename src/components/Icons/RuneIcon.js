@@ -37,7 +37,9 @@ class RuneIcon extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {this.state.src && <img src={this.state.src} alt="rune_image" className="img-20x20" />}
+        {this.state.src && (
+          <img src={this.state.src} alt="rune_image" className="rune-icon img-20x20" />
+        )}
       </React.Fragment>
     );
   }

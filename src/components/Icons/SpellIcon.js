@@ -11,8 +11,8 @@ class SpellIcon extends React.Component {
     };
   }
 
-  componentDidMount() {
-    DDragon.getSpellByID(this.props.sid).then(d => {
+  async componentDidMount() {
+    await DDragon.getSpellByID(this.props.sid).then(d => {
       this.setState({
         src: `http://ddragon.leagueoflegends.com/cdn/10.11.1/img/spell/${d.image.full}`
       });
@@ -23,7 +23,7 @@ class SpellIcon extends React.Component {
     return (
       <React.Fragment>
         {this.state.src && (
-          <img src={this.state.src} alt="spell_img" className="img-round img-20x20" />
+          <img src={this.state.src} alt="spell_img" className="spell-icon img-round img-20x20" />
         )}
       </React.Fragment>
     );

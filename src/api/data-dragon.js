@@ -5,6 +5,8 @@ const endpoint = 'http://ddragon.leagueoflegends.com/cdn/';
 
 export let championCache = {};
 export let championCacheById = {};
+export let spellCache = {};
+export let runeCache = {};
 
 export const getVersion = async () => {
   const version = await Axios.get('https://ddragon.leagueoflegends.com/api/versions.json');
@@ -40,6 +42,11 @@ export const getChampionByKey = async (key, lang = 'ko_KR') => {
 };
 
 export const getSpellByID = async (id, lang = 'ko_KR') => {
+  const sid = String(id);
+  if (!_.isEmpty(spellCache)) {
+    return spellCache[sid];
+  }
+
   const version = await getVersion();
   const spells = await Axios.get(
     `http://ddragon.leagueoflegends.com/cdn/${version}/data/${lang}/summoner.json`
@@ -48,15 +55,17 @@ export const getSpellByID = async (id, lang = 'ko_KR') => {
   for (let i in spells.data.data) {
     const spell = spells.data.data[i];
 
-    if (spell.key === String(id)) {
-      return spell;
-    }
+    spellCache[spell.key] = spell;
   }
 
-  return null;
+  return spellCache[sid];
 };
 
 export const getRuneByID = async (id, lang = 'ko_KR') => {
+  if (!_.isEmpty(runeCache)) {
+    return runeCache[id];
+  }
+
   const version = await getVersion();
   const runes = await Axios.get(
     `http://ddragon.leagueoflegends.com/cdn/${version}/data/${lang}/runesReforged.json`
@@ -65,8 +74,8 @@ export const getRuneByID = async (id, lang = 'ko_KR') => {
   for (let i in runes.data) {
     const rune = runes.data[i];
 
-    if (rune.id === id) {
-      return rune;
-    }
+    runeCache[rune.id] = rune;
   }
+
+  return runeCache[id];
 };

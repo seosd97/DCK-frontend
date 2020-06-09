@@ -23,7 +23,7 @@ class ChampionIcon extends React.Component {
     return (
       <React.Fragment>
         {this.state.src && (
-          <img src={this.state.src} alt="champion_img" className="img-40x40 img-round" />
+          <img src={this.state.src} alt="champion_img" className="champ-icon img-40x40 img-round" />
         )}
       </React.Fragment>
     );

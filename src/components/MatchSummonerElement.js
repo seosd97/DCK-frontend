@@ -4,6 +4,7 @@ import Numeral from 'numeral';
 import ChampionIcon from './Icons/ChampionIcon';
 import SpellIcon from './Icons/SpellIcon';
 import RuneIcon from './Icons/RuneIcon';
+import ItemIcon from './Icons/ItemIcon';
 import './MatchSummonerElement.css';
 
 class MatchSummonerInfo extends React.Component {
@@ -62,19 +63,13 @@ class MatchSummonerInfo extends React.Component {
             <span>( {this.getCSPerMin(totalCS)} )</span>
           </div>
 
-          <div className="flex-row element-margin">
-            <div className="flex-col">
-              <SpellIcon sid={summonerData.spell1_id} />
-              <SpellIcon sid={summonerData.spell2_id} />
-            </div>
-            <div className="flex-col">
-              <SpellIcon sid={summonerData.spell1_id} />
-              <SpellIcon sid={summonerData.spell2_id} />
-            </div>
-            <div className="flex-col">
-              <SpellIcon sid={summonerData.spell1_id} />
-              <SpellIcon sid={summonerData.spell2_id} />
-            </div>
+          <div className="item-container">
+            <ItemIcon iid={summonerData.item0} />
+            <ItemIcon iid={summonerData.item1} />
+            <ItemIcon iid={summonerData.item2} />
+            <ItemIcon iid={summonerData.item3} />
+            <ItemIcon iid={summonerData.item4} />
+            <ItemIcon iid={summonerData.item5} />
           </div>
         </div>
       </div>

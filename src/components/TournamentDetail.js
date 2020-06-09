@@ -25,7 +25,7 @@ class TournamentDetail extends React.Component {
           tournamentName: res.data.name,
           groupStageMatches: matches.filter(i => i.type === 'groupstage'),
           semiFinalMatches: matches.filter(i => i.type === 'semifinal'),
-          fianlMatches: matches.filter(i => i.type === 'finale')
+          finalMatches: matches.filter(i => i.type === 'final')
         });
       })
       .catch(err => {
@@ -34,14 +34,27 @@ class TournamentDetail extends React.Component {
   }
 
   render() {
-    const { tournamentName, groupStageMatches, semiFinalMatches, fianlMatches } = this.state;
+    const { tournamentName, groupStageMatches, semiFinalMatches, finalMatches } = this.state;
     return (
       <div>
         <h1>{tournamentName}</h1>
-        {!_.isEmpty(groupStageMatches) ? (
-          <MatchCard matchType="groupstage" matches={groupStageMatches} />
-        ) : (
-          <span>Loading...</span>
+        {!_.isEmpty(finalMatches) && (
+          <div className="match-container">
+            <h2>Final</h2>
+            <MatchCard matchType="final" matches={finalMatches} />
+          </div>
+        )}
+        {!_.isEmpty(semiFinalMatches) && (
+          <div className="match-container">
+            <h2>Semi Final</h2>
+            <MatchCard matchType="semifinal" matches={semiFinalMatches} />
+          </div>
+        )}
+        {!_.isEmpty(groupStageMatches) && (
+          <div className="match-container">
+            <h2>Group Stage</h2>
+            <MatchCard matchType="groupstage" matches={groupStageMatches} />
+          </div>
         )}
       </div>
     );
