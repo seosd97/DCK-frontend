@@ -1,12 +1,8 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './TournamentInfo.css';
 
 class TournamentInfo extends React.Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <Link to={`/tournament/${this.props.tid}`} id="info-card">

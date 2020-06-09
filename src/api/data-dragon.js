@@ -3,8 +3,8 @@ import _ from 'underscore';
 
 const endpoint = 'http://ddragon.leagueoflegends.com/cdn/';
 
-let championCache = {};
-let championCacheById = {};
+export let championCache = {};
+export let championCacheById = {};
 
 export const getVersion = async () => {
   const version = await Axios.get('https://ddragon.leagueoflegends.com/api/versions.json');
@@ -27,7 +27,7 @@ export const getChampions = async (lang = 'ko_KR') => {
 export const getChampionByKey = async (key, lang = 'ko_KR') => {
   if (!_.isEmpty(championCacheById)) {
     console.log('by cache by id');
-    return championCacheById;
+    return championCacheById[key];
   }
 
   const champions = await getChampions(lang);

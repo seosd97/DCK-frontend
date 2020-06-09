@@ -37,24 +37,16 @@ class MatchDetail extends React.Component {
               {matchData.gameType.toUpperCase() + ` ROUND ${matchData.round}`}
             </h1>
 
-            <div id="match-result-header">
-              <div className="match-team-info-blue">{blueTeam.teamName}</div>
-              <span
-                className={
-                  (blueTeam.win ? 'game-result-winner' : 'game-result-loser') + ' game-result'
-                }
-              >
+            <div id="match-team-header">
+              <div className="match-team-info blueteam">{blueTeam.teamName}</div>
+              <span className={'game-result' + (blueTeam.win ? ' winner' : '')}>
                 {blueTeam.win ? 'WIN' : 'LOSE'}
               </span>
               <span className="verses-colon">VS</span>
-              <span
-                className={
-                  redTeam.win ? 'game-result-winner' : 'game-result-loser' + ' game-result'
-                }
-              >
+              <span className={'game-result' + (redTeam.win ? ' winner' : '')}>
                 {redTeam.win ? 'WIN' : 'LOSE'}
               </span>
-              <div className="match-team-info-red">{redTeam.teamName}</div>
+              <div className="match-team-info redteam">{redTeam.teamName}</div>
             </div>
 
             <div id="match-result-overview">

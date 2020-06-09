@@ -1,31 +1,27 @@
 import React from 'react';
-import Axios from 'axios';
-import LoadingDialog from './LoadingDialog';
 import './Main.css';
 
 class Main extends React.Component {
-  constructor() {
-    super();
-
-    this.state = { tournamets: [] };
-  }
-
-  componentDidMount() {
-    Axios.get('http://localhost:8080/champions')
-      .then(res => {
-        this.setState({ tournaments: res.data });
-      })
-      .catch(err => {
-        console.log(err);
-        this.setState({ tournaments: { status: 'request error' } });
-      });
-  }
-
   render() {
-    const { tournaments } = this.state;
-    const isLoading = tournaments == null || !Array.isArray(tournaments);
+    const style = {
+      fontFamily: 'monospace',
+      whiteSpace: 'pre',
+      margin: '0 auto',
+      textAlign: 'center'
+    };
 
-    return <main>{isLoading && <LoadingDialog />}</main>;
+    return (
+      <main>
+        <div style={style}>
+          {' _____     ______     __  __        __  __     __     ______     ______   ______     ______     __  __    \n' +
+            '/\\  __-.  /\\  ___\\   /\\ \\/ /       /\\ \\_\\ \\   /\\ \\   /\\  ___\\   /\\__  _\\ /\\  __ \\   /\\  == \\   /\\ \\_\\ \\   \n' +
+            '\\ \\ \\/\\ \\ \\ \\ \\____  \\ \\  _"-.     \\ \\  __ \\  \\ \\ \\  \\ \\___  \\  \\/_/\\ \\/ \\ \\ \\/\\ \\  \\ \\  __<   \\ \\____ \\  \n' +
+            ' \\ \\____-  \\ \\_____\\  \\ \\_\\ \\_\\     \\ \\_\\ \\_\\  \\ \\_\\  \\/\\_____\\    \\ \\_\\  \\ \\_____\\  \\ \\_\\ \\_\\  \\/\\_____\\ \n' +
+            '  \\/____/   \\/_____/   \\/_/\\/_/      \\/_/\\/_/   \\/_/   \\/_____/     \\/_/   \\/_____/   \\/_/ /_/   \\/_____/ '}
+          <br />
+        </div>
+      </main>
+    );
   }
 }
 

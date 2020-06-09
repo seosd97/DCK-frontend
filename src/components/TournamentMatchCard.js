@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MatchBar from './MatchInfoBar';
-import _ from 'underscore';
 import './TournamentMatchCard.css';
 
 export default props => {

@@ -8,28 +8,25 @@ import './MatchInfo.css';
 export default props => {
   return (
     <div id="match-info-root">
-      <div id="match-info-duration">
-        GAMETIME{' '}
-        <UnixTime
-          unix
-          format="mm : ss"
-          duration={props.matchData.duration}
-          className="duration-time"
-        />
-      </div>
-
       <div id="match-info-content">
-        <div className="flex-column width-100">
+        <div className="flex-col width-100">
           {props.matchData.teams[0].summoners.map((d, i) => {
-            return <SummonerInfo key={i} summonerData={d} reverse />;
+            return (
+              <SummonerInfo key={i} summonerData={d} duration={props.matchData.duration} reverse />
+            );
           })}
         </div>
 
-        <MatchTeamElement teams={props.matchData.teams} />
+        <div className="flex-col width-100 team-result">
+          <div className="match-duration">
+            GAMETIME <UnixTime unix format="mm : ss" duration={props.matchData.duration} />
+          </div>
+          <MatchTeamElement teams={props.matchData.teams} />
+        </div>
 
-        <div className="flex-column width-100">
+        <div className="flex-col width-100">
           {props.matchData.teams[1].summoners.map((d, i) => {
-            return <SummonerInfo key={i} summonerData={d} />;
+            return <SummonerInfo key={i} summonerData={d} duration={props.matchData.duration} />;
           })}
         </div>
       </div>

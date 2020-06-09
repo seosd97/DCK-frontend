@@ -15,7 +15,7 @@
     box-sizing: inherit;
 }
 
-#match-result-header {
+#match-team-header {
     display: flex;
     /* flex-wrap: wrap; */
     justify-content: center;
@@ -25,38 +25,31 @@
     /* height: 70px; */
 }
 
-.match-team-info-red {
+.match-team-info {
     width: 100%;
-    background-color: var(--team-color-red);
-    /* border-left: 3px solid rgb(216, 95, 86); */
-    color: var(--white);
     text-align: center;
-    /* margin-left: 5rem; */
+    margin: 0 20px;
     line-height: 70px;
     height: 100%;
 }
 
-.match-team-info-blue {
-    width: 100%;
+.blueteam {
     background-color: var(--team-color-blue);
-    /* border-right: 3px solid rgb(99, 143, 226); */
     color: var(--white);
-    text-align: center;
-    /* margin-right: 5rem; */
-    line-height: 70px;
-    height: 100%;
+}
+
+.redteam {
+    background-color: var(--team-color-red);
+    color: var(--white);
 }
 
 .game-result {
     font-size: 2.5rem;
-}
-
-.game-result-winner {
-    color: var(--black);
-}
-
-.game-result-loser {
     color: rgb(133, 133, 133);
+}
+
+.winner {
+    color: var(--black);
 }
 
 .verses-colon {

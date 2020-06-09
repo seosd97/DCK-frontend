@@ -7,7 +7,12 @@ export default () => {
   return (
     <header>
       <Link id="logo-img" to="/">
-        <img src={process.env.PUBLIC_URL + '/dck_circle.png'} width="50" height="50"></img>
+        <img
+          src={process.env.PUBLIC_URL + '/dck_circle.png'}
+          alt="header_logo"
+          width="50"
+          height="50"
+        ></img>
       </Link>
       <div className="header-menu">
         <Link className="header-menu-item" to="/tournaments">

@@ -6,8 +6,8 @@ export default props => {
   const duration = props.duration || 0;
 
   return (
-    <Moment unix format={props.format}>
-      {props.duration}
+    <Moment unix format={format}>
+      {duration}
     </Moment>
   );
 };

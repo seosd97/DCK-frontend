@@ -11,11 +11,11 @@ class ChampionIcon extends React.Component {
     };
   }
 
-  componentDidMount() {
-    DDragon.getChampionByKey(this.props.cid).then(d => {
-      this.setState({
-        src: `http://ddragon.leagueoflegends.com/cdn/10.11.1/img/champion/${d.image.full}`
-      });
+  async componentDidMount() {
+    const champion = await DDragon.getChampionByKey(this.props.cid);
+
+    this.setState({
+      src: `http://ddragon.leagueoflegends.com/cdn/10.11.1/img/champion/${champion.image.full}`
     });
   }
 

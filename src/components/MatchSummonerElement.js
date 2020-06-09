@@ -1,14 +1,12 @@
 import React from 'react';
+import Moment from 'moment';
+import Numeral from 'numeral';
 import ChampionIcon from './Icons/ChampionIcon';
 import SpellIcon from './Icons/SpellIcon';
 import RuneIcon from './Icons/RuneIcon';
 import './MatchSummonerElement.css';
 
 class MatchSummonerInfo extends React.Component {
-  constructor() {
-    super();
-  }
-
   getKDAColor(kda) {
     const num = parseInt(kda);
     switch (true) {
@@ -25,9 +23,16 @@ class MatchSummonerInfo extends React.Component {
     }
   }
 
+  getCSPerMin(cs) {
+    const gameTime = parseInt(Moment.unix(this.props.duration).format('mm'), 10);
+
+    return Numeral(cs / gameTime).format('0.0a');
+  }
+
   render() {
     const { summonerData } = this.props;
     const kda = ((summonerData.kill + summonerData.assist) / summonerData.death).toFixed(2);
+    const totalCS = summonerData.totalMinionsKilled + summonerData.neutralMinionsKilled;
     const flexClass = this.props.reverse ? 'flex-row-r' : 'flex-row';
     return (
       <div>
@@ -53,8 +58,8 @@ class MatchSummonerInfo extends React.Component {
           </div>
 
           <div className="kda-area element-margin flex-col flex-align-c">
-            <span>CS {summonerData.totalMinionsKilled}</span>
-            <span>(10.0)</span>
+            <span>CS {totalCS}</span>
+            <span>( {this.getCSPerMin(totalCS)} )</span>
           </div>
 
           <div className="flex-row element-margin">
