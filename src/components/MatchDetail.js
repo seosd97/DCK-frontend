@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import _ from 'underscore';
 import MatchInfo from './MatchInfo';
+import DealtGraph from './MatchDealtGraph';
 import './MatchDetail.css';
 
 class MatchDetail extends React.Component {
@@ -24,10 +25,28 @@ class MatchDetail extends React.Component {
       });
   }
 
+  getTopDealt(teams) {
+    let topDealt = 0;
+    for (let i in teams) {
+      for (let j in teams[i].summoners) {
+        const summoner = teams[i].summoners[j];
+        if (summoner.totalDamageDealt > topDealt) {
+          topDealt = summoner.totalDamageDealt;
+
+          console.log(topDealt);
+        }
+      }
+    }
+
+    return topDealt;
+  }
+
   render() {
     const { matchData } = this.state;
     const blueTeam = !_.isEmpty(matchData) && matchData.teams.find(t => t.camp_id === 100);
     const redTeam = !_.isEmpty(matchData) && matchData.teams.find(t => t.camp_id === 200);
+
+    const topDealt = this.getTopDealt(matchData.teams);
 
     return (
       <div id="match-root">
@@ -51,6 +70,11 @@ class MatchDetail extends React.Component {
 
             <div id="match-result-overview">
               <MatchInfo matchData={matchData} />
+            </div>
+
+            <div className="match-dealt-container flex-row width-100 flex-align-c">
+              <DealtGraph summoners={blueTeam.summoners} topDealt={topDealt} />
+              <DealtGraph summoners={redTeam.summoners} topDealt={topDealt} reverse />
             </div>
           </React.Fragment>
         ) : (

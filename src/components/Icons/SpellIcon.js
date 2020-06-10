@@ -11,8 +11,8 @@ class SpellIcon extends React.Component {
     };
   }
 
-  async componentDidMount() {
-    await DDragon.getSpellByID(this.props.sid).then(d => {
+  componentDidMount() {
+    DDragon.getSpellByID(this.props.sid).then(d => {
       this.setState({
         src: `http://ddragon.leagueoflegends.com/cdn/10.11.1/img/spell/${d.image.full}`
       });

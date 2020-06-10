@@ -23,3 +23,7 @@
     grid-auto-flow: row dense;
     gap: 1px;
 }
+
+.mainrune {
+    background: var(--black);
+}

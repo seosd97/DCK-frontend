@@ -21,3 +21,12 @@
 .team-result {
     font-size: 1.4rem;
 }
+
+.bans-container {
+    margin-top: 15px;
+}
+
+.ban-text {
+    font-size: 1.3rem;
+    margin: 0 7px;
+}

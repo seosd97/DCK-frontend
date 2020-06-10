@@ -23,6 +23,7 @@
     "react-moment": "^0.9.7",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
+    "react-vis": "^1.11.7",
     "short-number": "^1.0.7",
     "underscore": "^1.10.2"
   },

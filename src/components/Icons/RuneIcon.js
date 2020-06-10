@@ -7,13 +7,14 @@ class RuneIcon extends React.Component {
     super();
 
     this.state = {
+      isStone: true,
       src: ''
     };
   }
 
   componentDidMount() {
     DDragon.getRuneByID(this.props.styleId).then(d => {
-      if (this.props.onlyStone) {
+      if (this.props.rid === undefined) {
         this.setState({
           src: `https://ddragon.leagueoflegends.com/cdn/img/${d.icon}`
         });
@@ -26,6 +27,7 @@ class RuneIcon extends React.Component {
         const rune = runes[i];
         if (rune.id === this.props.rid) {
           this.setState({
+            isStone: false,
             src: `https://ddragon.leagueoflegends.com/cdn/img/${rune.icon}`
           });
           break;
@@ -38,7 +40,13 @@ class RuneIcon extends React.Component {
     return (
       <React.Fragment>
         {this.state.src && (
-          <img src={this.state.src} alt="rune_image" className="rune-icon img-20x20" />
+          <img
+            src={this.state.src}
+            alt="rune_image"
+            className={`${
+              this.state.isStone ? 'keystone' : 'mainrune'
+            } rune-icon img-round img-20x20`}
+          />
         )}
       </React.Fragment>
     );

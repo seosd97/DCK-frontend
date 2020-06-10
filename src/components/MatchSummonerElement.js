@@ -49,9 +49,9 @@ class MatchSummonerInfo extends React.Component {
           </div>
           <div className="element-margin flex-col">
             <RuneIcon styleId={summonerData.perkPrimaryStyle} rid={summonerData.rune0} />
-            <RuneIcon styleId={summonerData.perkSubStyle} onlyStone />
+            <RuneIcon styleId={summonerData.perkSubStyle} />
           </div>
-          <ChampionIcon cid={summonerData.cid} />
+          <ChampionIcon cid={summonerData.cid} round />
 
           <div className="kda-area element-margin flex-col flex-align-c">
             <span>{`${summonerData.kill} / ${summonerData.death} / ${summonerData.assist}`}</span>

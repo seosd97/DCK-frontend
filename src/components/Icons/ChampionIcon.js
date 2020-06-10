@@ -20,14 +20,25 @@ class ChampionIcon extends React.Component {
   }
 
   render() {
+    const imgSizeClass = this.props.small ? 'img-30x30' : 'img-40x40';
+    const roundClass = this.props.round ? 'img-round' : '';
     return (
       <React.Fragment>
         {this.state.src && (
-          <img src={this.state.src} alt="champion_img" className="champ-icon img-40x40 img-round" />
+          <img
+            src={this.state.src}
+            alt="champion_img"
+            className={`champ-icon ${imgSizeClass} ${roundClass}`}
+          />
         )}
       </React.Fragment>
     );
   }
 }
+
+ChampionIcon.defaultProps = {
+  small: false,
+  round: false
+};
 
 export default ChampionIcon;
