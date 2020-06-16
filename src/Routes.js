@@ -5,6 +5,9 @@ import Tournaments from './components/Tournaments';
 import TournamentDetail from './components/TournamentDetail';
 import Ranking from './components/Ranking';
 
+import TeamList from './components/Team/TeamList';
+import TeamDetail from './components/Team/TeamDetail';
+
 import MatchDetail from './components/MatchDetail';
 
 import Register from './components/Register/Register';
@@ -18,9 +21,11 @@ export default () => {
       <Route exact path="/tournaments" component={Tournaments} />
       <Route exact path="/tournament/:id" component={TournamentDetail} />
 
-      <Route exact path="/teams" component={null} />
+      <Route exact path="/teams" component={TeamList} />
+      <Route exact path="/team/:name" component={TeamDetail} />
 
       <Route exact path="/summoners" component={null} />
+      <Route exact path="/summoners/:name" component={null} />
 
       <Route path="/match/:id" component={MatchDetail} />
 
