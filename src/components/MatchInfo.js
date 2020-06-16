@@ -23,7 +23,7 @@ export default props => {
             <div className="flex-row flex-align-c">
               <div className="ban-text">Bans : </div>
               {props.matchData.teams[0].bans.map((d, i) => {
-                return <ChampionIcon key={i} cid={d.cid} small />;
+                return <ChampionIcon key={i} cid={d.cid} class="banned-champ-icon" small />;
               })}
             </div>
           </div>
@@ -45,7 +45,7 @@ export default props => {
             <div className="flex-row flex-align-c flex-j-e">
               <div className="ban-text">Bans : </div>
               {props.matchData.teams[1].bans.map((d, i) => {
-                return <ChampionIcon key={i} cid={d.cid} small />;
+                return <ChampionIcon key={i} cid={d.cid} class="banned-champ-icon" small />;
               })}
             </div>
           </div>

@@ -28,7 +28,7 @@ class ChampionIcon extends React.Component {
           <img
             src={this.state.src}
             alt="champion_img"
-            className={`champ-icon ${imgSizeClass} ${roundClass}`}
+            className={`champ-icon ${imgSizeClass} ${roundClass} ${this.props.class}`}
           />
         )}
       </React.Fragment>

@@ -29,6 +29,10 @@ body {
     color: var(--team-color-red)
 }
 
+.tc-black {
+    color: var(--black);
+}
+
 .tc-normal {
     color: var(--light-black);
 }
@@ -39,4 +43,12 @@ body {
 
 .tc-orange {
     color: var(--orange);
+}
+
+.fs-1r {
+    font-size: 1rem;
+}
+
+.fs-1-2r { 
+    font-size: 1.2rem;
 }

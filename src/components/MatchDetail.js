@@ -72,6 +72,9 @@ class MatchDetail extends React.Component {
               <MatchInfo matchData={matchData} />
             </div>
 
+            <h2 id="dealt-graph-title" className="tc-black">
+              DAMAGE DEALT TO CHAMPION
+            </h2>
             <div className="match-dealt-container flex-row width-100 flex-align-c">
               <DealtGraph summoners={blueTeam.summoners} topDealt={topDealt} />
               <DealtGraph summoners={redTeam.summoners} topDealt={topDealt} reverse />

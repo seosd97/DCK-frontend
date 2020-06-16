@@ -26,6 +26,18 @@ a {
   width: 100%;
 }
 
+.m-10 {
+  margin: 10px;
+}
+
+.m-v-10 {
+  margin: 0 10px;
+}
+
+.m-h-10 {
+  margin: 10px 0;
+}
+
 .flex-col {
   display: flex;
   flex-direction: column;

@@ -1,23 +1,25 @@
 import React from 'react';
-import numeral from 'numeral';
-import './Progress.css';
 
 const Progress = props => {
-  const { val, max, camp } = props;
+  const { val, max } = props;
   const maxValue = Math.ceil(max * 0.001) * 1000;
   const fillValue = Math.round((val / maxValue) * 100);
-  const campClass = camp === 100 ? 'fill-blue' : 'fill-red';
+
+  const backgroundStyle = {
+    width: '100%',
+    height: props.height
+  };
 
   const fillStyle = {
-    backgroundColor: camp === 100 ? 'var(--team-color-blue)' : 'var(--team-color-red)',
+    backgroundColor: props.fillColor,
     width: `${fillValue}%`,
     height: '100%',
-    float: props.reverse ? 'right' : 'left'
+    float: props.align
   };
 
   return (
-    <div className="progress">
-      <div className="progress-fill" style={fillStyle}></div>
+    <div style={backgroundStyle}>
+      <div style={fillStyle}></div>
     </div>
   );
 };
@@ -25,8 +27,9 @@ const Progress = props => {
 Progress.defaultProps = {
   val: 0,
   max: 0,
-  camp: 100,
-  reverse: false
+  fillColor: 'var(--team-color-blue)',
+  align: 'left',
+  height: '10px'
 };
 
 export default Progress;
