@@ -1,0 +1,15 @@
+.summoner-card-root {
+    height: 80px;
+    background-color: var(--white-hover);
+    margin: 10px 0;
+}
+
+.summoner-card-name {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: var(--black);
+}
+
+.summoner-card-name:hover {
+    color: var(--light-black);
+}

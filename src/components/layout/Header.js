@@ -18,12 +18,6 @@ export default () => {
         <Link className="header-menu-item" to="/tournaments">
           Tournaments
         </Link>
-        <Link className="header-menu-item" to="/teams">
-          Teams
-        </Link>
-        <Link className="header-menu-item" to="/summoners">
-          Player
-        </Link>
         <Link className="header-menu-item" to="/rankings">
           Ranking
         </Link>
