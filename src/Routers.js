@@ -7,6 +7,8 @@ import Ranking from './components/Ranking';
 
 import TeamDetail from './components/Team/TeamDetail';
 
+import SummonerDetail from './components/Summoner/SummonerDetail';
+
 import MatchDetail from './components/MatchDetail';
 
 import Register from './components/Register/Register';
@@ -22,7 +24,7 @@ export default () => {
 
       <Route exact path="/team/:name" component={TeamDetail} />
 
-      <Route exact path="/summoner/:name" component={null} />
+      <Route exact path="/summoner/:name" component={SummonerDetail} />
 
       <Route path="/match/:id" component={MatchDetail} />
 

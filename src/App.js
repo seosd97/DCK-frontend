@@ -2,13 +2,15 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import Header from './components/layout/Header';
-import Routes from './Routes';
+import Routers from './Routers';
 
 function App() {
   return (
     <Router>
       <Header />
-      <Routes />
+      <main>
+        <Routers />
+      </main>
     </Router>
   );
 }

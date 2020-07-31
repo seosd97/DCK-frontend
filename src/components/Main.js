@@ -3,24 +3,21 @@ import './Main.css';
 
 class Main extends React.Component {
   render() {
-    const style = {
-      fontFamily: 'monospace',
-      whiteSpace: 'pre',
-      margin: '0 auto',
-      textAlign: 'center'
-    };
-
     return (
-      <main>
-        <div style={style}>
-          {' _____     ______     __  __        __  __     __     ______     ______   ______     ______     __  __    \n' +
-            '/\\  __-.  /\\  ___\\   /\\ \\/ /       /\\ \\_\\ \\   /\\ \\   /\\  ___\\   /\\__  _\\ /\\  __ \\   /\\  == \\   /\\ \\_\\ \\   \n' +
-            '\\ \\ \\/\\ \\ \\ \\ \\____  \\ \\  _"-.     \\ \\  __ \\  \\ \\ \\  \\ \\___  \\  \\/_/\\ \\/ \\ \\ \\/\\ \\  \\ \\  __<   \\ \\____ \\  \n' +
-            ' \\ \\____-  \\ \\_____\\  \\ \\_\\ \\_\\     \\ \\_\\ \\_\\  \\ \\_\\  \\/\\_____\\    \\ \\_\\  \\ \\_____\\  \\ \\_\\ \\_\\  \\/\\_____\\ \n' +
-            '  \\/____/   \\/_____/   \\/_/\\/_/      \\/_/\\/_/   \\/_/   \\/_____/     \\/_/   \\/_____/   \\/_/ /_/   \\/_____/ '}
-          <br />
+      <div className="main-root">
+        <div className="back-img"></div>
+        <div className="main-title flex-col flex-align-c flex-j-c width-100">
+          <img
+            src={process.env.PUBLIC_URL + '/dck_circle.png'}
+            alt="logo-circle"
+            width="130"
+            height="130"
+          ></img>
+          <h1>LOL Champions</h1>
+          <h2>Korea</h2>
         </div>
-      </main>
+        <div className="main-info-container"></div>
+      </div>
     );
   }
 }
