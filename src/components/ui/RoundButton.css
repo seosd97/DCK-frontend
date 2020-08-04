@@ -1,0 +1,18 @@
+.ui-round-btn {
+    width: 150px;
+    font-size: 1.3rem;
+    padding: 10px 15px;
+    box-sizing: inherit;
+    margin-top: 25px;
+    margin-right: 40px;
+    border-radius: 20px;
+    text-align: center;
+    color: var(--black);
+    background-color: var(--white);
+    opacity: 0.8;
+    transition: all .25s ease;
+}
+
+.ui-round-btn:hover {
+    background-color: var(--white-hover);
+}

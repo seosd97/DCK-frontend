@@ -13,9 +13,16 @@ export default props => {
     <div id="match-info-root">
       <div id="match-info-content">
         <div className="flex-col">
-          {props.matchData.teams[0].summoners.map((d, i) => {
+          {props.matchData.summoners.map((d, i) => {
             return (
-              <SummonerInfo key={i} summonerData={d} duration={props.matchData.duration} reverse />
+              props.matchData.teams[0].camp_id === d.camp_id && (
+                <SummonerInfo
+                  key={i}
+                  summonerData={d}
+                  duration={props.matchData.duration}
+                  reverse
+                />
+              )
             );
           })}
 
@@ -37,8 +44,12 @@ export default props => {
         </div>
 
         <div className="flex-col">
-          {props.matchData.teams[1].summoners.map((d, i) => {
-            return <SummonerInfo key={i} summonerData={d} duration={props.matchData.duration} />;
+          {props.matchData.summoners.map((d, i) => {
+            return (
+              props.matchData.teams[1].camp_id === d.camp_id && (
+                <SummonerInfo key={i} summonerData={d} duration={props.matchData.duration} />
+              )
+            );
           })}
 
           <div className="bans-container">

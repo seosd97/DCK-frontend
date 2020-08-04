@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Main from './components/Main';
-import Tournaments from './components/Tournaments';
+import TournamentList from './components/TournamentList';
 import TournamentDetail from './components/TournamentDetail';
 import Ranking from './components/Ranking';
 
@@ -19,14 +19,14 @@ export default () => {
   return (
     <Switch>
       <Route exact path="/" component={Main} />
-      <Route exact path="/tournaments" component={Tournaments} />
-      <Route exact path="/tournament/:id" component={TournamentDetail} />
+      <Route exact path="/tournaments" component={TournamentList} />
+      <Route exact path="/tournaments/:id" component={TournamentDetail} />
 
-      <Route exact path="/team/:name" component={TeamDetail} />
+      <Route exact path="/teams/:name" component={TeamDetail} />
 
-      <Route exact path="/summoner/:name" component={SummonerDetail} />
+      <Route exact path="/summoners/:name" component={SummonerDetail} />
 
-      <Route path="/match/:id" component={MatchDetail} />
+      <Route path="/matches/:id" component={MatchDetail} />
 
       <Route exact path="/register" component={Register} />
       <Route path="/register/tournament" component={RegTournament} />

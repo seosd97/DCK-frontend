@@ -12,6 +12,16 @@
     width: 40px;
     height: 40px;
   }
+
+  .img-80x80 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .img-120x120 {
+    width: 120px;
+    height: 120px;
+  }
   
   .img-round {
     border-radius: 30%;

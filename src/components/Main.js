@@ -1,23 +1,32 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import RoundButton from './ui/RoundButton';
 import './Main.css';
 
 class Main extends React.Component {
   render() {
     return (
-      <div className="main-root">
-        <div className="back-img"></div>
-        <div className="main-title flex-col flex-align-c flex-j-c width-100">
-          <img
-            src={process.env.PUBLIC_URL + '/dck_circle.png'}
-            alt="logo-circle"
-            width="130"
-            height="130"
-          ></img>
-          <h1>LOL Champions</h1>
-          <h2>Korea</h2>
+      <section className="main-root">
+        <div className="black-layer">
+          <div className="main-info-container flex-col width-100">
+            <img
+              className="main-logo"
+              src={`${process.env.PUBLIC_URL}/dck_logo_300.jpg`}
+              alt="logo_300"
+              width="100"
+              height="100"
+            ></img>
+            <div className="main-title">
+              <h1 className="main-header">DCK</h1>
+              <h2 className="sub-header">The League of Legends Tournament</h2>
+            </div>
+            <div className="flex-row flex-a-c flex-wrap width-100">
+              <RoundButton to="/tournaments" desc="대회 정보" />
+              <RoundButton to="/rankings" desc="소환사 정보" />
+            </div>
+          </div>
         </div>
-        <div className="main-info-container"></div>
-      </div>
+      </section>
     );
   }
 }

@@ -16,7 +16,7 @@ class MatchDetail extends React.Component {
   }
 
   componentDidMount() {
-    Axios.get(`http://localhost:8080/match/${this.props.match.params.id}`)
+    Axios.get(`http://localhost:8080/matches/${this.props.match.params.id}`)
       .then(res => {
         this.setState({ matchData: res.data });
       })
@@ -25,16 +25,12 @@ class MatchDetail extends React.Component {
       });
   }
 
-  getTopDealt(teams) {
+  getTopDealt(summoners) {
     let topDealt = 0;
-    for (let i in teams) {
-      for (let j in teams[i].summoners) {
-        const summoner = teams[i].summoners[j];
-        if (summoner.totalDamageDealt > topDealt) {
-          topDealt = summoner.totalDamageDealt;
-
-          console.log(topDealt);
-        }
+    for (let i in summoners) {
+      const summoner = summoners[i];
+      if (summoner.totalDamageDealt > topDealt) {
+        topDealt = summoner.totalDamageDealt;
       }
     }
 
@@ -43,10 +39,14 @@ class MatchDetail extends React.Component {
 
   render() {
     const { matchData } = this.state;
-    const blueTeam = !_.isEmpty(matchData) && matchData.teams.find(t => t.camp_id === 100);
-    const redTeam = !_.isEmpty(matchData) && matchData.teams.find(t => t.camp_id === 200);
+    const blueTeam = !_.isEmpty(matchData) && matchData.teams.find(t => t.team_id === 100);
+    const redTeam = !_.isEmpty(matchData) && matchData.teams.find(t => t.team_id === 200);
+    const blueTeamSummoners =
+      !_.isEmpty(matchData) && matchData.summoners.filter(t => t.team_id === 100);
+    const redTeamSummoners =
+      !_.isEmpty(matchData) && matchData.summoners.filter(t => t.team_id === 200);
 
-    const topDealt = this.getTopDealt(matchData.teams);
+    const topDealt = this.getTopDealt(matchData.summoners);
 
     return (
       <div id="match-root">
@@ -57,7 +57,9 @@ class MatchDetail extends React.Component {
             </h1>
 
             <div id="match-team-header">
-              <div className="match-team-info blueteam">{blueTeam.teamName}</div>
+              <Link to={`/team/${blueTeam.teamName}`} className="match-team-info blueteam">
+                {blueTeam.teamName}
+              </Link>
               <span className={'game-result' + (blueTeam.win ? ' winner' : '')}>
                 {blueTeam.win ? 'WIN' : 'LOSE'}
               </span>
@@ -65,7 +67,9 @@ class MatchDetail extends React.Component {
               <span className={'game-result' + (redTeam.win ? ' winner' : '')}>
                 {redTeam.win ? 'WIN' : 'LOSE'}
               </span>
-              <div className="match-team-info redteam">{redTeam.teamName}</div>
+              <Link to={`/team/${redTeam.teamName}`} className="match-team-info redteam">
+                {redTeam.teamName}
+              </Link>
             </div>
 
             <div id="match-result-overview">
@@ -76,8 +80,8 @@ class MatchDetail extends React.Component {
               DAMAGE DEALT TO CHAMPION
             </h2>
             <div className="match-dealt-container flex-row width-100 flex-align-c">
-              <DealtGraph summoners={blueTeam.summoners} topDealt={topDealt} />
-              <DealtGraph summoners={redTeam.summoners} topDealt={topDealt} reverse />
+              <DealtGraph summoners={blueTeamSummoners} topDealt={topDealt} />
+              <DealtGraph summoners={redTeamSummoners} topDealt={topDealt} reverse />
             </div>
           </React.Fragment>
         ) : (

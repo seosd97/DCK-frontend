@@ -31,16 +31,20 @@
     margin: 0 20px;
     line-height: 70px;
     height: 100%;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.match-team-info:hover {
+    color: var(--white-hover);
 }
 
 .blueteam {
     background-color: var(--team-color-blue);
-    color: var(--white);
 }
 
 .redteam {
     background-color: var(--team-color-red);
-    color: var(--white);
 }
 
 .game-result {
