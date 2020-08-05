@@ -1,0 +1,19 @@
+select[name="tournaments"] {
+    width: 1100px;
+    padding: 20px 10px;
+    outline: none;
+    font-size: 1.3rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+select[name="tournaments"]::-ms-expand {
+    display: none;
+}
+
+select[name="tournaments"] option {
+    padding-top: 10px 5px;
+    font-size: .8rem;
+    background-color: white;
+}

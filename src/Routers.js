@@ -9,6 +9,7 @@ import TeamDetail from './components/Team/TeamDetail';
 
 import SummonerDetail from './components/Summoner/SummonerDetail';
 
+import MatchList from './components/MatchList';
 import MatchDetail from './components/MatchDetail';
 
 import Register from './components/Register/Register';
@@ -19,14 +20,15 @@ export default () => {
   return (
     <Switch>
       <Route exact path="/" component={Main} />
-      <Route exact path="/tournaments" component={TournamentList} />
-      <Route exact path="/tournaments/:id" component={TournamentDetail} />
+      {/* <Route exact path="/tournaments" component={TournamentList} /> */}
+      {/* <Route exact path="/tournaments/:id" component={TournamentDetail} /> */}
 
       <Route exact path="/teams/:name" component={TeamDetail} />
 
       <Route exact path="/summoners/:name" component={SummonerDetail} />
 
-      <Route path="/matches/:id" component={MatchDetail} />
+      <Route exact path="/matches" component={MatchList} />
+      <Route exact path="/matches/:id" component={MatchDetail} />
 
       <Route exact path="/register" component={Register} />
       <Route path="/register/tournament" component={RegTournament} />

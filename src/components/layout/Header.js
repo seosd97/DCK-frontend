@@ -13,7 +13,7 @@ export default () => {
           height="70"
         ></img>
       </Link>
-      <div className="flex-row flex-j-c flex-align-c width-100">
+      <div className="flex-row flex-j-e flex-align-c width-100">
         <Link className="header-menu-item" to="/tournaments">
           대회 정보
         </Link>

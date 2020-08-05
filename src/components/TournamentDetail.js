@@ -15,7 +15,7 @@ class TournamentDetail extends React.Component {
   }
 
   componentDidMount() {
-    Axios.get(`http://localhost:8080/tournaments/${this.props.match.params.id}`)
+    Axios.get(`http://localhost:8080/matches/by_tournament/${this.props.match.params.id}`)
       .then(res => {
         this.setState({
           tournamentData: res.data
@@ -35,8 +35,7 @@ class TournamentDetail extends React.Component {
       <MainLayout>
         {!_.isEmpty(tournamentData) ? (
           <div>
-            <h1>{tournamentData.name}</h1>
-            {tournamentData.matches.map((m, i) => {
+            {tournamentData.map((m, i) => {
               return <MatchElement key={i} matchData={m} />;
             })}
           </div>

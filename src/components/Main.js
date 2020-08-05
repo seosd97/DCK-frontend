@@ -21,7 +21,7 @@ class Main extends React.Component {
               <h2 className="sub-header">The League of Legends Tournament</h2>
             </div>
             <div className="flex-row flex-a-c flex-wrap width-100">
-              <RoundButton to="/tournaments" desc="대회 정보" />
+              <RoundButton to="/matches" desc="경기 결과" />
               <RoundButton to="/rankings" desc="소환사 정보" />
             </div>
           </div>
