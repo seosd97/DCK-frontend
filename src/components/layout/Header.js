@@ -14,8 +14,8 @@ export default () => {
         ></img>
       </Link>
       <div className="flex-row flex-j-e flex-align-c width-100">
-        <Link className="header-menu-item" to="/tournaments">
-          대회 정보
+        <Link className="header-menu-item" to="/matches">
+          경기 기록
         </Link>
         <Link className="header-menu-item" to="/rankings">
           소환사 정보

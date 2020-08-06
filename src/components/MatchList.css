@@ -1,19 +1,9 @@
-select[name="tournaments"] {
-    width: 1100px;
-    padding: 20px 10px;
-    outline: none;
-    font-size: 1.3rem;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+.match-list-root {
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-select[name="tournaments"]::-ms-expand {
-    display: none;
-}
-
-select[name="tournaments"] option {
-    padding-top: 10px 5px;
-    font-size: .8rem;
-    background-color: white;
+.tournament-filter {
+    padding: 100px 10px;
+    box-sizing: border-box;
 }

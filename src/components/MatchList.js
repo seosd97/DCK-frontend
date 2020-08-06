@@ -5,12 +5,20 @@ import _ from 'underscore';
 import MainLayout from './layout/MainLayout';
 import './MatchList.css';
 
+import { Select } from 'antd';
+const { Option } = Select;
+
 class MatchList extends React.Component {
   constructor() {
     super();
 
+    this.loadMatchList = this.loadMatchList.bind(this);
+    this.onChangeFilter = this.onChangeFilter.bind(this);
+
     this.state = {
-      tournaments: []
+      tournaments: [],
+      matches: [],
+      filter: 'all'
     };
   }
 
@@ -19,27 +27,67 @@ class MatchList extends React.Component {
     this.setState({
       tournaments: res.data
     });
+
+    this.loadMatchList(this.state.filter);
+  }
+
+  async loadMatchList(f) {
+    let endpoint = 'http://localhost:8080/matches';
+    if (f !== 'all') {
+      endpoint = `${endpoint}?filter=${f}`;
+    }
+
+    console.log(f);
+    const res = await Axios.get(endpoint);
+    this.setState({
+      matches: res.data
+    });
+  }
+
+  onChangeFilter(v) {
+    this.setState({
+      filter: v
+    });
+
+    this.loadMatchList(v);
   }
 
   render() {
-    const { tournaments } = this.state;
+    const { tournaments, matches, filter } = this.state;
     return (
       <MainLayout>
-        {!_.isEmpty(tournaments) ? (
-          <div className="flex-col flex-j-c flex-align-c width-100">
-            <select name="tournaments">
+        <div className="match-list-root flex-col flex-j-c flex-align-c width-100">
+          <div className="tournament-filter flex-row flex-j-e flex-align-c width-100">
+            <Select
+              name="tournaments"
+              value={filter}
+              size="large"
+              style={{
+                width: '300px',
+                fontSize: '1.2rem'
+              }}
+              onChange={this.onChangeFilter}
+            >
+              <Option value="all">모든 시즌</Option>
               {tournaments.map((t, i) => {
                 return (
-                  <option key={i} value={t.name}>
+                  <Option key={i} value={t.name}>
                     {t.name}
-                  </option>
+                  </Option>
                 );
               })}
-            </select>
+            </Select>
           </div>
-        ) : (
-          <div></div>
-        )}
+          <div className="flex-col flex-j-c flex-align-c width-100">
+            {!_.isEmpty(matches) ? (
+              matches.map((m, i) => {
+                return <div key={i}>{m.type}</div>;
+              })
+            ) : (
+              <div></div>
+            )}
+          </div>
+        </div>
       </MainLayout>
     );
   }
