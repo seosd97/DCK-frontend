@@ -18,11 +18,11 @@
     color: var(--light-black);
 }
 
-.tournament-logo {
+.tournament-info-root .tournament-logo {
     margin: 0 10px;
 }
 
-.tournament-name {
+.tournament-info-root .tournament-name {
     color: var(--black);
     /* font-family: 'Teko', sans-serif; */
     font-weight: bold;

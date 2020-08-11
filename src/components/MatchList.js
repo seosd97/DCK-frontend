@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import _ from 'underscore';
 import MainLayout from './layout/MainLayout';
+import MatchElement from './MatchElement';
 import './MatchList.css';
 
 import { Select } from 'antd';
@@ -42,6 +43,8 @@ class MatchList extends React.Component {
     this.setState({
       matches: res.data
     });
+
+    console.log(res.data);
   }
 
   onChangeFilter(v) {
@@ -81,7 +84,7 @@ class MatchList extends React.Component {
           <div className="flex-col flex-j-c flex-align-c width-100">
             {!_.isEmpty(matches) ? (
               matches.map((m, i) => {
-                return <div key={i}>{m.type}</div>;
+                return <MatchElement key={i} matchData={m} />;
               })
             ) : (
               <div></div>

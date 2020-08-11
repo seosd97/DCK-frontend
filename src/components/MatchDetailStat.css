@@ -1,0 +1,74 @@
+#match-root {
+    margin: 0 auto;
+    max-width: 1200px;
+    font-family: 'Teko', sans-serif;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+#match-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--white-hover);
+    padding: 10px 0;
+    box-sizing: inherit;
+}
+
+#match-team-header {
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    /* height: 70px; */
+}
+
+.match-team-info {
+    width: 100%;
+    text-align: center;
+    margin: 0 20px;
+    line-height: 70px;
+    height: 100%;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.match-team-info:hover {
+    color: var(--white-hover);
+}
+
+.blueteam {
+    background-color: var(--team-color-blue);
+}
+
+.redteam {
+    background-color: var(--team-color-red);
+}
+
+.game-result {
+    font-size: 2.5rem;
+    color: rgb(133, 133, 133);
+}
+
+.winner {
+    color: var(--black);
+}
+
+.verses-colon {
+    margin: 15px;
+    color: rgb(133, 133, 133);
+    font-weight: lighter;    
+}
+
+#dealt-graph-title {
+    margin-bottom: 0;
+}
+
+.match-dealt-container {
+    margin: 10px 0;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: var(--white-hover);
+}

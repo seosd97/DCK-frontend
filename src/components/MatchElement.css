@@ -1,46 +1,48 @@
-#match-info-bar-root {
-    display: block;
-    position: relative;
-    margin: 0 auto;
-    /* width: 200px; */
+.match-element {
+    padding: 20px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    transition: background-color .3s ease;
+    color: var(--black);
 }
 
-#match-result-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 10px;
-    box-sizing: border-box;
-    font-size: 1rem;
+.match-element:last-child {
+    border: none;
 }
 
-#match-round {
-    position: relative;
+.match-element:hover {
+    color: var(--black);
+    background-color: var(--white-hover);
+}
+
+.match-element .tournament-name {
     color: var(--light-black);
-    font-size: 0.8rem;
-    top: 5px;
-    left: 10px;
+    font-size: .9rem;
 }
 
-.team-wrapper {
-    color: rgb(207, 73, 55);
-}
-
-.winner {
-    color: rgb(105, 184, 81);
-}
-
-.team-name {
-    margin: 0 8px;
-}
-
-.match-colon, .match-result {
-    font-family: 'Teko', sans-serif;
+.match-element .match-type {
+    font-size: 1rem;
     font-weight: bold;
-
 }
 
-.match-colon {
-    margin: 0 5px;
+.match-element .match-result {
+    padding-top: 15px;
+    padding-bottom: 25px;
+}
+
+.match-element .match-result .team {
+    font-size: 1.7rem;
+}
+
+.match-element .match-result .score {
+    width: 100px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.match-element .match-result .match-winner {
+    font-weight: bold;
+}
+
+.match-element .match-result .match-losser {
+    color: var(--light-black)
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import _ from 'underscore';
 import './MatchElement.css';
 
@@ -11,16 +12,26 @@ export default props => {
     return t.id === matchData.team2_id;
   });
 
+  const isBlueWin = matchData.team1_score > matchData.team2_score;
+
   return (
-    <div className="flex-col flex-j-c flex-align-c">
-      <div className="match-elem-type">{matchData.type}</div>
-      <div className="flex-row flex-align-c">
-        <div>{team1.name}</div>
-        <div>{matchData.team1_score}</div>
-        <div> : </div>
-        <div>{matchData.team2_score}</div>
-        <div>{team2.name}</div>
+    <Link
+      to={`/matches/${matchData.id}`}
+      className="match-element flex-col flex-j-c flex-align-c width-100"
+    >
+      <div className="match-type">{matchData.type}</div>
+
+      <div className="match-result flex-row flex-j-c flex-align-c width-100">
+        <div className={'team' + (isBlueWin ? ' match-winner' : ' match-losser')}>{team1.name}</div>
+        <div className="score flex-row flex-j-c">
+          <div>{matchData.team1_score}</div>
+          <div> - </div>
+          <div>{matchData.team2_score}</div>
+        </div>
+        <div className={'team' + (isBlueWin ? ' match-losser' : ' match-winner')}>{team2.name}</div>
       </div>
-    </div>
+
+      <div className="tournament-name">{matchData.tournamentName}</div>
+    </Link>
   );
 };

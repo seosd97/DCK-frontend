@@ -15,15 +15,15 @@ class TournamentDetail extends React.Component {
   }
 
   componentDidMount() {
-    Axios.get(`http://localhost:8080/matches/by_tournament/${this.props.match.params.id}`)
-      .then(res => {
-        this.setState({
-          tournamentData: res.data
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    // Axios.get(`http://localhost:8080/matches/by_tournament/${this.props.match.params.id}`)
+    //   .then(res => {
+    //     this.setState({
+    //       tournamentData: res.data
+    //     });
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
   }
 
   render() {
