@@ -47,6 +47,26 @@ a {
   flex-direction: row-reverse;
 }
 
+.iflex-col {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.iflex-row {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.iflex-col-r {
+  display: inline-flex;
+  flex-direction: column-reverse;
+}
+
+.iflex-row-r {
+  display: inline-flex;
+  flex-direction: row-reverse;
+}
+
 .flex-j-s {
   justify-content: flex-start;
 }

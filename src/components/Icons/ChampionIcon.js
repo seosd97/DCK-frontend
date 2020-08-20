@@ -20,15 +20,17 @@ class ChampionIcon extends React.Component {
   }
 
   render() {
-    const imgSizeClass = this.props.small ? 'img-30x30' : 'img-40x40';
     const roundClass = this.props.round ? 'img-round' : '';
+    const size = this.props.size.split('x');
     return (
       <React.Fragment>
         {this.state.src && (
           <img
             src={this.state.src}
-            alt="champion_img"
-            className={`champ-icon ${imgSizeClass} ${roundClass} ${this.props.class}`}
+            alt="champion_icon"
+            width={size[0]}
+            height={size[1]}
+            className={`common-icon-champ ${roundClass}`}
           />
         )}
       </React.Fragment>

@@ -7,6 +7,7 @@ import { Radio } from 'antd';
 import MainLayout from './layout/MainLayout';
 import './MatchDetail.css';
 import MatchDetailStat from './MatchDetailStat';
+import Scoreboard from './Scoreboard';
 
 class MatchDetail extends React.Component {
   constructor() {
@@ -55,6 +56,11 @@ class MatchDetail extends React.Component {
     return match.game_id;
   }
 
+  // isBlueWin() {
+  //   const { matchData } = this.state;
+  //   return matchData.team1_score > matchData.team2_score;
+  // }
+
   render() {
     const { matchData, team1, team2 } = this.state;
 
@@ -62,17 +68,17 @@ class MatchDetail extends React.Component {
       <MainLayout>
         {!_.isEmpty(matchData) ? (
           <div className="match-detail-root flex-col flex-j-c width-100">
-            <h1 className="text-align-center">POSTGAME BREAKDOWN</h1>
-            <div className="match-detail-score flex-row flex-j-c flex-align-c width-100">
-              <div className="team-name">{team1.name}</div>
-              <div className="team-score flex-row">
-                <div>{matchData.team1_score}</div>
-                <div> - </div>
-                <div>{matchData.team2_score}</div>
-              </div>
-              <div className="team-name">{team2.name}</div>
-            </div>
-            <div className="match-statics">
+            <section className="detail-header">
+              <h1 className="text-align-center">POSTGAME BREAKDOWN</h1>
+              <Scoreboard
+                team1={team1.name}
+                team2={team2.name}
+                team1_score={matchData.team1_score}
+                team2_score={matchData.team2_score}
+                fontSize="2.3rem"
+              />
+            </section>
+            <div className="match-statics flex-col flex-align-c">
               <Radio.Group
                 defaultValue="1"
                 buttonStyle="solid"
@@ -88,8 +94,7 @@ class MatchDetail extends React.Component {
                   );
                 })}
               </Radio.Group>
-              {/* <MatchDetailStat gameId={this.findGameId(this.state.round)} /> */}
-              <div>{this.findGameId(this.state.round)}</div>
+              <MatchDetailStat gameId={this.findGameId(this.state.round)} />
             </div>
           </div>
         ) : (

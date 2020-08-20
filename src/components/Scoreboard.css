@@ -1,0 +1,24 @@
+.cui-scoreboard-root {
+    padding: 10px 0;
+}
+
+.cui-scoreboard-root .team-name {
+    font-weight: bold;
+    color: var(--black);
+}
+
+.cui-scoreboard-root .scoreboard {
+    font-weight: bold;
+    margin: 0 .7em;
+}
+
+.cui-scoreboard-root .scoreboard .team-score {
+    text-align: center;
+    line-height: 2em;
+    width: 2em;
+    height: 2em;
+    margin: 0 4px;
+    border-radius: 8px;
+    color: var(--black);
+    background-color: var(--white-hover);
+}

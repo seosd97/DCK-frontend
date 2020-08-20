@@ -1,17 +1,21 @@
 .match-element {
     padding: 20px 10px;
-    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    /* border-bottom: 1px solid rgba(0, 0, 0, .1); */
+    margin-bottom: 25px;
     transition: background-color .3s ease;
+    background-color: var(--white-hover);
     color: var(--black);
+    border-radius: 15px;
 }
 
 .match-element:last-child {
-    border: none;
+    /* border: none; */
 }
 
 .match-element:hover {
     color: var(--black);
-    background-color: var(--white-hover);
+    /* background-color: var(--white); */
+    background: #a7a7a7;
 }
 
 .match-element .tournament-name {
@@ -20,8 +24,13 @@
 }
 
 .match-element .match-type {
+    width: 130px;
+    text-align: center;
+    padding: 2px 3px;
     font-size: 1rem;
     font-weight: bold;
+    background-color: var(--white);
+    border-radius: 20px;
 }
 
 .match-element .match-result {

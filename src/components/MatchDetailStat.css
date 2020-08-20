@@ -1,74 +1,95 @@
-#match-root {
-    margin: 0 auto;
-    max-width: 1200px;
-    font-family: 'Teko', sans-serif;
-    padding: 20px 0;
-    box-sizing: border-box;
+.detail-stat-root {
+    margin-top: 30px;
+    padding: 30px 40px;
+    border: 1px solid var(--white-hover);
+    border-radius: 8px;
 }
 
-#match-title {
-    font-size: 2.5rem;
+.detail-stat-root .game-info {
+    justify-content: space-between;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.detail-stat-root .game-info .game-time {
+    font-size: 1.3rem;
     font-weight: bold;
-    text-align: center;
-    background-color: var(--white-hover);
-    padding: 10px 0;
-    box-sizing: inherit;
-}
-
-#match-team-header {
-    display: flex;
-    /* flex-wrap: wrap; */
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    font-weight: bold;
-    /* height: 70px; */
-}
-
-.match-team-info {
-    width: 100%;
-    text-align: center;
-    margin: 0 20px;
-    line-height: 70px;
-    height: 100%;
-    text-decoration: none;
-    color: var(--white);
-}
-
-.match-team-info:hover {
-    color: var(--white-hover);
-}
-
-.blueteam {
-    background-color: var(--team-color-blue);
-}
-
-.redteam {
-    background-color: var(--team-color-red);
-}
-
-.game-result {
-    font-size: 2.5rem;
-    color: rgb(133, 133, 133);
-}
-
-.winner {
     color: var(--black);
 }
 
-.verses-colon {
-    margin: 15px;
-    color: rgb(133, 133, 133);
-    font-weight: lighter;    
+.detail-stat-root .game-info .game-details {
+    font-size: .9rem;
+    font-weight: bold;
+    color: var(--black);
 }
 
-#dealt-graph-title {
-    margin-bottom: 0;
+.detail-stat-root .team-stat {
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ebebeb;
 }
 
-.match-dealt-container {
-    margin: 10px 0;
-    padding: 10px;
-    box-sizing: border-box;
+.detail-stat-root .team-stat .detail-scoreboard {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.detail-stat-root .team-stat .detail-scoreboard .team-name {
+    width: 230px;
+    color: var(--black);
+}
+
+.detail-stat-root .team-stat .detail-scoreboard .winner {
+    color: var(--gold);
+}
+
+.detail-stat-root .team-stat .detail-scoreboard .winner-token {
+    padding: 2px 4px;
+    margin: auto 5px;
+    font-size: .5em;
+    color: var(--white);
+    background-color: var(--gold);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.detail-stat-root .team-stat .detail-scoreboard .scoreboard {
+    margin: 0 .5em;
+    color: var(--black);
+}
+
+.detail-stat-root .team-stat .detail-scoreboard .scoreboard .score {
+    text-align: center;
+    line-height: 1.8em;
+    width: 1.8em;
+    height: 1.8em;
+    margin: 0 4px;
     background-color: var(--white-hover);
+    border-radius: 8px;
+}
+
+.detail-stat-root .team-stat .detail-scoreboard .scoreboard .score-b {
+    color: var(--blue);
+}
+
+.detail-stat-root .team-stat .detail-scoreboard .scoreboard .score-r {
+    color: var(--red);
+}
+
+.detail-stat-root .team-stat .temp-team-stat {
+    font-size: 1rem;
+    padding: 2px 3px;
+    width: 100px;
+    text-align: center;
+    margin-bottom: 5px;
+    color: var(--black);
+    background-color: var(--white-hover);
+    border-radius: 4px;
+}
+
+.detail-stat-root .team-stat .temp-team-stat:last-child {
+    margin-bottom: none;
 }
