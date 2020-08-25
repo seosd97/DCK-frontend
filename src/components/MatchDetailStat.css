@@ -3,6 +3,7 @@
     padding: 30px 40px;
     border: 1px solid var(--white-hover);
     border-radius: 8px;
+    color: var(--black);
 }
 
 .detail-stat-root .game-info {
@@ -24,29 +25,29 @@
     color: var(--black);
 }
 
-.detail-stat-root .team-stat {
+.detail-stat-root .team-info {
     padding-bottom: 5px;
     margin-bottom: 10px;
     border-bottom: 1px solid #ebebeb;
 }
 
-.detail-stat-root .team-stat .detail-scoreboard {
+.detail-stat-root .team-info .detail-scoreboard {
     font-size: 1.5rem;
     font-weight: bold;
     padding-top: 30px;
     padding-bottom: 50px;
 }
 
-.detail-stat-root .team-stat .detail-scoreboard .team-name {
+.detail-stat-root .team-info .detail-scoreboard .team-name {
     width: 230px;
     color: var(--black);
 }
 
-.detail-stat-root .team-stat .detail-scoreboard .winner {
+.detail-stat-root .team-info .detail-scoreboard .winner {
     color: var(--gold);
 }
 
-.detail-stat-root .team-stat .detail-scoreboard .winner-token {
+.detail-stat-root .team-info .detail-scoreboard .winner-token {
     padding: 2px 4px;
     margin: auto 5px;
     font-size: .5em;
@@ -56,12 +57,12 @@
     text-align: center;
 }
 
-.detail-stat-root .team-stat .detail-scoreboard .scoreboard {
+.detail-stat-root .team-info .detail-scoreboard .scoreboard {
     margin: 0 .5em;
     color: var(--black);
 }
 
-.detail-stat-root .team-stat .detail-scoreboard .scoreboard .score {
+.detail-stat-root .team-info .detail-scoreboard .scoreboard .score {
     text-align: center;
     line-height: 1.8em;
     width: 1.8em;
@@ -71,25 +72,18 @@
     border-radius: 8px;
 }
 
-.detail-stat-root .team-stat .detail-scoreboard .scoreboard .score-b {
+.detail-stat-root .team-info .detail-scoreboard .scoreboard .score-b {
     color: var(--blue);
 }
 
-.detail-stat-root .team-stat .detail-scoreboard .scoreboard .score-r {
+.detail-stat-root .team-info .detail-scoreboard .scoreboard .score-r {
     color: var(--red);
 }
 
-.detail-stat-root .team-stat .temp-team-stat {
-    font-size: 1rem;
-    padding: 2px 3px;
-    width: 100px;
-    text-align: center;
+.detail-stat-root .team-info .cui-diff-elem {
     margin-bottom: 5px;
-    color: var(--black);
-    background-color: var(--white-hover);
-    border-radius: 4px;
 }
 
-.detail-stat-root .team-stat .temp-team-stat:last-child {
-    margin-bottom: none;
+.detail-stat-root .team-info .cui-diff-elem:last-child {
+    margin-bottom: 0
 }

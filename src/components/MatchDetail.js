@@ -45,7 +45,12 @@ class MatchDetail extends React.Component {
   }
 
   findGameId(round) {
-    const match = this.state.matchData.Matches.find(m => {
+    const { matchData } = this.state;
+    if (_.isEmpty(matchData)) {
+      return 0;
+    }
+
+    const match = matchData.Matches.find(m => {
       return `${m.round}` === round;
     });
 

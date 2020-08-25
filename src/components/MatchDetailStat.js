@@ -10,23 +10,59 @@ import './MatchDetailStat.css';
 import ChampionIcon from './Icons/ChampionIcon';
 import IconLabel from './ui/IconLabel';
 import SummonerStat from './SummonerStat';
-import Scoreboard from './Scoreboard';
+import DiffElement from './ui/DiffElement';
+
+const { LeftElement, RightElement } = DiffElement;
+
+let matchDataCache = [];
 
 class MatchDetailStat extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      matchData: {}
+      matchData: {},
+      loading: true
     };
 
+    this.updateMatchData = this.updateMatchData.bind(this);
     this.calcTotalGold = this.calcTotalGold.bind(this);
   }
 
   componentDidMount() {
-    Axios.get(`http://localhost:8080/matches/${this.props.gameId}`)
+    this.updateMatchData(this.props.gameId);
+  }
+
+  componentDidUpdate() {
+    if (this.state.loading) {
+      return;
+    }
+
+    if (!_.isEmpty(this.state.matchData) && this.props.gameId === this.state.matchData.game_id) {
+      return;
+    }
+
+    this.updateMatchData(this.props.gameId);
+  }
+
+  updateMatchData(gameId) {
+    const cacheData = matchDataCache.find(m => {
+      return m.game_id === gameId;
+    });
+
+    if (!_.isUndefined(cacheData)) {
+      this.setState({ matchData: cacheData });
+      return;
+    }
+
+    if (!this.state.loading) {
+      this.setState({ loading: true });
+    }
+
+    Axios.get(`http://localhost:8080/matches/${gameId}`)
       .then(res => {
-        this.setState({ matchData: res.data });
+        matchDataCache.push(res.data);
+        this.setState({ matchData: res.data, loading: false });
       })
       .catch(err => {
         console.log(err);
@@ -76,8 +112,54 @@ class MatchDetailStat extends React.Component {
     return { kills: kills, deaths: deaths, assists: assists };
   }
 
+  renderBan(teamData) {
+    if (_.isUndefined(teamData)) {
+      return null;
+    }
+
+    return (
+      <div className="flex-row flex-align-c">
+        {teamData.bans.map((b, i) => {
+          return <ChampionIcon key={i} cid={b.cid} size="30x30" />;
+        })}
+      </div>
+    );
+  }
+
+  renderObject(teamData) {
+    if (_.isUndefined(teamData)) {
+      return null;
+    }
+
+    return (
+      <div className="flex-row flex-align-c">
+        <IconLabel
+          src={`${process.env.PUBLIC_URL}/icons/tower-${teamData.camp_id}.png`}
+          desc={teamData.towerKills}
+        />
+        <IconLabel
+          src={`${process.env.PUBLIC_URL}/icons/inhibitor-${teamData.camp_id}.png`}
+          desc={teamData.inhibitorKills}
+        />
+        <IconLabel
+          src={`${process.env.PUBLIC_URL}/icons/dragon-${teamData.camp_id}.png`}
+          desc={teamData.dragonKills}
+        />
+        <IconLabel
+          src={`${process.env.PUBLIC_URL}/icons/herald-${teamData.camp_id}.png`}
+          desc={teamData.riftHeraldKills}
+        />
+        <IconLabel
+          src={`${process.env.PUBLIC_URL}/icons/baron-${teamData.camp_id}.png`}
+          desc={teamData.baronKills}
+        />
+      </div>
+    );
+  }
+
   render() {
-    const { matchData } = this.state;
+    const { matchData, loading } = this.state;
+
     const blueTeam = !_.isEmpty(matchData) && matchData.teamStats.find(t => t.camp_id === 100);
     const redTeam = !_.isEmpty(matchData) && matchData.teamStats.find(t => t.camp_id === 200);
     const blueParticipants =
@@ -92,7 +174,7 @@ class MatchDetailStat extends React.Component {
 
     return (
       <React.Fragment>
-        {!_.isEmpty(matchData) ? (
+        {!loading ? (
           <div className="detail-stat-root flex-col flex-j-c width-100">
             <div className="game-info flex-row flex-align-c">
               <div className="game-time">{moment.unix(matchData.duration).format('mm:ss')}</div>
@@ -101,7 +183,7 @@ class MatchDetailStat extends React.Component {
                 <div>ver {matchData.game_version.split('.', 2).join('.')}</div>
               </div>
             </div>
-            <div className="team-stat flex-col flex-align-c">
+            <div className="team-info flex-col flex-align-c">
               <div className="detail-scoreboard flex-row flex-align-c">
                 <div className={'team-name flex-row flex-j-e' + (blueTeam.win ? ' winner' : '')}>
                   {blueTeam.win && <span className="winner-token">WIN</span>}
@@ -116,11 +198,24 @@ class MatchDetailStat extends React.Component {
                   {redTeam.win && <span className="winner-token">WIN</span>}
                 </div>
               </div>
-              {/* temp */}
-              <div className="temp-team-stat">밴</div>
-              <div className="temp-team-stat">골드</div>
-              <div className="temp-team-stat">KDA</div>
-              <div className="temp-team-stat">오브젝트</div>
+              <div className="team-stat-list flex-col flex-j-c width-100">
+                <DiffElement desc="밴">
+                  <LeftElement>{this.renderBan(blueTeam)}</LeftElement>
+                  <RightElement>{this.renderBan(redTeam)}</RightElement>
+                </DiffElement>
+                <DiffElement desc="골드">
+                  <LeftElement>{numeral(this.calcTotalGold(100)).format('0.0a')}</LeftElement>
+                  <RightElement>{numeral(this.calcTotalGold(200)).format('0.0a')}</RightElement>
+                </DiffElement>
+                <DiffElement desc="KDA">
+                  <LeftElement>{`${blueKDA.kills}/${blueKDA.deaths}/${blueKDA.assists}`}</LeftElement>
+                  <RightElement>{`${redKDA.kills}/${redKDA.deaths}/${redKDA.assists}`}</RightElement>
+                </DiffElement>
+                <DiffElement desc="오브젝트">
+                  <LeftElement>{this.renderObject(blueTeam)}</LeftElement>
+                  <RightElement>{this.renderObject(redTeam)}</RightElement>
+                </DiffElement>
+              </div>
             </div>
             <div className="match-stat flex-col flex-align-c"></div>
           </div>
