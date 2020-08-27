@@ -87,3 +87,11 @@
 .detail-stat-root .team-info .cui-diff-elem:last-child {
     margin-bottom: 0
 }
+
+.detail-stat-root .team-info .cui-diff-elem .cui-icon-label {
+    margin-right: 10px;
+}
+
+.detail-stat-root .team-info .team-stat-list {
+    margin-bottom: 20px;
+}

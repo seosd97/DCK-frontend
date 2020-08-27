@@ -1,0 +1,73 @@
+.summoner-stat-root {
+    color: var(--black);
+    background-color: var(--white-hover);
+    border-left: 3px solid var(--red);
+    padding: 0 15px;
+    margin-top: 20px;
+}
+
+.summoner-stat-root.winner {
+    border-color: var(--gold);
+}
+
+.summoner-stat-root .stat-header {
+    padding: 10px 0;
+}
+
+.summoner-stat-root .stat-header .table-header {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.summoner-stat-root .stat-header .stat-result, .stat-body .stat-info {
+    text-align: left;
+    flex: 5 1;
+}
+
+.summoner-stat-root .stat-header .stat-result>span {
+    color: var(--red);
+    margin-right: 5px;
+}
+
+.summoner-stat-root.winner .stat-header .stat-result>span {
+    color: var(--gold)
+}
+
+.summoner-stat-elem {
+    font-size: .9rem;
+    margin: 5px 0;
+}
+
+.summoner-stat-elem .stat-info .summoner-name {
+    padding-left: 10px;
+}
+
+.summoner-stat-root .stat-header .stat-kda, .stat-body .stat-kda {
+    text-align: center;
+    flex: 1.5;
+}
+
+.summoner-stat-root .stat-header .stat-dealt, .stat-body .stat-dealt {
+    text-align: center;
+    flex: 2;
+}
+
+.summoner-stat-root .stat-header .stat-sight, .stat-body .stat-sight {
+    text-align: center;
+    flex: 1;
+}
+
+.summoner-stat-root .stat-header .stat-cs, .stat-body .stat-cs {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-body .stat-cs .cs-per-min {
+    font-size: .7rem;
+}
+
+.summoner-stat-root .stat-header .stat-item, .stat-body .stat-item {
+    text-align: center;
+    flex: 2.5;
+}

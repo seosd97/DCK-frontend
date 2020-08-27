@@ -9,8 +9,9 @@ import DealtGraph from './MatchDealtGraph';
 import './MatchDetailStat.css';
 import ChampionIcon from './Icons/ChampionIcon';
 import IconLabel from './ui/IconLabel';
-import SummonerStat from './SummonerStat';
+import SummonerStat from './SummonerStatElem';
 import DiffElement from './ui/DiffElement';
+import SummonerStatList from './SummonerStatList.js';
 
 const { LeftElement, RightElement } = DiffElement;
 
@@ -69,16 +70,39 @@ class MatchDetailStat extends React.Component {
       });
   }
 
-  getTopDealt(summoners) {
-    let topDealt = 0;
-    for (let i in summoners) {
-      const summoner = summoners[i];
-      if (summoner.totalDamageDealt > topDealt) {
-        topDealt = summoner.totalDamageDealt;
-      }
+  findSummoner(uuid) {
+    const { matchData } = this.state;
+    if (_.isEmpty(matchData)) {
+      return undefined;
     }
 
-    return topDealt;
+    const summoner = matchData.summoners.find(s => {
+      return s.uuid === uuid;
+    });
+
+    return summoner;
+  }
+
+  getParticipantDatas(teamId) {
+    const { matchData } = this.state;
+    if (_.isEmpty(matchData)) {
+      return;
+    }
+
+    let result = [];
+    matchData.participants.forEach(p => {
+      if (p.team_id !== teamId) {
+        return;
+      }
+
+      let data = {};
+      data.stat = p.stat;
+      data.summoner = this.findSummoner(p.participant_id);
+
+      result.push(data);
+    });
+
+    return result;
   }
 
   calcTotalGold(campId) {
@@ -132,7 +156,7 @@ class MatchDetailStat extends React.Component {
     }
 
     return (
-      <div className="flex-row flex-align-c">
+      <div className="object-list flex-row flex-align-c">
         <IconLabel
           src={`${process.env.PUBLIC_URL}/icons/tower-${teamData.camp_id}.png`}
           desc={teamData.towerKills}
@@ -162,12 +186,8 @@ class MatchDetailStat extends React.Component {
 
     const blueTeam = !_.isEmpty(matchData) && matchData.teamStats.find(t => t.camp_id === 100);
     const redTeam = !_.isEmpty(matchData) && matchData.teamStats.find(t => t.camp_id === 200);
-    const blueParticipants =
-      !_.isEmpty(matchData) && matchData.participants.filter(p => p.team_id === 100);
-    const redParticipants =
-      !_.isEmpty(matchData) && matchData.participants.filter(p => p.team_id === 200);
-
-    const topDealt = this.getTopDealt(matchData.summoners);
+    const blueParticipants = this.getParticipantDatas(100);
+    const redParticipants = this.getParticipantDatas(200);
 
     const blueKDA = this.calcTeamKDA(100);
     const redKDA = this.calcTeamKDA(200);
@@ -193,7 +213,7 @@ class MatchDetailStat extends React.Component {
                   <div className="score score-b">{blueKDA.kills}</div>
                   <div className="score score-r">{redKDA.kills}</div>
                 </div>
-                <div className={'team-name' + (redTeam.win ? ' winner' : '')}>
+                <div className={'team-name flex-row' + (redTeam.win ? ' winner' : '')}>
                   {redTeam.Team.name}
                   {redTeam.win && <span className="winner-token">WIN</span>}
                 </div>
@@ -217,7 +237,11 @@ class MatchDetailStat extends React.Component {
                 </DiffElement>
               </div>
             </div>
-            <div className="match-stat flex-col flex-align-c"></div>
+            <div className="match-stat flex-col flex-align-c">
+              {console.log(blueParticipants)}
+              <SummonerStatList teamStat={blueTeam} participants={blueParticipants} />
+              <SummonerStatList teamStat={redTeam} participants={redParticipants} />
+            </div>
           </div>
         ) : (
           <div>Loading...</div>

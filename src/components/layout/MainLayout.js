@@ -7,7 +7,7 @@ function MainLayout({ children }) {
     <React.Fragment>
       <Header />
       <main>{children}</main>
-      {/* <Footer /> */}
+      <Footer />
     </React.Fragment>
   );
 }
