@@ -6,10 +6,13 @@ import SpellIcon from './Icons/SpellIcon';
 import ChampionIcon from './Icons/ChampionIcon';
 import RuneIcon from './Icons/RuneIcon';
 import ItemIcon from './Icons/ItemIcon';
+import Progress from './Utils/Progress';
 
 class SummonerStatElem extends React.Component {
   constructor() {
     super();
+
+    // this.getCSPerMin = this.getCSPerMin.bind(this);
   }
 
   calcKDA(stat) {
@@ -25,8 +28,17 @@ class SummonerStatElem extends React.Component {
     return result;
   }
 
+  getCSPerMin() {
+    const { summonerStat, gameTime } = this.props;
+    const date = new Date(gameTime * 1000);
+
+    return (
+      (summonerStat.totalMinionsKilled + summonerStat.neutralMinionsKilled) / date.getMinutes()
+    );
+  }
+
   render() {
-    const { summonerStat, summonerData } = this.props;
+    const { summonerStat, summonerData, topDealt } = this.props;
     return (
       <section className="summoner-stat-elem flex-row flex-align-c">
         <div className="stat-info flex-row flex-align-c">
@@ -45,11 +57,22 @@ class SummonerStatElem extends React.Component {
           <div className="text-align-center">{`${summonerStat.kill}/${summonerStat.death}/${summonerStat.assist}`}</div>
           {`${this.calcKDA(summonerStat)} KDA`}
         </div>
-        <div className="stat-dealt">{numeral(summonerStat.totalDamageDealt).format('0,0')}</div>
+        <div className="stat-dealt flex-col flex-j-c flex-align-c">
+          {numeral(summonerStat.totalDamageDealt).format('0,0')}
+          <Progress
+            val={(summonerStat.totalDamageDealt / topDealt) * 100}
+            fillColor={
+              summonerStat.camp_id === 100 ? 'var(--team-color-blue)' : 'var(--team-color-red)'
+            }
+            width="80px"
+            height="7px"
+            round="5px"
+          />
+        </div>
         <div className="stat-sight">{summonerStat.visionScore}</div>
         <div className="stat-cs flex-col flex-j-c">
           <div>{summonerStat.totalMinionsKilled + summonerStat.neutralMinionsKilled}</div>
-          <div className="cs-per-min">({summonerStat.totalCSPerMin})</div>
+          <div className="cs-per-min">({this.getCSPerMin().toFixed(1)})</div>
         </div>
         <div className="stat-item">
           {this.getItemIdList(summonerStat).map((e, i) => {
@@ -60,5 +83,12 @@ class SummonerStatElem extends React.Component {
     );
   }
 }
+
+SummonerStatElem.defaultProps = {
+  summonerStat: null,
+  summonerData: null,
+  topDealt: 0,
+  duration: 0
+};
 
 export default SummonerStatElem;

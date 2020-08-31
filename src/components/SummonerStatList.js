@@ -1,10 +1,31 @@
 import React from 'react';
-import './SummonerStatList.css';
-import { isImageUrl } from 'antd/lib/upload/utils';
+import _ from 'underscore';
 import SummonerStatElem from './SummonerStatElem';
+import './SummonerStatList.css';
+
+const calcTopDealt = participants => {
+  if (_.isEmpty(participants)) {
+    return 0;
+  }
+
+  let topDealt = 0;
+  participants.forEach(s => {
+    topDealt = Math.max(topDealt, s.stat.totalDamageDealt);
+  });
+
+  return topDealt;
+};
 
 export default props => {
-  const { teamStat, participants } = props;
+  const { matchData, teamId } = props;
+
+  const teamStat = matchData.teamStats.find(t => {
+    return t.camp_id === teamId;
+  });
+  const participants = matchData.participants.filter(p => {
+    return p.team_id === teamId;
+  });
+
   return (
     <section
       className={
@@ -23,8 +44,18 @@ export default props => {
         <div className="table-header stat-item">아이템</div>
       </div>
       <div className="stat-body flex-col width-100">
-        {participants.map((s, i) => {
-          return <SummonerStatElem key={i} summonerStat={s.stat} summonerData={s.summoner} />;
+        {participants.map((p, i) => {
+          return (
+            <SummonerStatElem
+              key={i}
+              summonerStat={p.stat}
+              summonerData={matchData.summoners.find(s => {
+                return p.participant_id === s.uuid;
+              })}
+              topDealt={calcTopDealt(matchData.participants)}
+              gameTime={matchData.duration}
+            />
+          );
         })}
       </div>
     </section>

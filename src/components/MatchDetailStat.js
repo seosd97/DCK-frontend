@@ -9,9 +9,8 @@ import DealtGraph from './MatchDealtGraph';
 import './MatchDetailStat.css';
 import ChampionIcon from './Icons/ChampionIcon';
 import IconLabel from './ui/IconLabel';
-import SummonerStat from './SummonerStatElem';
 import DiffElement from './ui/DiffElement';
-import SummonerStatList from './SummonerStatList.js';
+import SummonerStatView from './SummonerStatView';
 
 const { LeftElement, RightElement } = DiffElement;
 
@@ -28,6 +27,9 @@ class MatchDetailStat extends React.Component {
 
     this.updateMatchData = this.updateMatchData.bind(this);
     this.calcTotalGold = this.calcTotalGold.bind(this);
+
+    this.renderBan = this.renderBan.bind(this);
+    this.renderObject = this.renderObject.bind(this);
   }
 
   componentDidMount() {
@@ -136,7 +138,8 @@ class MatchDetailStat extends React.Component {
     return { kills: kills, deaths: deaths, assists: assists };
   }
 
-  renderBan(teamData) {
+  renderBan(teamId) {
+    const teamData = this.state.matchData.teamStats.find(t => t.camp_id === teamId);
     if (_.isUndefined(teamData)) {
       return null;
     }
@@ -150,7 +153,8 @@ class MatchDetailStat extends React.Component {
     );
   }
 
-  renderObject(teamData) {
+  renderObject(teamId) {
+    const teamData = this.state.matchData.teamStats.find(t => t.camp_id === teamId);
     if (_.isUndefined(teamData)) {
       return null;
     }
@@ -186,8 +190,6 @@ class MatchDetailStat extends React.Component {
 
     const blueTeam = !_.isEmpty(matchData) && matchData.teamStats.find(t => t.camp_id === 100);
     const redTeam = !_.isEmpty(matchData) && matchData.teamStats.find(t => t.camp_id === 200);
-    const blueParticipants = this.getParticipantDatas(100);
-    const redParticipants = this.getParticipantDatas(200);
 
     const blueKDA = this.calcTeamKDA(100);
     const redKDA = this.calcTeamKDA(200);
@@ -220,8 +222,8 @@ class MatchDetailStat extends React.Component {
               </div>
               <div className="team-stat-list flex-col flex-j-c width-100">
                 <DiffElement desc="밴">
-                  <LeftElement>{this.renderBan(blueTeam)}</LeftElement>
-                  <RightElement>{this.renderBan(redTeam)}</RightElement>
+                  <LeftElement>{this.renderBan(100)}</LeftElement>
+                  <RightElement>{this.renderBan(200)}</RightElement>
                 </DiffElement>
                 <DiffElement desc="골드">
                   <LeftElement>{numeral(this.calcTotalGold(100)).format('0.0a')}</LeftElement>
@@ -232,16 +234,12 @@ class MatchDetailStat extends React.Component {
                   <RightElement>{`${redKDA.kills}/${redKDA.deaths}/${redKDA.assists}`}</RightElement>
                 </DiffElement>
                 <DiffElement desc="오브젝트">
-                  <LeftElement>{this.renderObject(blueTeam)}</LeftElement>
-                  <RightElement>{this.renderObject(redTeam)}</RightElement>
+                  <LeftElement>{this.renderObject(100)}</LeftElement>
+                  <RightElement>{this.renderObject(200)}</RightElement>
                 </DiffElement>
               </div>
             </div>
-            <div className="match-stat flex-col flex-align-c">
-              {console.log(blueParticipants)}
-              <SummonerStatList teamStat={blueTeam} participants={blueParticipants} />
-              <SummonerStatList teamStat={redTeam} participants={redParticipants} />
-            </div>
+            <SummonerStatView matchData={matchData} />
           </div>
         ) : (
           <div>Loading...</div>
