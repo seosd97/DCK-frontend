@@ -42,12 +42,15 @@ class SummonerStatElem extends React.Component {
     return (
       <section className="summoner-stat-elem flex-row flex-align-c">
         <div className="stat-info flex-row flex-align-c">
-          <ChampionIcon cid={summonerStat.cid} size="40x40" />
-          <div className="flex-col flex-j-c">
+          <div className="champion-icon">
+            <ChampionIcon cid={summonerStat.cid} size="40x40" />
+            <div className="champion-level">{summonerStat.champion_level}</div>
+          </div>
+          <div className="spell-icon flex-col flex-j-c">
             <SpellIcon sid={summonerStat.spell1_id} />
             <SpellIcon sid={summonerStat.spell2_id} />
           </div>
-          <div className="flex-col flex-j-c">
+          <div className="rune-icon flex-col flex-j-c">
             <RuneIcon styleId={summonerStat.perkPrimaryStyle} rid={summonerStat.rune0} />
             <RuneIcon styleId={summonerStat.perkSubStyle} />
           </div>
@@ -64,8 +67,8 @@ class SummonerStatElem extends React.Component {
             fillColor={
               summonerStat.camp_id === 100 ? 'var(--team-color-blue)' : 'var(--team-color-red)'
             }
-            width="80px"
-            height="7px"
+            width="75px"
+            height="5px"
             round="5px"
           />
         </div>
@@ -74,7 +77,7 @@ class SummonerStatElem extends React.Component {
           <div>{summonerStat.totalMinionsKilled + summonerStat.neutralMinionsKilled}</div>
           <div className="cs-per-min">({this.getCSPerMin().toFixed(1)})</div>
         </div>
-        <div className="stat-item">
+        <div className="stat-item flex-row flex-j-s">
           {this.getItemIdList(summonerStat).map((e, i) => {
             return <ItemIcon key={i} iid={e} />;
           })}

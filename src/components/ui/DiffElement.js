@@ -42,7 +42,7 @@ const DiffElement = props => {
 const descStyle = {
   fontSize: '1em',
   margin: '0 10px',
-  padding: '2px 3px',
+  padding: '5px 3px',
   minWidth: '100px',
   color: 'var(--black)',
   backgroundColor: 'var(--white-hover)',

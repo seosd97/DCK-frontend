@@ -24,7 +24,6 @@
 
 .tournament-info-root .tournament-name {
     color: var(--black);
-    /* font-family: 'Teko', sans-serif; */
     font-weight: bold;
     font-size: 1.5rem;
     transition: ease color .3s;

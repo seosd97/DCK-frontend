@@ -15,12 +15,13 @@ const Progress = props => {
     width: `${val}%`,
     height: '100%',
     float: align,
-    borderRadius: round
+    borderRadius: round,
+    transition: 'width .2s ease'
   };
 
   return (
-    <div style={backgroundStyle}>
-      <div style={fillStyle}></div>
+    <div className="cui-progress" style={backgroundStyle}>
+      <div className="cui-progress-fill" style={fillStyle}></div>
     </div>
   );
 };

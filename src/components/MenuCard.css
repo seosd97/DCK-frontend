@@ -12,13 +12,12 @@
     box-sizing: border-box;
 }
 
-#menu-card:hover > #card-title, #menu-card:hover > #card-content{
+#menu-card:hover>#card-title, #menu-card:hover>#card-content {
     color: var(--light-black);
 }
 
 #card-title {
     color: var(--black);
-    font-family: 'Teko', sans-serif;
     font-weight: bold;
     font-size: 2.7rem;
     transition: ease color .6s;
@@ -26,7 +25,6 @@
 
 #card-content {
     color: var(--black);
-    font-family: 'Teko', sans-serif;
     font-weight: 400;
     font-size: 1.5rem;
     margin: 5px 0;

@@ -7,30 +7,59 @@ class ChampionIcon extends React.Component {
     super();
 
     this.state = {
-      src: ''
+      src: '',
+      endpoion: ''
     };
   }
 
   async componentDidMount() {
-    const champion = await DDragon.getChampionByKey(this.props.cid);
+    const path = await this.loadIconURL(this.props.cid);
+    const version = await DDragon.getVersion();
 
     this.setState({
-      src: `http://ddragon.leagueoflegends.com/cdn/10.11.1/img/champion/${champion.image.full}`
+      src: `${path}`,
+      endpoion: `http://ddragon.leagueoflegends.com/cdn/${version}/img/champion`
     });
   }
 
+  async componentDidUpdate() {
+    const path = await this.loadIconURL(this.props.cid);
+
+    if (this.state.src === path) {
+      return;
+    }
+
+    this.setState({
+      src: path
+    });
+  }
+
+  async loadIconURL() {
+    const { cid } = this.props;
+    if (cid === 0) {
+      return;
+    }
+
+    const champion = await DDragon.getChampionByKey(cid);
+
+    return champion.image.full;
+  }
+
   render() {
-    const roundClass = this.props.round ? 'img-round' : '';
-    const size = this.props.size.split('x');
+    const { size } = this.props;
+    let iconSize = null;
+    if (size !== '') {
+      iconSize = size.split('x');
+    }
+
     return (
       <React.Fragment>
         {this.state.src && (
           <img
-            src={this.state.src}
+            src={`${this.state.endpoion}/${this.state.src}`}
             alt="champion_icon"
-            width={size[0]}
-            height={size[1]}
-            className={`common-icon-champ ${roundClass}`}
+            className="cui-icon-champion"
+            style={iconSize && { width: `${iconSize[0]}px`, height: `${iconSize[0]}px` }}
           />
         )}
       </React.Fragment>
@@ -39,8 +68,10 @@ class ChampionIcon extends React.Component {
 }
 
 ChampionIcon.defaultProps = {
+  cid: 0,
   small: false,
-  round: false
+  round: false,
+  size: ''
 };
 
 export default ChampionIcon;

@@ -1,12 +1,15 @@
 .summoner-stat-root {
     color: var(--black);
-    background-color: var(--white-hover);
+    background: linear-gradient(to right, var(--white-hover), transparent);
+    /* background-color: var(--white-hover); */
     border-left: 3px solid var(--red);
     padding: 0 15px;
     margin-top: 20px;
+    font-size: .95rem;
 }
 
 .summoner-stat-root.winner {
+    background: linear-gradient(to right, var(--white-hover), transparent);
     border-color: var(--gold);
 }
 
@@ -16,7 +19,6 @@
 
 .summoner-stat-root .stat-header .table-header {
     text-align: center;
-    font-size: 1rem;
     font-weight: bold;
 }
 
@@ -35,8 +37,25 @@
 }
 
 .summoner-stat-elem {
-    font-size: .9rem;
+    font-size: .85rem;
     margin: 5px 0;
+}
+
+.summoner-stat-elem .stat-info .champion-icon {
+    position: relative;
+}
+
+.summoner-stat-elem .stat-info .champion-icon, .rune-icon {
+    margin: 0 3px;
+}
+
+.summoner-stat-elem .stat-info .champion-icon .champion-level {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: .75rem;
+    color: var(--white-hover);
+    background-color: rgba(0, 0, 0, .6);
 }
 
 .summoner-stat-elem .stat-info .summoner-name {
