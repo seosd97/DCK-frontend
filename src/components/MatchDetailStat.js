@@ -191,9 +191,9 @@ class MatchDetailStat extends React.Component {
     const redKDA = this.calcTeamKDA(200);
 
     return (
-      <React.Fragment>
+      <div className="detail-stat-root flex-col flex-j-c width-100">
         {!loading ? (
-          <div className="detail-stat-root flex-col flex-j-c width-100">
+          <React.Fragment>
             <div className="game-info flex-row flex-align-c">
               <div className="game-time">{moment.unix(matchData.duration).format('mm:ss')}</div>
               <div className="game-details flex-col flex-j-c flex-align-e">
@@ -237,11 +237,11 @@ class MatchDetailStat extends React.Component {
             </div>
             <SummonerStatView matchData={matchData} />
             <StatGraphView participants={matchData.participants} type="dealt" />
-          </div>
+          </React.Fragment>
         ) : (
           <div>Loading...</div>
         )}
-      </React.Fragment>
+      </div>
     );
   }
 }

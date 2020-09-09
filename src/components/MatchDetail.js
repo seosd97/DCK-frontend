@@ -38,8 +38,14 @@ class MatchDetail extends React.Component {
   }
 
   onChangeRound(e) {
+    // const tabs = e.target.parentNode.children;
+    console.log(e.target.className);
+    if (e.target.className.includes('selected')) {
+      return;
+    }
+
     this.setState({
-      round: e.target.value
+      round: e.target.dataset.value
     });
   }
 
@@ -59,11 +65,6 @@ class MatchDetail extends React.Component {
 
     return match.game_id;
   }
-
-  // isBlueWin() {
-  //   const { matchData } = this.state;
-  //   return matchData.team1_score > matchData.team2_score;
-  // }
 
   render() {
     const { matchData, team1, team2 } = this.state;
@@ -87,15 +88,14 @@ class MatchDetail extends React.Component {
               />
             </section>
             <div className="match-statics flex-col flex-align-c">
-              <div className="match-tab-group flex-row flex-align-c flex-j-c">
+              <div className="round-tab-group flex-row flex-align-c flex-j-c">
                 {matchData.Matches.map((m, i) => {
                   return (
                     <div
                       key={i}
-                      className="match-tab"
-                      onClick={() => {
-                        console.log(`${i}`);
-                      }}
+                      className={'round-tab' + (`${i + 1}` === this.state.round ? ' selected' : '')}
+                      data-value={i + 1}
+                      onClick={this.onChangeRound}
                     >
                       {`ROUND ${i + 1}`}
                     </div>

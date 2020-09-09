@@ -1,5 +1,6 @@
 .match-detail-root {
     max-width: 1100px;
+    min-height: calc(100vh - 70px);
     margin: 0 auto;
 }
 
@@ -19,4 +20,25 @@
     .match-detail-root>h1 {
         font-size: 1.6rem;
     }
+}
+
+.match-detail-root .match-statics .round-tab-group .round-tab {
+    font-size: 1rem;
+    padding: 8px 15px;
+    width: 90px;
+    text-align: center;
+    color: var(--black);
+    border-radius: 20px;
+    transition: background-color .2s ease, color .2s ease;
+    margin: 0 5px;
+}
+
+.match-detail-root .match-statics .round-tab-group .round-tab.selected {
+    background-color: var(--white-hover);
+    color: var(--gold);
+}
+
+.match-detail-root .match-statics .round-tab-group .round-tab:hover {
+    background-color: var(--white-hover);
+    color: var(--gold);
 }
