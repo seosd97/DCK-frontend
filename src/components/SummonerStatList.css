@@ -37,6 +37,7 @@
 }
 
 .summoner-stat-elem {
+    position: relative;
     font-size: .85rem;
     margin: 5px 0;
 }
@@ -60,6 +61,7 @@
 
 .summoner-stat-elem .stat-info .summoner-name {
     padding-left: 10px;
+    font-size: .9rem;
 }
 
 .summoner-stat-root .stat-header .stat-kda, .stat-body .stat-kda {

@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import UnixTime from './Utils/UnixTime';
 import MatchTeamElement from './MatchTeamElement';
 import SummonerInfo from './MatchSummonerElement';
-import DealtGraph from './MatchDealtGraph';
-import SummonerDealtGraph from './SummonerDealtGraph';
 import './MatchInfo.css';
 import ChampionIcon from './Icons/ChampionIcon';
 

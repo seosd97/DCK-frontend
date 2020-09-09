@@ -1,13 +1,11 @@
 import React from 'react';
 
-const Progress = props => {
-  const { val, fillColor, align, width, height, round } = props;
-
+const Progress = ({ val, fillColor, backgroundColor, align, width, height, round }) => {
   const backgroundStyle = {
     width: width,
     height: height,
     borderRadius: round,
-    backgroundColor: 'var(--white)'
+    backgroundColor: backgroundColor
   };
 
   const fillStyle = {
@@ -29,10 +27,12 @@ const Progress = props => {
 Progress.defaultProps = {
   val: 0,
   fillColor: 'var(--team-color-blue)',
+  backgroundColor: 'var(--white)',
   align: 'left',
   width: '100%',
   height: '10px',
-  round: '0px'
+  round: '0px',
+  reverse: false
 };
 
 export default Progress;

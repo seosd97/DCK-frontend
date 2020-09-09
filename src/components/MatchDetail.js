@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import _ from 'underscore';
 import moment from 'moment';
-import { Radio } from 'antd';
 import MainLayout from './layout/MainLayout';
 import './MatchDetail.css';
 import MatchDetailStat from './MatchDetailStat';
@@ -74,7 +73,11 @@ class MatchDetail extends React.Component {
         {!_.isEmpty(matchData) ? (
           <div className="match-detail-root flex-col flex-j-c width-100">
             <section className="detail-header">
-              <h1 className="text-align-center">POSTGAME BREAKDOWN</h1>
+              <h1 className="text-align-center">
+                POSTGAME
+                <br />
+                BREAKDOWN
+              </h1>
               <Scoreboard
                 team1={team1.name}
                 team2={team2.name}
@@ -84,21 +87,21 @@ class MatchDetail extends React.Component {
               />
             </section>
             <div className="match-statics flex-col flex-align-c">
-              <Radio.Group
-                defaultValue="1"
-                buttonStyle="solid"
-                size="large"
-                onChange={this.onChangeRound}
-              >
+              <div className="match-tab-group flex-row flex-align-c flex-j-c">
                 {matchData.Matches.map((m, i) => {
-                  //   <MatchDetailStat key={i} matchData={m} />;
                   return (
-                    <Radio.Button key={i} value={`${i + 1}`}>
+                    <div
+                      key={i}
+                      className="match-tab"
+                      onClick={() => {
+                        console.log(`${i}`);
+                      }}
+                    >
                       {`ROUND ${i + 1}`}
-                    </Radio.Button>
+                    </div>
                   );
                 })}
-              </Radio.Group>
+              </div>
               <MatchDetailStat gameId={this.findGameId(this.state.round)} />
             </div>
           </div>

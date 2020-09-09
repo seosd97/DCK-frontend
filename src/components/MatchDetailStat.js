@@ -5,12 +5,12 @@ import numeral from 'numeral';
 import moment from 'moment';
 import _ from 'underscore';
 import MatchInfo from './MatchInfo';
-import DealtGraph from './MatchDealtGraph';
 import './MatchDetailStat.css';
 import ChampionIcon from './Icons/ChampionIcon';
 import IconLabel from './ui/IconLabel';
 import DiffElement from './ui/DiffElement';
 import SummonerStatView from './SummonerStatView';
+import StatGraphView from './StatGraphView';
 
 const { LeftElement, RightElement } = DiffElement;
 
@@ -26,10 +26,6 @@ class MatchDetailStat extends React.Component {
     };
 
     this.updateMatchData = this.updateMatchData.bind(this);
-    this.calcTotalGold = this.calcTotalGold.bind(this);
-
-    this.renderBan = this.renderBan.bind(this);
-    this.renderObject = this.renderObject.bind(this);
   }
 
   componentDidMount() {
@@ -240,6 +236,7 @@ class MatchDetailStat extends React.Component {
               </div>
             </div>
             <SummonerStatView matchData={matchData} />
+            <StatGraphView participants={matchData.participants} type="dealt" />
           </div>
         ) : (
           <div>Loading...</div>

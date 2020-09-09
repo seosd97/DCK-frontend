@@ -1,9 +1,0 @@
-.summoner-dealt-elem {
-    padding: 10px 0;
-    box-sizing: border-box;
-    border-bottom: 1px solid rgba(0, 0, 0, .15);
-}
-
-.summoner-dealt-elem:last-child {
-    border: none;
-}

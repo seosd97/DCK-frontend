@@ -6,9 +6,6 @@ import MainLayout from './layout/MainLayout';
 import MatchElement from './MatchElement';
 import './MatchList.css';
 
-import { Select } from 'antd';
-const { Option } = Select;
-
 class MatchList extends React.Component {
   constructor() {
     super();
@@ -61,7 +58,7 @@ class MatchList extends React.Component {
       <MainLayout>
         <div className="match-list-root flex-col flex-j-c flex-align-c width-100">
           <div className="tournament-filter flex-row flex-j-e flex-align-c width-100">
-            <Select
+            {/* <Select
               name="tournaments"
               value={filter}
               size="large"
@@ -79,7 +76,7 @@ class MatchList extends React.Component {
                   </Option>
                 );
               })}
-            </Select>
+            </Select> */}
           </div>
           <div className="flex-col flex-j-c flex-align-c width-100">
             {!_.isEmpty(matches) ? (

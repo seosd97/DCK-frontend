@@ -4,7 +4,7 @@ import './RoundButton.css';
 
 export default ({ to, desc }) => {
   return (
-    <Link to={to} className="ui-round-btn">
+    <Link to={to} className="cui-round-btn">
       {desc}
     </Link>
   );

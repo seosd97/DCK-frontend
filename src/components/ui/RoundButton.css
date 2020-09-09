@@ -1,4 +1,4 @@
-.ui-round-btn {
+.cui-round-btn {
     width: 150px;
     font-size: 1.3rem;
     padding: 10px 15px;
@@ -13,6 +13,6 @@
     transition: all .25s ease;
 }
 
-.ui-round-btn:hover {
+.cui-round-btn:hover {
     background-color: var(--white-hover);
 }

@@ -41,6 +41,7 @@ class SummonerStatElem extends React.Component {
     const { summonerStat, summonerData, topDealt } = this.props;
     return (
       <section className="summoner-stat-elem flex-row flex-align-c">
+        {/* {summonerStat.tripleKills > 0 && <div className="stat-penta">PENTA KILL</div>} */}
         <div className="stat-info flex-row flex-align-c">
           <div className="champion-icon">
             <ChampionIcon cid={summonerStat.cid} size="40x40" />
@@ -77,7 +78,7 @@ class SummonerStatElem extends React.Component {
           <div>{summonerStat.totalMinionsKilled + summonerStat.neutralMinionsKilled}</div>
           <div className="cs-per-min">({this.getCSPerMin().toFixed(1)})</div>
         </div>
-        <div className="stat-item flex-row flex-j-s">
+        <div className="stat-item flex-row flex-j-c">
           {this.getItemIdList(summonerStat).map((e, i) => {
             return <ItemIcon key={i} iid={e} />;
           })}
