@@ -2,7 +2,10 @@ import React from 'react';
 
 const LeftElement = props => {
   return (
-    <div className="flex-row flex-j-e text-align-right width-100" style={{ fontSize: '1.1em' }}>
+    <div
+      className="flex-row flex-j-e flex-align-c text-align-right width-100"
+      style={{ fontSize: '1em' }}
+    >
       {props.children}
     </div>
   );
@@ -10,7 +13,7 @@ const LeftElement = props => {
 
 const RightElement = props => {
   return (
-    <div className="flex-row text-align-left width-100" style={{ fontSize: '1.1em' }}>
+    <div className="flex-row flex-align-c text-align-left width-100" style={{ fontSize: '1em' }}>
       {props.children}
     </div>
   );
