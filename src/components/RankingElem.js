@@ -20,7 +20,7 @@ export default ({ statData, rank }) => {
       </div>
       <div className="game-record flex-col flex-j-c flex-align-c">
         <div>
-          {statData.wins}승 {statData.defeats}패
+          {statData.games}전 {statData.wins}승 {statData.defeats}패
         </div>
         <div>{((statData.wins / statData.games) * 100).toFixed(1)}%</div>
       </div>
