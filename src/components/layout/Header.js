@@ -18,7 +18,7 @@ export default () => {
           경기 기록
         </Link>
         <Link className="header-menu-item" to="/rankings">
-          소환사 정보
+          소환사 기록
         </Link>
         {/* <Link id="register-icon" to="/register">
           대회 등록

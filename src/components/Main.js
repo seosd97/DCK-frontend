@@ -22,7 +22,7 @@ class Main extends React.Component {
             </div>
             <div className="flex-row flex-a-c flex-wrap width-100">
               <RoundButton to="/matches" desc="경기 결과" />
-              <RoundButton to="/rankings" desc="소환사 정보" />
+              <RoundButton to="/rankings" desc="소환사 기록" />
             </div>
           </div>
         </div>

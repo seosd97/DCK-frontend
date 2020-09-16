@@ -79,6 +79,10 @@ a {
   justify-content: flex-end;
 }
 
+.flex-j-a {
+  justify-content: space-around;
+}
+
 .flex-align-s {
   align-items: flex-start;
 }

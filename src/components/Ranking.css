@@ -1,0 +1,27 @@
+.summoner-ranking-root {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 40px;
+    font-size: 1rem;
+}
+
+.summoner-ranking-root .rank-col-tab {
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.summoner-ranking-root .rank-col-tab .tab-elem {
+    flex: 1 0;
+    text-align: center;
+    padding: 15px 5px;
+    border-bottom: 5px solid transparent;
+    transition: border-color .2s ease;
+}
+
+.summoner-ranking-root .rank-col-tab .tab-elem:hover {
+    border-color: var(--white-hover);
+}
+
+.summoner-ranking-root .rank-col-tab .tab-elem.selected {
+    border-color: var(--gold);
+}
