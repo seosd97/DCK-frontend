@@ -12,9 +12,11 @@
 
 .summoner-ranking-root .rank-col-tab .tab-elem {
     flex: 1 0;
+    font-size: 1.2rem;
     text-align: center;
     padding: 15px 5px;
     border-bottom: 5px solid transparent;
+    cursor: pointer;
     transition: border-color .2s ease;
 }
 
@@ -24,4 +26,63 @@
 
 .summoner-ranking-root .rank-col-tab .tab-elem.selected {
     border-color: var(--gold);
+}
+
+.stat-ranking-elem-root {
+    font-size: 1em;
+    padding: 25px 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: var(--white-hover);
+    text-decoration: none;
+    color: var(--black);
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+}
+
+.stat-ranking-elem-root:last-child {
+    margin-bottom: 0;
+}
+
+.stat-ranking-elem-root:hover {
+    background-color: #c9c9c9;
+}
+
+.stat-ranking-elem-root .rank-desc {
+    width: 6.5rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--green);
+}
+
+.stat-ranking-elem-root .summoner-info {
+    flex: 2.5 0;
+}
+
+.stat-ranking-elem-root .summoner-info .profile-icon {
+    border-radius: 30px;
+}
+
+.stat-ranking-elem-root .summoner-info h2 {
+    margin: 0;
+    padding-left: 13px;
+}
+
+.stat-ranking-elem-root .game-record {
+    flex: 1 0;
+}
+
+.stat-ranking-elem-root .kda-record {
+    flex: 1 0;
+}
+
+.stat-ranking-elem-root .vision-score {
+    flex: 1 0;
+    text-align: center;
+}
+
+.stat-ranking-elem-root .cs {
+    flex: 1 0;
+    text-align: center;
 }

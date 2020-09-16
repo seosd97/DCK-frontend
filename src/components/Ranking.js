@@ -7,10 +7,15 @@ import RankingElem from './RankingElem';
 
 const rankCols = [
   { name: '경기 수', key: 'games' },
+  { name: '승률', key: 'winrate' },
   { name: '승', key: 'wins' },
   { name: '패', key: 'defeats' },
-  { name: '승률', key: 'winrate' },
-  { name: 'KDA', key: 'kda' }
+  { name: '킬', key: 'kills' },
+  { name: '데스', key: 'deaths' },
+  { name: '어시스트', key: 'assists' },
+  { name: 'KDA', key: 'kda' },
+  { name: '시야', key: 'visionScore' },
+  { name: 'CS', key: 'cs' }
 ];
 
 class Ranking extends React.Component {
