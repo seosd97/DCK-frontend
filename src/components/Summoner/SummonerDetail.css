@@ -1,3 +1,17 @@
 .summoner-detail-root {
-    max-width: 1200px;
+    max-width: 1100px;
+    padding-top: 40px;
+}
+
+.summoner-detail-root .summoner-info {
+    padding: 25px 15px;
+    border-bottom: 1px solid #dadada;
+}
+
+.summoner-detail-root .summoner-info .summoner-desc {
+    padding-left: 25px;
+}
+
+.summoner-detail-root .summoner-info .summoner-desc h1 {
+    margin: 0;
 }

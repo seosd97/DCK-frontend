@@ -2,7 +2,6 @@ import React from 'react';
 import Axios from 'axios';
 import _ from 'underscore';
 import numeral from 'numeral';
-import SummonerCard from '../Summoner/SummonerCard';
 import './TeamDetail.css';
 
 class TeamDetail extends React.Component {
@@ -35,7 +34,7 @@ class TeamDetail extends React.Component {
             </div>
             <div className="flex-col width-100">
               {teamData.Summoners.map((s, i) => {
-                return <SummonerCard key={i} summonerInfo={s} />;
+                // return <SummonerCard key={i} summonerInfo={s} />;
               })}
             </div>
           </React.Fragment>
