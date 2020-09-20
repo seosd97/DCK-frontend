@@ -6,6 +6,8 @@ import ProfileIcon from '../Icons/ProfileIcon';
 import MatchHistoryElem from './MatchHistoryElem';
 import './SummonerDetail.css';
 import MainLayout from '../layout/MainLayout';
+import ChampionIcon from '../Icons/ChampionIcon';
+import Progress from '../Utils/Progress';
 
 class SummonerDetail extends React.Component {
   constructor() {
@@ -32,6 +34,8 @@ class SummonerDetail extends React.Component {
 
   render() {
     const { summonerData } = this.state;
+    const totalStat = summonerData && summonerData.matchList.totalStat;
+
     return (
       <MainLayout>
         {summonerData !== null ? (
@@ -43,8 +47,40 @@ class SummonerDetail extends React.Component {
                 <div className="summoner-level">{`Lv.${summonerData.summoner_level}`}</div>
               </div>
             </div>
+            <div className="match-statics flex-row flex-j-c flex-align-c">
+              <div className="statics-champ-most flex-col flex-j-c">
+                {summonerData.statics.slice(0, 3).map((s, i) => {
+                  return (
+                    <div key={i} className="flex-row">
+                      <ChampionIcon cid={s.cid} size="40x40" />
+                      <div className="flex-col flex-j-c flex-align-c">
+                        {s.games}전 {s.wins}승 {s.defeats}패
+                        <div>{`(${((s.wins / s.games) * 100).toFixed(1)}%)`}</div>
+                      </div>
+                      <div className="flex-col flex-j-c flex-align-c">
+                        {s.kills}/{s.deaths}/{s.assists}
+                        <div>{((s.kills + s.assists) / s.deaths).toFixed(1)}</div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="statics-winrate flex-col flex-j-c flex-align-c">
+                {`${totalStat.games}전 ${totalStat.wins}승 ${totalStat.defeats}패`}
+                <div>{`${((totalStat.wins / totalStat.games) * 100).toFixed(1)}%`}</div>
+                <Progress
+                  val={(totalStat.wins / totalStat.games) * 100}
+                  fillColor="var(--team-color-blue)"
+                  backgroundColor="var(--team-color-red)"
+                  width="100%"
+                  height="15px"
+                  round="2px"
+                />
+              </div>
+            </div>
             <div className="match-histories flex-col flex-j-c">
-              {summonerData.matches.map((m, i) => {
+              {summonerData.matchList.matches.map((m, i) => {
                 return <MatchHistoryElem key={i} matchData={m} />;
               })}
             </div>

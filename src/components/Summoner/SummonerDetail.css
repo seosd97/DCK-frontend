@@ -15,3 +15,36 @@
 .summoner-detail-root .summoner-info .summoner-desc h1 {
     margin: 0;
 }
+
+.summoner-detail-root .match-statics {
+    padding: 15px 10px;
+    background-color: var(--white-hover);
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.summoner-detail-root .match-histories {
+    margin-top: 20px;
+}
+
+.summoner-match-history-elem {
+    padding: 5px 15px 10px 15px;
+    margin: 8px 0;
+    border-radius: 8px;
+    background-color: var(--white-hover);
+    font-size: 1rem;
+}
+
+.summoner-match-history-elem .match-info {
+    padding: 5px 0;
+    border-bottom: 1px solid #c7c7c7;
+}
+
+.summoner-match-history-elem .match-info .match-type {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.summoner-match-history-elem .match-stat {
+    padding: 5px 0;
+}
