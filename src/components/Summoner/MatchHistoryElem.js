@@ -30,7 +30,9 @@ class MatchHistoryElem extends React.Component {
     const { champData } = this.state;
 
     return (
-      <div className="summoner-match-history-elem flex-col">
+      <div
+        className={`summoner-match-history-elem flex-col ${matchData.stat.win ? ' win' : ' lose'}`}
+      >
         <div className="match-info flex-row flex-align-c">
           <span className="match-type">{matchData.type}</span>
           <span className="match-round">{`round ${matchData.round}`}</span>

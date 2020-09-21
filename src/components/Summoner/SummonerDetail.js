@@ -8,6 +8,7 @@ import './SummonerDetail.css';
 import MainLayout from '../layout/MainLayout';
 import ChampionIcon from '../Icons/ChampionIcon';
 import Progress from '../Utils/Progress';
+import CircleProgress from '../Utils/CircleProgress';
 
 class SummonerDetail extends React.Component {
   constructor() {
@@ -68,14 +69,16 @@ class SummonerDetail extends React.Component {
 
               <div className="statics-winrate flex-col flex-j-c flex-align-c">
                 {`${totalStat.games}전 ${totalStat.wins}승 ${totalStat.defeats}패`}
-                <div>{`${((totalStat.wins / totalStat.games) * 100).toFixed(1)}%`}</div>
-                <Progress
-                  val={(totalStat.wins / totalStat.games) * 100}
-                  fillColor="var(--team-color-blue)"
+                <CircleProgress
+                  width="90"
+                  height="90"
+                  lineWidth="17px"
+                  radius="35"
                   backgroundColor="var(--team-color-red)"
-                  width="100%"
-                  height="15px"
-                  round="2px"
+                  fillColor="var(--team-color-blue)"
+                  value={(totalStat.wins / totalStat.games) * 100}
+                  label={`${((totalStat.wins / totalStat.games) * 100).toFixed(1)}%`}
+                  fontSize=".8rem"
                 />
               </div>
             </div>
