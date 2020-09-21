@@ -2,7 +2,7 @@ import React from 'react';
 
 const pie = 3.141592;
 
-export default ({
+const CircleProgress = ({
   width,
   height,
   radius,
@@ -10,12 +10,14 @@ export default ({
   backgroundColor,
   fillColor,
   value,
+  label,
+  labelColor,
   fontSize,
-  label
+  fontWeight
 }) => {
   const strokeArray = 2 * pie * radius;
   return (
-    <svg width={width} height={height}>
+    <svg className="cui-circle-progress" width={width} height={height}>
       <g style={{ transform: 'rotate(-90deg)', transformOrigin: 'center' }}>
         <circle
           cx={width / 2}
@@ -36,9 +38,33 @@ export default ({
           fill="transparent"
         ></circle>
       </g>
-      <text x="50%" y="50%" textAnchor="middle" alignmentBaseline="middle" fontSize={fontSize}>
+      <text
+        x="50%"
+        y="50%"
+        textAnchor="middle"
+        alignmentBaseline="middle"
+        fill={labelColor}
+        fontSize={fontSize}
+        fontWeight={fontWeight}
+      >
         {label}
       </text>
     </svg>
   );
 };
+
+CircleProgress.defaultProps = {
+  width: '100',
+  height: '100',
+  radius: '40',
+  lineWidth: '10px',
+  backgroundColor: 'transparent',
+  fillColor: 'var(--blue)',
+  value: 0,
+  label: '',
+  labelColor: 'var(--black)',
+  fontSize: '1em',
+  fontWeight: '100'
+};
+
+export default CircleProgress;

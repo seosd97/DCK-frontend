@@ -25,6 +25,16 @@ class MatchHistoryElem extends React.Component {
     });
   }
 
+  calcKDA(k, d, a) {
+    const kda = (k + a) / d;
+
+    if (kda === Infinity) {
+      return 'perfect';
+    }
+
+    return kda.toFixed(1);
+  }
+
   render() {
     const { matchData } = this.props;
     const { champData } = this.state;
@@ -61,10 +71,11 @@ class MatchHistoryElem extends React.Component {
           <div>
             <div>{`${matchData.stat.kill} / ${matchData.stat.death} / ${matchData.stat.assist}`}</div>
             <div>
-              {`KDA ${(
-                (matchData.stat.kill + matchData.stat.assist) /
-                matchData.stat.death
-              ).toFixed(1)}`}
+              {`KDA ${this.calcKDA(
+                matchData.stat.kill,
+                matchData.stat.death,
+                matchData.stat.assist
+              )}`}
             </div>
           </div>
           <div>

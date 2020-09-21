@@ -16,11 +16,61 @@
     margin: 0;
 }
 
+.summoner-detail-root .summoner-info .summoner-desc img {
+    margin-left: 10px;
+    transition: transform .3s ease;
+    cursor: pointer;
+}
+
+.summoner-detail-root .summoner-info .summoner-desc img:hover {
+    transform: rotate(-135deg);
+}
+
+.summoner-detail-root .summoner-info .summoner-desc img.disabled {
+    cursor: wait;
+    opacity: 50%;
+}
+
+.summoner-detail-root .summoner-info .summoner-desc img.disabled:hover {
+    transform: none;
+}
+
 .summoner-detail-root .match-statics {
     padding: 15px 10px;
     background-color: var(--white-hover);
     margin-top: 20px;
     border-radius: 5px;
+}
+
+.summoner-detail-root .match-statics .statics-element {
+    flex: 1 0;
+    border-right: 1px solid #d3d1d1;
+    padding: 0 20px;
+}
+
+.summoner-detail-root .match-statics .statics-desc {
+    margin-bottom: 15px;
+    font-size: .9rem;
+    font-weight: bold;
+    color: var(--light-black);
+}
+
+.summoner-detail-root .match-statics .statics-element:last-child {
+    border-right: none;
+}
+
+.summoner-detail-root .match-statics .winrate-graph {
+    flex: 1 0;
+}
+
+.summoner-detail-root .match-statics .match-stat {
+    font-size: 1.1rem;
+    font-weight: bold;
+    flex: 1 0;
+}
+
+.summoner-detail-root .match-statics .match-stat .match-result {
+    margin-bottom: 10px;
 }
 
 .summoner-detail-root .match-histories {

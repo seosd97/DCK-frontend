@@ -22,6 +22,21 @@ class ProfileIcon extends React.Component {
     }
   }
 
+  async componentDidUpdate() {
+    const version = await DDragon.getVersion();
+
+    if (
+      this.state.src ===
+      `http://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${this.props.iconId}.png`
+    ) {
+      return;
+    }
+
+    this.setState({
+      src: `http://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${this.props.iconId}.png`
+    });
+  }
+
   render() {
     return (
       <React.Fragment>
