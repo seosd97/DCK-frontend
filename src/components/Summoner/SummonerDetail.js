@@ -127,15 +127,24 @@ class SummonerDetail extends React.Component {
                 <div className="flex-col flex-align-c">
                   {summonerData.statics.slice(0, 3).map((s, i) => {
                     return (
-                      <div key={i} className="flex-row width-100">
+                      <div key={i} className="champion-statics flex-row flex-align-c width-100">
                         <ChampionIcon cid={s.cid} size="40x40" />
-                        <div className="flex-col flex-j-c flex-align-c">
-                          {s.games}전 {s.wins}승 {s.defeats}패
-                          <div>{`(${((s.wins / s.games) * 100).toFixed(1)}%)`}</div>
+                        <div className="champ-info flex-col flex-j-c">
+                          <div className="champ-name">{s.championData.name}</div>
+                          <div className="champ-stat flex-row flex-align-c">
+                            {`${s.games}전 ${s.wins}승 ${s.defeats}패 | ${this.calcKDA(
+                              s.kills,
+                              s.deaths,
+                              s.assists
+                            )}`}
+                            <div className="kda-desc">{'KDA'}</div>
+                          </div>
                         </div>
-                        <div className="flex-col flex-j-c flex-align-c">
-                          {s.kills}/{s.deaths}/{s.assists}
-                          <div>{this.calcKDA(s.kills, s.deaths, s.assists)}</div>
+                        <div className="champ-winrate flex-col flex-j-c flex-align-e">
+                          <div className="winrate-desc">승률</div>
+                          <div
+                            className={'winrate' + (s.wins / s.games >= 0.6 ? ' tc-green' : '')}
+                          >{`${Math.round((s.wins / s.games) * 100)}%`}</div>
                         </div>
                       </div>
                     );

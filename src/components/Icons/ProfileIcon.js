@@ -22,6 +22,7 @@ class ProfileIcon extends React.Component {
     }
   }
 
+  // TODO : 수정 예정
   async componentDidUpdate() {
     const version = await DDragon.getVersion();
 

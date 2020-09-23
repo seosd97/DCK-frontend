@@ -31,11 +31,22 @@ class SpellIcon extends React.Component {
     return (
       <React.Fragment>
         {this.state.src && (
-          <img src={this.state.src} alt="spell_img" className="spell-icon img-round img-20x20" />
+          <img
+            src={this.state.src}
+            alt="spell_img"
+            className="spell-icon img-round"
+            width={this.props.width}
+            height={this.props.height}
+          />
         )}
       </React.Fragment>
     );
   }
 }
+
+SpellIcon.defaultProps = {
+  width: '20px',
+  height: '20px'
+};
 
 export default SpellIcon;

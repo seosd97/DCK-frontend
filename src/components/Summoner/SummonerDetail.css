@@ -73,6 +73,35 @@
     margin-bottom: 10px;
 }
 
+.summoner-detail-root .match-statics .champion-statics {
+    padding: 3px 8px;
+    font-size: .9rem;
+}
+
+.summoner-detail-root .match-statics .champion-statics .champ-info {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.summoner-detail-root .match-statics .champion-statics .champ-info .champ-stat {
+    font-size: .75rem;
+}
+
+.summoner-detail-root .match-statics .champion-statics .champ-info .champ-stat .kda-desc {
+    margin-left: 2px;
+    color: var(--light-black);
+}
+
+.summoner-detail-root .match-statics .champion-statics .champ-winrate {
+    margin-left: auto;
+    font-weight: bold;
+}
+
+.summoner-detail-root .match-statics .champion-statics .champ-winrate .winrate-desc {
+    font-size: .8rem;
+    color: var(--light-black);
+}
+
 .summoner-detail-root .match-histories {
     margin-top: 20px;
 }
@@ -95,6 +124,7 @@
 
 .summoner-match-history-elem .match-info {
     padding: 5px 0;
+    margin-bottom: 5px;
     border-bottom: 1px solid #c7c7c7;
 }
 
@@ -105,4 +135,98 @@
 
 .summoner-match-history-elem .match-stat {
     padding: 5px 0;
+    font-weight: bold;
+}
+
+.summoner-match-history-elem .match-stat .champion-icon {
+    position: relative;
+}
+
+.summoner-match-history-elem .match-stat .champion-level {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: .7rem;
+    text-align: center;
+    color: var(--white-hover);
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.summoner-match-history-elem .match-stat .stat-result {
+    flex: 0.5 0;
+    margin-right: 20px;
+    border-right: 1px solid #c7c7c7;
+}
+
+.summoner-match-history-elem .match-stat .stat-result .match-time {
+    font-size: .9rem;
+    color: var(--light-black);
+}
+
+.summoner-match-history-elem .match-stat .champion-info {
+    flex: .7 0;
+}
+
+.summoner-match-history-elem .match-stat .champion-info .champion-icon, .spell-container, .rune-container {
+    margin-right: 5px;
+}
+
+.summoner-match-history-elem .match-stat .stat-kda {
+    flex: .5 0;
+}
+
+.summoner-match-history-elem .match-stat .sub-stat {
+    font-size: .8rem;
+}
+
+.summoner-match-history-elem .match-stat .stat-kda .kda-desc {
+    margin-right: 4px;
+    color: var(--light-black);
+}
+
+.summoner-match-history-elem .match-stat .stat-cs {
+    flex: .5 0;
+}
+
+.summoner-match-history-elem .match-stat .stat-cs .cs-per-m {
+    color: var(--light-black);
+}
+
+.summoner-match-history-elem .match-stat .stat-vision {
+    flex: .5 0;
+    text-align: center;
+}
+
+.summoner-match-history-elem .match-stat .item-container {
+    flex: 1 0;
+    justify-content: center;
+}
+
+.summoner-match-history-elem .match-stat .stat-participants {
+    flex: 1.5 0;
+}
+
+.summoner-match-history-elem .match-stat .stat-participants .participant-name {
+    font-size: .85rem;
+    padding-left: 5px;
+    color: var(--light-black);
+    width: 80px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.summoner-match-history-elem .match-stat .stat-participants .participants-list {
+    margin-right: 8px;
+}
+
+.summoner-match-history-elem .match-stat .stat-participants .participant-elem {
+    margin-bottom: 2px;
+}
+
+.summoner-match-history-elem .match-stat .stat-participants .participant-elem:last-child {
+    margin-bottom: 0;
 }

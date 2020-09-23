@@ -25,11 +25,11 @@ body {
 }
 
 .tc-blue {
-    color: var(--team-color-blue);
+    color: var(--blue);
 }
 
 .tc-red {
-    color: var(--team-color-red)
+    color: var(--red)
 }
 
 .tc-black {
@@ -54,4 +54,8 @@ body {
 
 .fs-1-2r {
     font-size: 1.2rem;
+}
+
+.t-bold {
+    font-weight: bold;
 }

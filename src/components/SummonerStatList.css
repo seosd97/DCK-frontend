@@ -47,7 +47,7 @@
     position: relative;
 }
 
-.summoner-stat-elem .stat-info .champion-icon, .rune-icon {
+.summoner-stat-elem .stat-info .champion-icon {
     margin: 0 3px;
 }
 
