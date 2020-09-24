@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import _ from 'underscore';
 import * as DDragon from '../../api/data-dragon';
@@ -12,18 +13,6 @@ import ItemIcon from '../Icons/ItemIcon';
 class MatchHistoryElem extends React.Component {
   constructor() {
     super();
-
-    this.state = { champData: null };
-  }
-
-  async componentDidMount() {
-    const { cid } = this.props.matchData.stat;
-    const champData = await DDragon.getChampionByKey(cid);
-
-    console.log(champData);
-    this.setState({
-      champData: champData
-    });
   }
 
   calcKDA(k, d, a) {
@@ -38,10 +27,10 @@ class MatchHistoryElem extends React.Component {
 
   render() {
     const { matchData } = this.props;
-    const { champData } = this.state;
 
     return (
-      <div
+      <Link
+        to={`/matches/${matchData.MatchGroupId}`}
         className={`summoner-match-history-elem flex-col ${matchData.stat.win ? ' win' : ' lose'}`}
       >
         <div className="match-info flex-row flex-align-c">
@@ -111,7 +100,9 @@ class MatchHistoryElem extends React.Component {
                 return (
                   <div key={i} className="participant-elem flex-row flex-align-c">
                     <ChampionIcon cid={p.cid} size="20x20" />
-                    <div className="participant-name">{p.name}</div>
+                    <Link to={`/summoners/${p.name}`} className="participant-name">
+                      {p.name}
+                    </Link>
                   </div>
                 );
               })}
@@ -122,14 +113,16 @@ class MatchHistoryElem extends React.Component {
                 return (
                   <div key={i} className="participant-elem flex-row flex-align-c">
                     <ChampionIcon cid={p.cid} size="20x20" />
-                    <div className="participant-name">{p.name}</div>
+                    <Link to={`/summoners/${p.name}`} className="participant-name">
+                      {p.name}
+                    </Link>
                   </div>
                 );
               })}
             </div>
           </div>
         </div>
-      </div>
+      </Link>
     );
   }
 }

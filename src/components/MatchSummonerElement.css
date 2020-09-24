@@ -1,6 +1,5 @@
 .summoner-elem {
     margin: 10px 0;
-    /* justify-content: center; */
 }
 
 .summoner-name {
@@ -18,8 +17,8 @@
 
 .item-container {
     display: grid;
-    grid-template-rows: repeat(2, 20px);
-    grid-template-columns: repeat(3, 20px);
+    grid-template-rows: repeat(2, 25px);
+    grid-template-columns: repeat(3, 25px);
     grid-auto-flow: row dense;
     gap: 1px;
 }

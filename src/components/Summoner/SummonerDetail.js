@@ -34,6 +34,24 @@ class SummonerDetail extends React.Component {
     }
   }
 
+  async componentDidUpdate() {
+    if (this.state.summonerData.name === this.props.match.params.name) {
+      return;
+    }
+
+    try {
+      const res = await Axios.get(
+        `http://localhost:8080/summoners/by_name/${this.props.match.params.name}`
+      );
+
+      this.setState({
+        summonerData: res.data
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   async refreshSummonerData(e) {
     const oldData = this.state.summonerData;
     if (oldData === null) {

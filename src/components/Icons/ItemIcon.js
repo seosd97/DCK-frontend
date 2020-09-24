@@ -33,13 +33,24 @@ class ItemIcon extends React.Component {
     return (
       <React.Fragment>
         {this.state.src ? (
-          <img src={this.state.src} alt="item_img" className="item-icon img-20x20" />
+          <img
+            src={this.state.src}
+            alt="item_img"
+            className="item-icon"
+            width={this.props.width}
+            height={this.props.height}
+          />
         ) : (
-          <div className="item-icon img-20x20" style={{ backgroundColor: '#3b3c40' }}></div>
+          <div className="item-icon" style={{ backgroundColor: '#3b3c40' }}></div>
         )}
       </React.Fragment>
     );
   }
 }
+
+ItemIcon.defaultProps = {
+  width: '25px',
+  height: '25px'
+};
 
 export default ItemIcon;

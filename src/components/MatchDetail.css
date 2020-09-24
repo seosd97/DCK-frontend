@@ -24,8 +24,8 @@
 
 .match-detail-root .match-statics .round-tab-group .round-tab {
     font-size: 1rem;
-    padding: 8px 15px;
-    width: 90px;
+    padding: 10px 15px;
+    width: 110px;
     text-align: center;
     color: var(--black);
     border-radius: 20px;

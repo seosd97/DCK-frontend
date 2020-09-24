@@ -217,6 +217,11 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    transition: color .2s ease;
+}
+
+.summoner-match-history-elem .match-stat .stat-participants .participant-name:hover {
+    color: var(--black);
 }
 
 .summoner-match-history-elem .match-stat .stat-participants .participants-list {
