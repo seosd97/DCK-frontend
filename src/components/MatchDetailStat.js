@@ -74,41 +74,19 @@ class MatchDetailStat extends React.Component {
       return undefined;
     }
 
-    const summoner = matchData.summoners.find(s => {
+    const summoner = matchData.participants.find(s => {
       return s.uuid === uuid;
     });
 
     return summoner;
   }
 
-  getParticipantDatas(teamId) {
-    const { matchData } = this.state;
-    if (_.isEmpty(matchData)) {
-      return;
-    }
-
-    let result = [];
-    matchData.participants.forEach(p => {
-      if (p.team_id !== teamId) {
-        return;
-      }
-
-      let data = {};
-      data.stat = p.stat;
-      data.summoner = this.findSummoner(p.participant_id);
-
-      result.push(data);
-    });
-
-    return result;
-  }
-
   calcTotalGold(campId) {
     const { matchData } = this.state;
     let totalGold = 0;
-    matchData.participants.forEach(p => {
-      if (p.team_id === campId) {
-        totalGold += p.stat.goldEarned;
+    matchData.stats.forEach(p => {
+      if (p.camp_id === campId) {
+        totalGold += p.goldEarned;
       }
     });
 
@@ -122,11 +100,11 @@ class MatchDetailStat extends React.Component {
     let assists = 0;
 
     if (!_.isEmpty(matchData)) {
-      matchData.participants.forEach(p => {
-        if (p.team_id === campId) {
-          kills += p.stat.kill;
-          deaths += p.stat.death;
-          assists += p.stat.assist;
+      matchData.stats.forEach(p => {
+        if (p.camp_id === campId) {
+          kills += p.kill;
+          deaths += p.death;
+          assists += p.assist;
         }
       });
     }
@@ -236,7 +214,7 @@ class MatchDetailStat extends React.Component {
               </div>
             </div>
             <SummonerStatView matchData={matchData} />
-            <StatGraphView participants={matchData.participants} type="dealt" />
+            <StatGraphView stats={matchData.stats} type="dealt" />
           </React.Fragment>
         ) : (
           <div>Loading...</div>

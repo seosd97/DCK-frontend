@@ -18,14 +18,14 @@ class StatGraphView extends React.Component {
 
   filterStat(key) {
     let result = { stats: [], topValue: 0 };
-    const { participants } = this.props;
-    if (participants === undefined) {
+    const { stats } = this.props;
+    if (stats === undefined) {
       return null;
     }
 
-    participants.forEach(p => {
-      if (result.topValue < p.stat[key]) {
-        result.topValue = p.stat[key];
+    stats.forEach(p => {
+      if (result.topValue < p[key]) {
+        result.topValue = p[key];
       }
 
       result.stats.push({

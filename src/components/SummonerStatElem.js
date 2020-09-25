@@ -16,7 +16,11 @@ class SummonerStatElem extends React.Component {
   }
 
   calcKDA(stat) {
-    return ((stat.kill + stat.assist) / stat.death).toFixed(2);
+    const kda = (stat.kill + stat.assist) / stat.death;
+    if (kda === Infinity) {
+      return 'perfect';
+    }
+    return kda.toFixed(2);
   }
 
   getItemIdList(stat) {

@@ -35,7 +35,7 @@ class SummonerDetail extends React.Component {
   }
 
   async componentDidUpdate() {
-    if (this.state.summonerData.name === this.props.match.params.name) {
+    if (this.state.summonerData.summoner.name === this.props.match.params.name) {
       return;
     }
 
@@ -176,7 +176,7 @@ class SummonerDetail extends React.Component {
             </div>
             <div className="match-histories flex-col flex-j-c">
               {summonerData.matchList.matches.map((m, i) => {
-                return <MatchHistoryElem key={i} matchData={m} />;
+                return <MatchHistoryElem key={i} matchData={m} uuid={summonerData.summoner.uuid} />;
               })}
             </div>
           </div>

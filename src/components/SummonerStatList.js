@@ -3,14 +3,14 @@ import _ from 'underscore';
 import SummonerStatElem from './SummonerStatElem';
 import './SummonerStatList.css';
 
-const calcTopDealt = participants => {
-  if (_.isEmpty(participants)) {
+const calcTopDealt = stats => {
+  if (_.isEmpty(stats)) {
     return 0;
   }
 
   let topDealt = 0;
-  participants.forEach(s => {
-    topDealt = Math.max(topDealt, s.stat.totalDamageDealt);
+  stats.forEach(s => {
+    topDealt = Math.max(topDealt, s.totalDamageDealt);
   });
 
   return topDealt;
@@ -23,7 +23,7 @@ export default props => {
     return t.camp_id === teamId;
   });
   const participants = matchData.participants.filter(p => {
-    return p.team_id === teamId;
+    return p.camp_id === teamId;
   });
 
   return (
@@ -48,11 +48,9 @@ export default props => {
           return (
             <SummonerStatElem
               key={i}
-              summonerStat={p.stat}
-              summonerData={matchData.summoners.find(s => {
-                return p.participant_id === s.uuid;
-              })}
-              topDealt={calcTopDealt(matchData.participants)}
+              summonerStat={matchData.stats.find(s => s.summoner_uuid === p.uuid)}
+              summonerData={p}
+              topDealt={calcTopDealt(matchData.stats)}
               gameTime={matchData.duration}
             />
           );
