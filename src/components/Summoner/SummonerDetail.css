@@ -235,3 +235,14 @@
 .summoner-match-history-elem .match-stat .stat-participants .participant-elem:last-child {
     margin-bottom: 0;
 }
+
+.summoner-match-history-elem .match-stat .detail-link {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--black);
+    text-decoration: none;
+    padding: 0 7px;
+    transition: background-color .2s ease;
+}
