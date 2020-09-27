@@ -128,6 +128,9 @@ class MatchHistoryElem extends React.Component {
               })}
             </div>
           </div>
+          <Link to={`/matches/${matchData.MatchGroupId}`} className="detail-link">
+            〉
+          </Link>
         </div>
       </div>
     );
