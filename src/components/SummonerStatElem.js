@@ -59,7 +59,9 @@ class SummonerStatElem extends React.Component {
             <RuneIcon styleId={summonerStat.perkPrimaryStyle} rid={summonerStat.rune0} />
             <RuneIcon styleId={summonerStat.perkSubStyle} />
           </div>
-          <div className="summoner-name">{summonerData.name}</div>
+          <Link to={`/summoners/${summonerData.name}`} className="summoner-name">
+            {summonerData.name}
+          </Link>
         </div>
         <div className="stat-kda flex-col flex-j-c flex-align-c">
           <div className="text-align-center">{`${summonerStat.kill}/${summonerStat.death}/${summonerStat.assist}`}</div>

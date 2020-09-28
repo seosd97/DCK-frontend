@@ -203,6 +203,11 @@
 }
 
 .summoner-match-history-elem .match-stat .item-container {
+    display: grid;
+    grid-template-rows: repeat(2, 25px);
+    grid-template-columns: repeat(3, 25px);
+    grid-auto-flow: row dense;
+    gap: 1px;
     flex: 1 0;
     justify-content: center;
 }
