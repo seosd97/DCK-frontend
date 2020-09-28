@@ -82,7 +82,7 @@ class SummonerStatElem extends React.Component {
           <div>{summonerStat.totalMinionsKilled + summonerStat.neutralMinionsKilled}</div>
           <div className="cs-per-min">({this.getCSPerMin().toFixed(1)})</div>
         </div>
-        <div className="stat-item flex-row flex-j-c">
+        <div className="stat-item">
           {this.getItemIdList(summonerStat).map((e, i) => {
             return <ItemIcon key={i} iid={e} />;
           })}
