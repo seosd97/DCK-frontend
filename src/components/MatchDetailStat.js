@@ -4,7 +4,6 @@ import Axios from 'axios';
 import numeral from 'numeral';
 import moment from 'moment';
 import _ from 'underscore';
-import MatchInfo from './MatchInfo';
 import './MatchDetailStat.css';
 import ChampionIcon from './Icons/ChampionIcon';
 import IconLabel from './ui/IconLabel';

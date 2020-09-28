@@ -1,7 +1,7 @@
 .summoner-stat-root {
-    color: var(--black);
-    background: linear-gradient(to right, var(--white-hover), transparent);
-    /* background-color: var(--white-hover); */
+    color: var(--white);
+    /* background: linear-gradient(to right, var(--gray), transparent); */
+    background-color: var(--black);
     border-left: 3px solid var(--red);
     padding: 0 15px;
     margin-top: 20px;
@@ -9,7 +9,6 @@
 }
 
 .summoner-stat-root.winner {
-    background: linear-gradient(to right, var(--white-hover), transparent);
     border-color: var(--gold);
 }
 
@@ -60,8 +59,8 @@
     line-height: 15px;
     font-size: .65rem;
     text-align: center;
-    color: var(--white-hover);
-    background-color: rgba(0, 0, 0, .6);
+    color: var(--lightgray);
+    background-color: rgba(0, 0, 0, .8);
 }
 
 .summoner-stat-elem .stat-info .summoner-name {

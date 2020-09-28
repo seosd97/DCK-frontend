@@ -16,12 +16,13 @@
     text-align: center;
     padding: 15px 5px;
     border-bottom: 5px solid transparent;
+    color: var(--white);
     cursor: pointer;
     transition: border-color .2s ease;
 }
 
 .summoner-ranking-root .rank-col-tab .tab-elem:hover {
-    border-color: var(--white-hover);
+    border-color: var(--gray);
 }
 
 .summoner-ranking-root .rank-col-tab .tab-elem.selected {
@@ -33,9 +34,9 @@
     padding: 25px 15px;
     margin-bottom: 20px;
     border-radius: 10px;
-    background-color: var(--white-hover);
+    background-color: var(--deepgray);
     text-decoration: none;
-    color: var(--black);
+    color: var(--white);
     cursor: pointer;
     transition: background-color .3s ease-in-out;
 }
@@ -45,7 +46,7 @@
 }
 
 .stat-ranking-elem-root:hover {
-    background-color: #c9c9c9;
+    background-color: var(--gray);
 }
 
 .stat-ranking-elem-root .rank-desc {

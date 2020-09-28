@@ -18,7 +18,7 @@ class Main extends React.Component {
             ></img>
             <div className="main-title">
               <h1 className="main-header">DCK</h1>
-              <h2 className="sub-header">The League of Legends Tournament</h2>
+              <h2 className="sub-header">The our own League of Legends tournament</h2>
             </div>
             <div className="flex-row flex-a-c flex-wrap width-100">
               <RoundButton to="/matches" desc="경기 결과" />

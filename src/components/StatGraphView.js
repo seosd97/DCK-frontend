@@ -23,15 +23,15 @@ class StatGraphView extends React.Component {
       return null;
     }
 
-    stats.forEach(p => {
-      if (result.topValue < p[key]) {
-        result.topValue = p[key];
+    stats.forEach(s => {
+      if (result.topValue < s[key]) {
+        result.topValue = s[key];
       }
 
       result.stats.push({
-        cid: p.cid,
-        team_id: p.team_id,
-        value: p.stat[key]
+        cid: s.cid,
+        team_id: s.camp_id,
+        value: s[key]
       });
     });
 
@@ -39,17 +39,17 @@ class StatGraphView extends React.Component {
   }
 
   render() {
-    const { participants, type } = this.props;
-    if (participants === undefined) {
+    const { stats, type } = this.props;
+    if (stats === undefined) {
       return null;
     }
 
     const data = this.filterStat(statCols[type]);
-    const blueTeam = data.stats.filter(p => {
-      return p.team_id === 100;
+    const blueTeam = data.stats.filter(s => {
+      return s.team_id === 100;
     });
-    const redTeam = data.stats.filter(p => {
-      return p.team_id === 200;
+    const redTeam = data.stats.filter(s => {
+      return s.team_id === 200;
     });
 
     return (

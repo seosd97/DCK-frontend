@@ -1,18 +1,19 @@
 .cui-round-btn {
     width: 150px;
     font-size: 1.3rem;
+    font-weight: bold;
     padding: 10px 15px;
     box-sizing: inherit;
     margin-top: 25px;
     margin-right: 40px;
     border-radius: 20px;
     text-align: center;
-    color: var(--black);
-    background-color: var(--white);
+    color: var(--white);
+    background-color: var(--black);
     opacity: 0.8;
     transition: all .25s ease;
 }
 
 .cui-round-btn:hover {
-    background-color: var(--white-hover);
+    background-color: var(--gray);
 }

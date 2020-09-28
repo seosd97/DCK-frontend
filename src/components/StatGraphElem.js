@@ -13,7 +13,7 @@ export default ({ data, topValue, reverse }) => {
         <div className="stat-desc">{numeral(data.value).format('0.0a')}</div>
         <Progress
           val={(data.value / topValue) * 100}
-          fillColor={data.team_id === 100 ? 'var(--team-color-blue)' : 'var(--team-color-red)'}
+          fillColor={data.team_id === 100 ? 'var(--blue)' : 'var(--red)'}
           backgroundColor="transparent"
           width="100%"
           height="10px"

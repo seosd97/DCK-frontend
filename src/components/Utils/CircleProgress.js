@@ -62,7 +62,7 @@ CircleProgress.defaultProps = {
   fillColor: 'var(--blue)',
   value: 0,
   label: '',
-  labelColor: 'var(--black)',
+  labelColor: 'var(--white)',
   fontSize: '1em',
   fontWeight: '100'
 };

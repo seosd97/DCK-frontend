@@ -47,8 +47,8 @@ const descStyle = {
   margin: '0 10px',
   padding: '5px 3px',
   minWidth: '100px',
-  color: 'var(--black)',
-  backgroundColor: 'var(--white-hover)',
+  color: 'var(--white)',
+  backgroundColor: 'var(--gray)',
   borderRadius: '4px'
 };
 

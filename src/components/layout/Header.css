@@ -17,13 +17,13 @@ header {
 }
 
 .header-menu-item {
-    color: var(--black);
+    color: var(--white);
     margin: 0 20px;
     font-size: 1.1rem;
 }
 
 .header-menu-item:hover {
-    color: var(--light-black);
+    color: var(--lightgray);
 }
 
 .logo-img {

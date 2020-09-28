@@ -1,10 +1,11 @@
 .detail-stat-root {
     margin-top: 30px;
-    padding: 30px 40px;
-    border: 1px solid var(--white-hover);
+    padding: 20px 40px;
+    border: 1px solid var(--gray);
     border-radius: 8px;
     font-size: 1rem;
-    color: var(--black);
+    color: var(--white);
+    background-color: rgba(0, 0, 0, .1);
 }
 
 .detail-stat-root .game-info {
@@ -17,13 +18,13 @@
 .detail-stat-root .game-info .game-time {
     font-size: 1.3rem;
     font-weight: bold;
-    color: var(--black);
+    color: var(--white);
 }
 
 .detail-stat-root .game-info .game-details {
     font-size: .9rem;
     font-weight: bold;
-    color: var(--black);
+    color: var(--white);
 }
 
 .detail-stat-root .team-info {
@@ -41,7 +42,7 @@
 
 .detail-stat-root .team-info .detail-scoreboard .team-name {
     width: 230px;
-    color: var(--black);
+    color: var(--white);
 }
 
 .detail-stat-root .team-info .detail-scoreboard .winner {
@@ -52,7 +53,7 @@
     padding: 2px 4px;
     margin: auto 5px;
     font-size: .5em;
-    color: var(--white);
+    color: var(--black);
     background-color: var(--gold);
     border-radius: 4px;
     text-align: center;
@@ -60,7 +61,7 @@
 
 .detail-stat-root .team-info .detail-scoreboard .scoreboard {
     margin: 0 .5em;
-    color: var(--black);
+    color: var(--white);
 }
 
 .detail-stat-root .team-info .detail-scoreboard .scoreboard .score {
@@ -69,7 +70,7 @@
     width: 1.8em;
     height: 1.8em;
     margin: 0 4px;
-    background-color: var(--white-hover);
+    background-color: var(--gray);
     border-radius: 8px;
 }
 

@@ -1,15 +1,14 @@
 body {
     --white: #faf9f8;
-    --white-hover: #ebebeb;
-    --black: #333533;
-    --light-black: #5f6566;
+    --lightgray: #ebebeb;
+    --gray: #495057;
+    --deepgray: #343A40;
+    --black: #212529;
     --green: #2daf7f;
     --orange: #e19205;
-    --red: #ca1222;
-    --blue: #0073df;
-    --gold: #f0cc00;
-    --team-color-red: #e46057;
-    --team-color-blue: #57a0e4;
+    --red: #F44242;
+    --blue: #3793FF;
+    --gold: #F5D216;
 }
 
 .text-align-left {
@@ -33,11 +32,11 @@ body {
 }
 
 .tc-black {
-    color: var(--black);
+    color: var(--white);
 }
 
 .tc-normal {
-    color: var(--light-black);
+    color: var(--lightgray);
 }
 
 .tc-green {

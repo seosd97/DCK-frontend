@@ -1,10 +1,9 @@
 .match-element {
     padding: 20px 10px;
-    /* border-bottom: 1px solid rgba(0, 0, 0, .1); */
     margin-bottom: 25px;
     transition: background-color .3s ease;
-    background-color: var(--white-hover);
-    color: var(--black);
+    background-color: var(--deepgray);
+    color: var(--white);
     border-radius: 15px;
 }
 
@@ -13,13 +12,12 @@
 }
 
 .match-element:hover {
-    color: var(--black);
-    /* background-color: var(--white); */
-    background: #a7a7a7;
+    color: var(--white);
+    background-color: var(--gray);
 }
 
 .match-element .tournament-name {
-    color: var(--light-black);
+    color: var(--lightgray);
     font-size: .9rem;
 }
 
@@ -29,7 +27,7 @@
     padding: 2px 3px;
     font-size: 1rem;
     font-weight: bold;
-    background-color: var(--white);
+    background-color: var(--black);
     border-radius: 20px;
 }
 
@@ -53,5 +51,5 @@
 }
 
 .match-element .match-result .match-losser {
-    color: var(--light-black)
+    color: var(--lightgray)
 }

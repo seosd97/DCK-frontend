@@ -69,9 +69,7 @@ class SummonerStatElem extends React.Component {
           {numeral(summonerStat.totalDamageDealt).format('0,0')}
           <Progress
             val={(summonerStat.totalDamageDealt / topDealt) * 100}
-            fillColor={
-              summonerStat.camp_id === 100 ? 'var(--team-color-blue)' : 'var(--team-color-red)'
-            }
+            fillColor={summonerStat.camp_id === 100 ? 'var(--blue)' : 'var(--red)'}
             width="75px"
             height="5px"
             round="5px"

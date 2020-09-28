@@ -117,11 +117,11 @@ class SummonerDetail extends React.Component {
                       height="120"
                       lineWidth="17px"
                       radius="50"
-                      backgroundColor="var(--team-color-red)"
-                      fillColor="var(--team-color-blue)"
+                      backgroundColor="var(--red)"
+                      fillColor="var(--blue)"
                       value={(totalStat.wins / totalStat.games) * 100}
                       label={`${((totalStat.wins / totalStat.games) * 100).toFixed(1)}%`}
-                      labelColor="var(--light-black)"
+                      labelColor="var(--lightgray)"
                       fontSize="1.2rem"
                       fontWeight="bold"
                     />
@@ -170,9 +170,9 @@ class SummonerDetail extends React.Component {
                 </div>
               </div>
 
-              <div className="statics-element">
+              {/* <div className="statics-element">
                 <div className="statics-desc">포지션</div>
-              </div>
+              </div> */}
             </div>
             <div className="match-histories flex-col flex-j-c">
               {summonerData.matchList.matches.map((m, i) => {

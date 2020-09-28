@@ -4,7 +4,7 @@
 
 .cui-scoreboard-root .team-name {
     font-weight: bold;
-    color: var(--black);
+    color: var(--white);
 }
 
 .cui-scoreboard-root .scoreboard {
@@ -19,6 +19,6 @@
     height: 2em;
     margin: 0 4px;
     border-radius: 8px;
-    color: var(--black);
-    background-color: var(--white-hover);
+    color: var(--white);
+    background-color: var(--gray);
 }
