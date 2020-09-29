@@ -1,14 +1,13 @@
 .match-element {
     padding: 20px 10px;
+    margin: 10px;
     margin-bottom: 25px;
     transition: background-color .3s ease;
     background-color: var(--deepgray);
     color: var(--white);
     border-radius: 15px;
-}
-
-.match-element:last-child {
-    /* border: none; */
+    cursor: pointer;
+    box-sizing: border-box;
 }
 
 .match-element:hover {

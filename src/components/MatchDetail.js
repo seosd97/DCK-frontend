@@ -66,6 +66,23 @@ class MatchDetail extends React.Component {
     return match.game_id;
   }
 
+  renderScoreboard(withVersus = false) {
+    const { matchData, team1, team2 } = this.state;
+    return (
+      <div className="scoreboard-root flex-row flex-j-c flex-align-c">
+        <div className="scoreboard-blue">
+          <div className="team-score">{matchData.team1_score}</div>
+          <h2 className="team-name">{team1.name}</h2>
+        </div>
+        {withVersus && <span>vs</span>}
+        <div className="scoreboard-red">
+          <div className="team-score">{matchData.team2_score}</div>
+          <h2 className="team-name">{team2.name}</h2>
+        </div>
+      </div>
+    );
+  }
+
   render() {
     const { matchData, team1, team2 } = this.state;
 
@@ -79,13 +96,7 @@ class MatchDetail extends React.Component {
                 <br />
                 BREAKDOWN
               </h1>
-              <Scoreboard
-                team1={team1.name}
-                team2={team2.name}
-                team1_score={matchData.team1_score}
-                team2_score={matchData.team2_score}
-                fontSize="2.3rem"
-              />
+              {this.renderScoreboard()}
             </section>
             <div className="match-statics flex-col flex-align-c">
               <div className="round-tab-group flex-row flex-align-c flex-j-c">

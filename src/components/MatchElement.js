@@ -21,7 +21,7 @@ export default props => {
     >
       <div className="match-type">{matchData.type}</div>
 
-      <div className="match-result flex-row flex-j-c flex-align-c width-100">
+      <div className="match-result flex-row flex-j-c flex-align-c">
         <div className={'team' + (isBlueWin ? ' match-winner' : ' match-losser')}>{team1.name}</div>
         <div className="score flex-row flex-j-c">
           <div>{matchData.team1_score}</div>

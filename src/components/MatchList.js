@@ -78,7 +78,7 @@ class MatchList extends React.Component {
               })}
             </Select> */}
           </div>
-          <div className="flex-col flex-j-c flex-align-c width-100">
+          <div className="flex-col flex-align-c width-100">
             {!_.isEmpty(matches) ? (
               matches.map((m, i) => {
                 return <MatchElement key={i} matchData={m} />;

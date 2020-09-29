@@ -5,33 +5,67 @@
 }
 
 .match-detail-root .detail-header {
-    padding-top: 100px;
-    padding-bottom: 180px;
+    /* padding-top: 100px;
+    padding-bottom: 180px; */
+    margin: 80px 0 130px 0
 }
 
 .match-detail-root .detail-header>h1 {
-    font-size: 2rem;
+    font-size: 2.3rem;
     font-weight: bold;
-    /* margin-top: 50px; */
+    margin: 30px 0 90px 0;
     color: var(--lightgray);
 }
 
-@media screen and (max-width: 410px) {
-    .match-detail-root>h1 {
-        font-size: 1.6rem;
-    }
+.match-detail-root .scoreboard-root {
+    color: var(--white);
+    font-weight: bold;
+}
+
+.match-detail-root .scoreboard-root .scoreboard-blue {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center
+}
+
+.match-detail-root .scoreboard-root .scoreboard-red {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.match-detail-root .scoreboard-root .team-name {
+    margin: 0;
+    padding: 0 10px;
+    font-size: 2.2rem;
+}
+
+.match-detail-root .scoreboard-root .team-score {
+    font-size: 2.2em;
+    line-height: 2.2em;
+    width: 2.2em;
+    height: 2.2em;
+    text-align: center;
+    border-radius: 8px;
+    margin: 0 5px;
+    background-color: var(--gray);
+}
+
+.match-detail-root .match-statics .round-tab-group {
+    /* flex-wrap: wrap; */
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .match-detail-root .match-statics .round-tab-group .round-tab {
-    font-size: 1rem;
-    font-weight: bold;
     padding: 10px 15px;
-    width: 110px;
+    /* min-width: 90px; */
     text-align: center;
     color: var(--white);
     border-radius: 20px;
     transition: background-color .2s ease, color .2s ease;
-    margin: 0 5px;
+    margin: 3px;
 }
 
 .match-detail-root .match-statics .round-tab-group .round-tab.selected {
@@ -40,6 +74,40 @@
 }
 
 .match-detail-root .match-statics .round-tab-group .round-tab:hover {
-    background-color: var(--gray);
+    background-color: var(--deepgray);
     color: var(--gold);
+}
+
+@media screen and (max-width: 580px) {
+    .match-detail-root .match-statics .round-tab-group {
+        font-size: .7rem;
+    }
+    .match-detail-root .match-statics .round-tab-group .round-tab {
+        padding: 5px 10px;
+        /* min-width: 80px; */
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .match-detail-root .detail-header>h1 {
+        font-size: 2rem;
+    }
+    .match-detail-root .match-statics .round-tab-group {
+        font-size: .4rem;
+        margin: 0 2px;
+    }
+    .match-detail-root .match-statics .round-tab-group .round-tab {
+        padding: 5px 5px;
+        /* min-width: 20px; */
+    }
+    .match-detail-root .scoreboard-root .team-name {
+        padding: 0 5px;
+        font-size: 1.9em;
+    }
+    .match-detail-root .scoreboard-root .team-score {
+        font-size: 1.7em;
+        line-height: 1.7em;
+        width: 1.7em;
+        height: 1.7em;
+    }
 }
