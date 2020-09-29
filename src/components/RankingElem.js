@@ -18,18 +18,20 @@ export default ({ statData, rank }) => {
         ></img>
         <h2>{statData.name}</h2>
       </div>
-      <div className="game-record flex-col flex-j-c flex-align-c">
-        <div>
-          {statData.games}전 {statData.wins}승 {statData.defeats}패
+      <div className="stat-info flex-row flex-align-c">
+        <div className="game-record flex-col flex-j-c flex-align-c">
+          <div>
+            {statData.wins}승 {statData.defeats}패
+          </div>
+          <div>{((statData.wins / statData.games) * 100).toFixed(1)}%</div>
         </div>
-        <div>{((statData.wins / statData.games) * 100).toFixed(1)}%</div>
+        <div className="kda-record flex-col flex-j-c flex-align-c">
+          <div>{`${statData.kills}/${statData.deaths}/${statData.assists}`}</div>
+          <div>{((statData.kills + statData.assists) / statData.deaths).toFixed(2)}</div>
+        </div>
+        <div className="vision-score">시야 {statData.visionScore.toFixed(1)}</div>
+        <div className="cs">CS {statData.cs.toFixed(1)}</div>
       </div>
-      <div className="kda-record flex-col flex-j-c flex-align-c">
-        <div>{`${statData.kills}/${statData.deaths}/${statData.assists}`}</div>
-        <div>{((statData.kills + statData.assists) / statData.deaths).toFixed(2)}</div>
-      </div>
-      <div className="vision-score">시야 {statData.visionScore.toFixed(1)}</div>
-      <div className="cs">CS {statData.cs.toFixed(1)}</div>
     </Link>
   );
 };
