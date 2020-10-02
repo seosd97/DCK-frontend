@@ -6,6 +6,7 @@
 
 .summoner-detail-root .summoner-info {
     padding: 25px 15px;
+    margin: 0 10px;
     border-bottom: 1px solid var(--lightgray);
 }
 
@@ -40,8 +41,8 @@
 .summoner-detail-root .match-statics {
     padding: 15px 10px;
     background-color: rgba(0, 0, 0, .1);
-    margin-top: 20px;
     border-radius: 5px;
+    margin: 20px 10px 0 10px;
 }
 
 .summoner-detail-root .match-statics .statics-element {
@@ -52,7 +53,7 @@
 
 .summoner-detail-root .match-statics .statics-desc {
     margin-bottom: 15px;
-    font-size: .9rem;
+    font-size: .9em;
     font-weight: bold;
     color: var(--lightgray);
 }
@@ -61,23 +62,23 @@
     border-right: none;
 }
 
-.summoner-detail-root .match-statics .winrate-graph {
+.summoner-detail-root .match-statics .match-summary .winrate-graph {
     flex: 1 0;
 }
 
-.summoner-detail-root .match-statics .match-stat {
-    font-size: 1.1rem;
+.summoner-detail-root .match-statics .match-summary .match-stat {
+    font-size: 1.1em;
     font-weight: bold;
     flex: 1 0;
 }
 
-.summoner-detail-root .match-statics .match-stat .match-result {
+.summoner-detail-root .match-statics .match-summary .match-stat .match-result {
     margin-bottom: 10px;
 }
 
 .summoner-detail-root .match-statics .champion-statics {
     padding: 3px 8px;
-    font-size: .9rem;
+    font-size: .9em;
 }
 
 .summoner-detail-root .match-statics .champion-statics .champ-info {
@@ -86,7 +87,7 @@
 }
 
 .summoner-detail-root .match-statics .champion-statics .champ-info .champ-stat {
-    font-size: .75rem;
+    font-size: .75em;
 }
 
 .summoner-detail-root .match-statics .champion-statics .champ-info .champ-stat .kda-desc {
@@ -100,7 +101,7 @@
 }
 
 .summoner-detail-root .match-statics .champion-statics .champ-winrate .winrate-desc {
-    font-size: .8rem;
+    font-size: .8em;
     color: var(--lightgray);
 }
 
@@ -113,7 +114,6 @@
     margin: 8px 0;
     border-radius: 5px;
     background-color: rgba(0, 0, 0, .1);
-    font-size: 1rem;
 }
 
 .summoner-match-history-elem.win {
@@ -151,7 +151,7 @@
     width: 20px;
     height: 20px;
     line-height: 20px;
-    font-size: .7rem;
+    font-size: .7em;
     text-align: center;
     color: var(--lightgray);
     background-color: rgba(0, 0, 0, .8);
@@ -164,7 +164,7 @@
 }
 
 .summoner-match-history-elem .match-stat .stat-result .match-time {
-    font-size: .9rem;
+    font-size: .9em;
     color: var(--lightgray);
 }
 
@@ -181,7 +181,7 @@
 }
 
 .summoner-match-history-elem .match-stat .sub-stat {
-    font-size: .8rem;
+    font-size: .8em;
 }
 
 .summoner-match-history-elem .match-stat .stat-kda .kda-desc {
@@ -217,7 +217,7 @@
 }
 
 .summoner-match-history-elem .match-stat .stat-participants .participant-name {
-    font-size: .85rem;
+    font-size: .85em;
     padding-left: 5px;
     color: var(--lightgray);
     width: 80px;
@@ -245,11 +245,54 @@
 
 .summoner-match-history-elem .match-stat .detail-link {
     display: block;
-    font-size: 1.3rem;
+    font-size: 1.3em;
     font-weight: bold;
     text-align: center;
     color: var(--white);
     text-decoration: none;
     padding: 0 7px;
     transition: background-color .2s ease;
+}
+
+@media screen and (max-width: 650px) {
+    .summoner-detail-root .match-statics {
+        flex-direction: column;
+    }
+    .summoner-detail-root .match-statics .statics-element {
+        border-right: 0;
+        border-bottom: 1px solid var(--gray);
+        padding-bottom: 20px;
+        margin-bottom: 15px;
+    }
+    .summoner-detail-root .match-statics .statics-element:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+    /* .summoner-detail-root .match-statics .match-summary .match-stat {
+        margin: 20px 0;
+    }
+    .summoner-detail-root .match-statics .champion-statics {
+        flex-direction: column;
+        margin: 5px;
+    }
+    .summoner-detail-root .match-statics .champion-statics .champ-info {
+        display: none;
+    }
+    .summoner-detail-root .match-statics .champion-statics .champ-winrate {
+        margin: 0;
+    }
+    .summoner-detail-root .match-statics .champion-statics .champ-winrate .winrate-desc {
+        display: none;
+    } */
+}
+
+@media screen and (max-width: 425px) {
+    .summoner-detail-root .summoner-info>img {
+        width: 80px;
+        height: 80px;
+    }
+    .summoner-detail-root .summoner-info .summoner-desc h1 {
+        /* font-size: 1.6em */
+    }
 }

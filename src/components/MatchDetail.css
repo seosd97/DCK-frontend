@@ -5,13 +5,11 @@
 }
 
 .match-detail-root .detail-header {
-    /* padding-top: 100px;
-    padding-bottom: 180px; */
     margin: 80px 0 130px 0
 }
 
 .match-detail-root .detail-header>h1 {
-    font-size: 2.3rem;
+    font-size: 2.3em;
     font-weight: bold;
     margin: 30px 0 90px 0;
     color: var(--lightgray);
@@ -38,14 +36,14 @@
 .match-detail-root .scoreboard-root .team-name {
     margin: 0;
     padding: 0 10px;
-    font-size: 2.2rem;
+    font-size: 2.3em;
 }
 
 .match-detail-root .scoreboard-root .team-score {
-    font-size: 2.2em;
-    line-height: 2.2em;
-    width: 2.2em;
-    height: 2.2em;
+    font-size: 2.3em;
+    line-height: 2.3em;
+    width: 2.3em;
+    height: 2.3em;
     text-align: center;
     border-radius: 8px;
     margin: 0 5px;
@@ -54,18 +52,17 @@
 
 .match-detail-root .match-statics .round-tab-group {
     /* flex-wrap: wrap; */
-    font-size: 1rem;
+    font-size: .8em;
     font-weight: bold;
 }
 
 .match-detail-root .match-statics .round-tab-group .round-tab {
     padding: 10px 15px;
-    /* min-width: 90px; */
     text-align: center;
     color: var(--white);
     border-radius: 20px;
     transition: background-color .2s ease, color .2s ease;
-    margin: 3px;
+    margin: 0 5px;
 }
 
 .match-detail-root .match-statics .round-tab-group .round-tab.selected {
@@ -78,36 +75,8 @@
     color: var(--gold);
 }
 
-@media screen and (max-width: 580px) {
-    .match-detail-root .match-statics .round-tab-group {
-        font-size: .7rem;
-    }
+@media screen and (max-width: 765px) {
     .match-detail-root .match-statics .round-tab-group .round-tab {
         padding: 5px 10px;
-        /* min-width: 80px; */
-    }
-}
-
-@media screen and (max-width: 425px) {
-    .match-detail-root .detail-header>h1 {
-        font-size: 2rem;
-    }
-    .match-detail-root .match-statics .round-tab-group {
-        font-size: .4rem;
-        margin: 0 2px;
-    }
-    .match-detail-root .match-statics .round-tab-group .round-tab {
-        padding: 5px 5px;
-        /* min-width: 20px; */
-    }
-    .match-detail-root .scoreboard-root .team-name {
-        padding: 0 5px;
-        font-size: 1.9em;
-    }
-    .match-detail-root .scoreboard-root .team-score {
-        font-size: 1.7em;
-        line-height: 1.7em;
-        width: 1.7em;
-        height: 1.7em;
     }
 }

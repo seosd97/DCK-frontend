@@ -44,11 +44,18 @@ class ProfileIcon extends React.Component {
         <img
           src={this.state.src}
           alt={`${this.props.iconId}.png`}
-          className="img-120x120 img-round"
+          className="profile-icon img-round"
+          width={this.props.width}
+          height={this.props.height}
         ></img>
       </React.Fragment>
     );
   }
 }
+
+ProfileIcon.defaultProps = {
+  width: '120px',
+  height: '120px'
+};
 
 export default ProfileIcon;

@@ -17,14 +17,13 @@
 
 .match-element .tournament-name {
     color: var(--lightgray);
-    font-size: .9rem;
+    font-size: .9em;
 }
 
 .match-element .match-type {
     width: 130px;
     text-align: center;
     padding: 2px 3px;
-    font-size: 1rem;
     font-weight: bold;
     background-color: var(--black);
     border-radius: 20px;
@@ -36,12 +35,12 @@
 }
 
 .match-element .match-result .team {
-    font-size: 1.7rem;
+    font-size: 1.7em;
 }
 
 .match-element .match-result .score {
     width: 100px;
-    font-size: 1.3rem;
+    font-size: 1.3em;
     font-weight: bold;
 }
 

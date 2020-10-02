@@ -5,7 +5,7 @@
     border-left: 3px solid var(--red);
     padding: 0 15px;
     margin-top: 20px;
-    font-size: .95rem;
+    font-size: .95em;
 }
 
 .summoner-stat-root.winner {
@@ -37,7 +37,7 @@
 
 .summoner-stat-elem {
     position: relative;
-    font-size: .85rem;
+    font-size: .85em;
     margin: 5px 0;
 }
 
@@ -57,7 +57,7 @@
     width: 15px;
     height: 15px;
     line-height: 15px;
-    font-size: .65rem;
+    font-size: .65em;
     text-align: center;
     color: var(--lightgray);
     background-color: rgba(0, 0, 0, .8);
@@ -65,7 +65,7 @@
 
 .summoner-stat-elem .stat-info .summoner-name {
     padding-left: 10px;
-    font-size: .9rem;
+    font-size: 1.2em;
     color: var(--white);
 }
 
@@ -94,7 +94,7 @@
 }
 
 .stat-body .stat-cs .cs-per-min {
-    font-size: .7rem;
+    font-size: .7em;
 }
 
 .summoner-stat-root .stat-header .stat-item, .stat-body .stat-item {

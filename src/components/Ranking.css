@@ -1,20 +1,19 @@
 .summoner-ranking-root {
     max-width: 1100px;
     margin: 0 auto;
-    margin: 0 5px;
     padding-top: 40px;
-    font-size: 1rem;
 }
 
 .summoner-ranking-root .rank-col-tab {
     flex-wrap: wrap;
     margin-top: 10px;
     margin-bottom: 25px;
+    padding: 10px;
 }
 
 .summoner-ranking-root .rank-col-tab .tab-elem {
     min-width: 100px;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     text-align: center;
     padding: 15px 5px;
     border-bottom: 5px solid transparent;
@@ -32,8 +31,11 @@
     border-color: var(--gold);
 }
 
+.summoner-ranking-root .summoner-ranking-list {
+    padding: 0 10px;
+}
+
 .stat-ranking-elem-root {
-    font-size: 1em;
     padding: 25px 15px;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -114,7 +116,7 @@
 }
 
 @media screen and (max-width: 425px) {
-    .stat-ranking-elem-root .stat-info {
-        font-size: .9rem;
-    }
+    /* .stat-ranking-elem-root .stat-info {
+        font-size: .9em;
+    } */
 }

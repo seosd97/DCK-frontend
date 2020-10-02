@@ -7,16 +7,20 @@ body {
   font-family: 'Nunito', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Ubuntu', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* font-size: 1rem; */
+  font-size: 1rem;
   font-weight: 400;
   background: var(--black);
 }
 
-/* TODO : body의 font-size를 기준으로 동작하도록 변경 */
-
-@media screen and (max-width: 1095px) {
+@media screen and (max-width: 765px) {
   body {
-    /* font-size: .8rem; */
+    font-size: .8rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  body {
+    font-size: .7rem;
   }
 }
 

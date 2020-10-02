@@ -110,7 +110,7 @@ class SummonerDetail extends React.Component {
             <div className="match-statics flex-row flex-j-c">
               <div className="statics-element">
                 <div className="statics-desc">전적 요약</div>
-                <div className="flex-row flex-j-c">
+                <div className="match-summary flex-row flex-j-c">
                   <div className="winrate-graph flex-row flex-j-c">
                     <CircleProgress
                       width="120"

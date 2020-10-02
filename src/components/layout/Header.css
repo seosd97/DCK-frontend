@@ -19,7 +19,7 @@ header {
 .header-menu-item {
     color: var(--white);
     margin: 0 20px;
-    font-size: 1.1rem;
+    font-size: 1.1em;
 }
 
 .header-menu-item:hover {
