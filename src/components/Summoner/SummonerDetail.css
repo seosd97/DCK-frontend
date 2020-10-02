@@ -111,7 +111,7 @@
 
 .summoner-match-history-elem {
     padding: 5px 15px 10px 15px;
-    margin: 8px 0;
+    margin: 8px 10px;
     border-radius: 5px;
     background-color: rgba(0, 0, 0, .1);
 }
@@ -138,6 +138,7 @@
 .summoner-match-history-elem .match-stat {
     padding: 5px 0;
     font-weight: bold;
+    height: 8em;
 }
 
 .summoner-match-history-elem .match-stat .champion-icon {
@@ -160,6 +161,7 @@
 .summoner-match-history-elem .match-stat .stat-result {
     flex: 0.5 0;
     margin-right: 20px;
+    padding: 1em 0;
     border-right: 1px solid #c7c7c7;
 }
 
@@ -254,6 +256,12 @@
     transition: background-color .2s ease;
 }
 
+@media screen and (max-width: 875px) {
+    .summoner-match-history-elem .match-stat .stat-participants {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 650px) {
     .summoner-detail-root .match-statics {
         flex-direction: column;
@@ -269,30 +277,11 @@
         padding-bottom: 0;
         margin-bottom: 0;
     }
-    /* .summoner-detail-root .match-statics .match-summary .match-stat {
-        margin: 20px 0;
-    }
-    .summoner-detail-root .match-statics .champion-statics {
-        flex-direction: column;
-        margin: 5px;
-    }
-    .summoner-detail-root .match-statics .champion-statics .champ-info {
-        display: none;
-    }
-    .summoner-detail-root .match-statics .champion-statics .champ-winrate {
-        margin: 0;
-    }
-    .summoner-detail-root .match-statics .champion-statics .champ-winrate .winrate-desc {
-        display: none;
-    } */
 }
 
 @media screen and (max-width: 425px) {
     .summoner-detail-root .summoner-info>img {
         width: 80px;
         height: 80px;
-    }
-    .summoner-detail-root .summoner-info .summoner-desc h1 {
-        /* font-size: 1.6em */
     }
 }

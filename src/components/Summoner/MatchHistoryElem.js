@@ -36,7 +36,7 @@ class MatchHistoryElem extends React.Component {
           <span className="match-type">{matchData.type}</span>
           <span className="match-round">{`round ${matchData.round}`}</span>
         </div>
-        <div className="match-stat flex-row flex-align-c">
+        <div className="match-stat flex-row flex-j-c flex-align-c">
           <div className="stat-result flex-col flex-j-c flex-align-c">
             <span className={'t-bold' + (stat.win ? ' tc-blue' : ' tc-red')}>
               {stat.win ? '승리' : '패배'}
