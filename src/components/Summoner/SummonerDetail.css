@@ -110,7 +110,7 @@
 }
 
 .summoner-match-history-elem {
-    padding: 5px 15px 10px 15px;
+    padding: 10px 15px;
     margin: 8px 10px;
     border-radius: 5px;
     background-color: rgba(0, 0, 0, .1);
@@ -124,28 +124,49 @@
     border-left: 5px solid var(--red);
 }
 
-.summoner-match-history-elem .match-info {
+/* .summoner-match-history-elem .match-stat .match-info {
     padding: 5px 0;
     margin-bottom: 5px;
     border-bottom: 1px solid #c7c7c7;
-}
-
-.summoner-match-history-elem .match-info .match-type {
-    font-weight: bold;
-    margin-right: 10px;
-}
+} */
 
 .summoner-match-history-elem .match-stat {
-    padding: 5px 0;
     font-weight: bold;
     height: 8em;
 }
 
-.summoner-match-history-elem .match-stat .champion-icon {
+.summoner-match-history-elem .match-stat .match-info {
+    flex: 0.5 0;
+    margin-right: 20px;
+    border-right: 1px solid #c7c7c7;
+}
+
+.summoner-match-history-elem .match-stat .match-info div:first-child {
+    margin-bottom: 10px;
+}
+
+.summoner-match-history-elem .match-stat .match-info .match-info-type .match-round {
+    font-weight: normal;
+}
+
+.summoner-match-history-elem .match-stat .match-info .match-info-result .match-time {
+    font-size: .9em;
+    color: var(--lightgray);
+}
+
+.summoner-match-history-elem .match-stat .stat-detail {
+    flex: 3 0;
+}
+
+.summoner-match-history-elem .match-stat .stat-detail .champion-info {
+    flex: 1 0;
+}
+
+.summoner-match-history-elem .match-stat .stat-detail .champion-info .champion-icon {
     position: relative;
 }
 
-.summoner-match-history-elem .match-stat .champion-level {
+.summoner-match-history-elem .match-stat .stat-detail .champion-info .champion-level {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -158,28 +179,12 @@
     background-color: rgba(0, 0, 0, .8);
 }
 
-.summoner-match-history-elem .match-stat .stat-result {
-    flex: 0.5 0;
-    margin-right: 20px;
-    padding: 1em 0;
-    border-right: 1px solid #c7c7c7;
-}
-
-.summoner-match-history-elem .match-stat .stat-result .match-time {
-    font-size: .9em;
-    color: var(--lightgray);
-}
-
-.summoner-match-history-elem .match-stat .champion-info {
-    flex: .7 0;
-}
-
-.summoner-match-history-elem .match-stat .champion-info .champion-icon, .spell-container, .rune-container {
+.summoner-match-history-elem .match-stat .stat-detail .champion-info .info-icon {
     margin-right: 5px;
 }
 
 .summoner-match-history-elem .match-stat .stat-kda {
-    flex: .5 0;
+    flex: 1 0;
 }
 
 .summoner-match-history-elem .match-stat .sub-stat {
@@ -192,7 +197,7 @@
 }
 
 .summoner-match-history-elem .match-stat .stat-cs {
-    flex: .5 0;
+    flex: 1 0;
 }
 
 .summoner-match-history-elem .match-stat .stat-cs .cs-per-m {
@@ -200,7 +205,7 @@
 }
 
 .summoner-match-history-elem .match-stat .stat-vision {
-    flex: .5 0;
+    flex: 1 0;
     text-align: center;
 }
 
@@ -215,7 +220,7 @@
 }
 
 .summoner-match-history-elem .match-stat .stat-participants {
-    flex: 1.5 0;
+    flex: 2 0;
 }
 
 .summoner-match-history-elem .match-stat .stat-participants .participant-name {
@@ -256,9 +261,38 @@
     transition: background-color .2s ease;
 }
 
-@media screen and (max-width: 875px) {
+@media screen and (max-width: 899px) {
     .summoner-match-history-elem .match-stat .stat-participants {
         display: none;
+    }
+}
+
+@media screen and (max-width: 765px) {
+    .summoner-match-history-elem .match-stat {
+        flex-direction: column;
+    }
+    .summoner-match-history-elem .match-stat .match-info {
+        flex-direction: row;
+        justify-content: space-between;
+        border-right: none;
+        border-bottom: 1px solid var(--lightgray);
+        margin-right: 0;
+        padding-bottom: 5px;
+    }
+    .summoner-match-history-elem .match-stat .match-info div:first-child {
+        margin-bottom: 0;
+    }
+    .summoner-match-history-elem .match-stat .match-info .match-info-type {
+        flex-direction: row;
+    }
+    .summoner-match-history-elem .match-stat .match-info .match-info-type span:first-child {
+        margin: 0 5px;
+    }
+    .summoner-match-history-elem .match-stat .match-info .match-info-result {
+        flex-direction: row-reverse;
+    }
+    .summoner-match-history-elem .match-stat .match-info .match-info-result span:first-child {
+        margin: 0 5px;
     }
 }
 

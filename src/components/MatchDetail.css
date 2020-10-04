@@ -50,6 +50,10 @@
     background-color: var(--gray);
 }
 
+.match-detail-root .match-statics {
+    padding: 0 10px;
+}
+
 .match-detail-root .match-statics .round-tab-group {
     /* flex-wrap: wrap; */
     font-size: .8em;
@@ -57,7 +61,7 @@
 }
 
 .match-detail-root .match-statics .round-tab-group .round-tab {
-    padding: 10px 15px;
+    padding: 1em;
     text-align: center;
     color: var(--white);
     border-radius: 20px;
@@ -73,10 +77,4 @@
 .match-detail-root .match-statics .round-tab-group .round-tab:hover {
     background-color: var(--deepgray);
     color: var(--gold);
-}
-
-@media screen and (max-width: 765px) {
-    .match-detail-root .match-statics .round-tab-group .round-tab {
-        padding: 5px 10px;
-    }
 }
