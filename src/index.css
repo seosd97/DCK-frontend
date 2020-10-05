@@ -137,7 +137,7 @@ footer p a {
 }
 
 footer p a:hover {
-  color: var(--gray);
+  color: var(--lightgray);
 }
 
 footer #social-links {

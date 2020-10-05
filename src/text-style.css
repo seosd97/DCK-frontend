@@ -1,6 +1,6 @@
 body {
     --white: #faf9f8;
-    --lightgray: #ebebeb;
+    --lightgray: #c7c7c7;
     --gray: #495057;
     --deepgray: #343A40;
     --black: #212529;
@@ -45,14 +45,6 @@ body {
 
 .tc-orange {
     color: var(--orange);
-}
-
-.fs-1r {
-    font-size: 1rem;
-}
-
-.fs-1-2r {
-    font-size: 1.2rem;
 }
 
 .t-bold {

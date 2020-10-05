@@ -7,8 +7,7 @@ export default () => {
       <p>
         Contact us by <a href="mailto:seosd97@gmail.com">e-mail</a>
       </p>
-      <p>Released under the MIT License</p>
-      <p>Copyright (c) 2020 SeungDuk Seo</p>
+      <p>Copyright (c) 2020 SeungDuk Seo | Released under the MIT License</p>
       <div id="social-links" className="flex-row flex-align-c">
         <a href="https://www.youtube.com/user/cjwsc0410" target="_blank" rel="noopener noreferrer">
           <img
