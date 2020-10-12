@@ -13,9 +13,9 @@ class ItemIcon extends React.Component {
 
   async componentDidMount() {
     if (this.props.iid > 0) {
-      const version = await DDragon.getVersion();
+      // const version = await DDragon.getVersion();
       this.setState({
-        src: `http://ddragon.leagueoflegends.com/cdn/${version}/img/item/${this.props.iid}.png`
+        src: `http://ddragon.leagueoflegends.com/cdn/10.19.1/img/item/${this.props.iid}.png`
       });
     }
   }

@@ -50,7 +50,7 @@ class MatchHistoryElem extends React.Component {
           <div className="stat-detail flex-row flex-align-c width-100">
             <div className="champion-info flex-row flex-align-c">
               <div className="champion-icon info-icon flex-col">
-                <ChampionIcon cid={stat.cid} size="50x50" />
+                <ChampionIcon cid={stat.cid} width="50" height="50" />
                 <div className="champion-level">{stat.champion_level}</div>
               </div>
               <div className="info-icon flex-col flex-j-c">
@@ -99,7 +99,7 @@ class MatchHistoryElem extends React.Component {
                   if (s.camp_id !== 100) return;
                   return (
                     <div key={i} className="participant-elem flex-row flex-align-c">
-                      <ChampionIcon cid={s.cid} size="20x20" />
+                      <ChampionIcon cid={s.cid} width="20" height="20" />
                       <Link
                         to={`/summoners/${
                           matchData.participants.find(p => p.uuid === s.summoner_uuid).name
@@ -117,7 +117,7 @@ class MatchHistoryElem extends React.Component {
                   if (s.camp_id !== 200) return;
                   return (
                     <div key={i} className="participant-elem flex-row flex-align-c">
-                      <ChampionIcon cid={s.cid} size="20x20" />
+                      <ChampionIcon cid={s.cid} width="20" height="20" />
                       <Link
                         to={`/summoners/${
                           matchData.participants.find(p => p.uuid === s.summoner_uuid).name

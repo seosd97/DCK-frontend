@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ChampionIcon from './Icons/ChampionIcon';
 import './Main.css';
 
 export default () => {

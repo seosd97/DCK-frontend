@@ -6,7 +6,7 @@ import Progress from './Utils/Progress';
 export default ({ data, topValue, reverse }) => {
   return (
     <div className={`stat-graph-elem ${reverse ? 'flex-row-r' : 'flex-row'} flex-align-c`}>
-      <ChampionIcon cid={data.cid} size="40x40" />
+      <ChampionIcon cid={data.cid} />
       <div
         className={`stat-progress ${reverse ? 'flex-row-r' : 'flex-row'} flex-align-c width-100`}
       >

@@ -1,14 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
-import MainLayout from './components/layout/MainLayout';
 import Routers from './Routers';
+
+import { DDragonProvider, store } from './context/context';
 
 function App() {
   return (
-    <Router>
-      <Routers />
-    </Router>
+    <DDragonProvider>
+      <Router>
+        <Routers />
+      </Router>
+    </DDragonProvider>
   );
 }
 

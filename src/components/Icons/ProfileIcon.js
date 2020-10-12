@@ -28,13 +28,13 @@ class ProfileIcon extends React.Component {
 
     if (
       this.state.src ===
-      `http://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${this.props.iconId}.png`
+      `http://ddragon.leagueoflegends.com/cdn/10.20.1/img/profileicon/${this.props.iconId}.png`
     ) {
       return;
     }
 
     this.setState({
-      src: `http://ddragon.leagueoflegends.com/cdn/${version}/img/profileicon/${this.props.iconId}.png`
+      src: `http://ddragon.leagueoflegends.com/cdn/10.20.1/img/profileicon/${this.props.iconId}.png`
     });
   }
 

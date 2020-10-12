@@ -5,7 +5,7 @@ const endpoint = 'http://ddragon.leagueoflegends.com/cdn/';
 
 export let championCache = {};
 export let championCacheById = {};
-export let spellCache = {};
+export let spellCache = null;
 export let runeCache = {};
 
 export const getVersion = async () => {
@@ -14,21 +14,17 @@ export const getVersion = async () => {
   return version.data[0];
 };
 
-export const getChampions = async (lang = 'ko_KR') => {
-  if (!_.isEmpty(championCache)) {
-    console.log('by cache');
-    return championCache;
-  }
+export const getChampions = async (version, lang = 'ko_KR') => {
+  const champions = await Axios.get(
+    `${process.env.REACT_APP_CDN_ENDPOINT}/${version}/data/${lang}/champion.json`
+  );
 
-  const version = await getVersion();
-  const champions = await Axios.get(`${endpoint}${version}/data/${lang}/champion.json`);
-  championCache = champions.data;
-  return championCache;
+  return champions.data;
 };
 
 export const getChampionByKey = async (key, lang = 'ko_KR') => {
   if (!_.isEmpty(championCacheById)) {
-    console.log('by cache by id');
+    // console.log('by cache by id');
     return championCacheById[key];
   }
 
@@ -43,7 +39,7 @@ export const getChampionByKey = async (key, lang = 'ko_KR') => {
 
 export const getSpellByID = async (id, lang = 'ko_KR') => {
   const sid = String(id);
-  if (!_.isEmpty(spellCache)) {
+  if (spellCache !== null) {
     return spellCache[sid];
   }
 
@@ -52,12 +48,14 @@ export const getSpellByID = async (id, lang = 'ko_KR') => {
     `http://ddragon.leagueoflegends.com/cdn/${version}/data/${lang}/summoner.json`
   );
 
+  spellCache = {};
   for (let i in spells.data.data) {
     const spell = spells.data.data[i];
 
     spellCache[spell.key] = spell;
   }
 
+  console.log('load new spell json');
   return spellCache[sid];
 };
 
