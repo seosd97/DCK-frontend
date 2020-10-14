@@ -1,81 +1,27 @@
-import React from 'react';
-import * as DDragon from '../../api/data-dragon';
+import React, { useContext } from 'react';
+import { store } from '../../context/context';
+import _ from 'underscore';
 import '../../img.css';
 
-class RuneIcon extends React.Component {
-  constructor() {
-    super();
+const RuneIcon = ({ styleId, rid, width, height }) => {
+  const ctx = useContext(store);
 
-    this.state = {
-      isStone: true,
-      src: ''
-    };
-  }
+  const runeData =
+    !ctx.isLoading &&
+    (rid === undefined
+      ? ctx.runeList[styleId]
+      : ctx.runeList[styleId].slots[0].runes.find(r => r.id === rid));
 
-  componentDidMount() {
-    DDragon.getRuneByID(this.props.styleId).then(d => {
-      if (this.props.rid === undefined) {
-        this.setState({
-          src: `https://ddragon.leagueoflegends.com/cdn/img/${d.icon}`
-        });
-
-        return;
-      }
-
-      const runes = d.slots[0].runes;
-      for (let i in runes) {
-        const rune = runes[i];
-        if (rune.id === this.props.rid) {
-          this.setState({
-            isStone: false,
-            src: `https://ddragon.leagueoflegends.com/cdn/img/${rune.icon}`
-          });
-          break;
-        }
-      }
-    });
-  }
-
-  // componentDidUpdate() {
-  //   DDragon.getRuneByID(this.props.styleId).then(d => {
-  //     if (this.props.rid === undefined) {
-  //       this.setState({
-  //         src: `https://ddragon.leagueoflegends.com/cdn/img/${d.icon}`
-  //       });
-
-  //       return;
-  //     }
-
-  //     const runes = d.slots[0].runes;
-  //     for (let i in runes) {
-  //       const rune = runes[i];
-  //       if (rune.id === this.props.rid) {
-  //         this.setState({
-  //           isStone: false,
-  //           src: `https://ddragon.leagueoflegends.com/cdn/img/${rune.icon}`
-  //         });
-  //         break;
-  //       }
-  //     }
-  //   });
-  // }
-
-  render() {
-    return (
-      <React.Fragment>
-        {this.state.src && (
-          <img
-            src={this.state.src}
-            alt="rune_image"
-            className={`${this.state.isStone ? 'keystone' : 'mainrune'} img-round`}
-            width={this.props.width}
-            height={this.props.height}
-          />
-        )}
-      </React.Fragment>
-    );
-  }
-}
+  return (
+    <img
+      src={`${process.env.REACT_APP_CDN_ENDPOINT}/img/${!_.isEmpty(runeData) && runeData.icon}`}
+      alt="rune_img"
+      className="rune-icon img-round"
+      width={width}
+      height={height}
+    />
+  );
+};
 
 RuneIcon.defaultProps = {
   width: '20px',

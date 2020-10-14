@@ -1,7 +1,13 @@
 import React, { createContext, useEffect, useState } from 'react';
 import * as DDragon from '../api/data-dragon';
 
-const initialData = { version: '', championList: '' };
+const initialData = {
+  isLoading: true,
+  version: '',
+  championList: {},
+  spellList: {},
+  runeList: {}
+};
 
 export const store = createContext(initialData);
 
@@ -11,14 +17,33 @@ export const DDragonProvider = ({ children }) => {
   useEffect(() => {
     if (data.version === '') {
       DDragon.getVersion().then(v => {
-        DDragon.getChampions(v).then(c => {
-          let list = {};
-          Object.entries(c.data).forEach(d => {
-            const [key, value] = d;
-            list[value.key] = value;
+        DDragon.getGameDatas(v).then(d => {
+          let championData = {};
+          let spellData = {};
+          let runeData = {};
+
+          Object.entries(d.champion.data).forEach(o => {
+            const [, value] = o;
+            championData[value.key] = value;
           });
 
-          setData({ version: v, championList: list });
+          Object.entries(d.spell.data).forEach(o => {
+            const [, value] = o;
+            spellData[value.key] = value;
+          });
+
+          Object.entries(d.rune).forEach(o => {
+            const [, value] = o;
+            runeData[value.id] = value;
+          });
+
+          setData({
+            isLoading: false,
+            version: v,
+            championList: championData,
+            spellList: spellData,
+            runeList: runeData
+          });
         });
       });
     }

@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Axios from 'axios';
 import _ from 'underscore';
-import * as DDragon from '../../api/data-dragon';
-import { render } from '@testing-library/react';
 import ChampionIcon from '../Icons/ChampionIcon';
 import moment from 'moment';
 import SpellIcon from '../Icons/SpellIcon';

@@ -1,52 +1,22 @@
-import React from 'react';
-import * as DDragon from '../../api/data-dragon';
+import React, { useContext } from 'react';
+import { store } from '../../context/context';
 import '../../img.css';
 
-class ItemIcon extends React.Component {
-  constructor() {
-    super();
+const ItemIcon = ({ iid, width, height }) => {
+  const ctx = useContext(store);
 
-    this.state = {
-      src: ''
-    };
-  }
-
-  async componentDidMount() {
-    if (this.props.iid > 0) {
-      // const version = await DDragon.getVersion();
-      this.setState({
-        src: `http://ddragon.leagueoflegends.com/cdn/10.19.1/img/item/${this.props.iid}.png`
-      });
-    }
-  }
-
-  // async componentDidUpdate() {
-  //   if (this.props.iid > 0) {
-  //     const version = await DDragon.getVersion();
-  //     this.setState({
-  //       src: `http://ddragon.leagueoflegends.com/cdn/${version}/img/item/${this.props.iid}.png`
-  //     });
-  //   }
-  // }
-
-  render() {
-    return (
-      <React.Fragment>
-        {this.state.src ? (
-          <img
-            src={this.state.src}
-            alt="item_img"
-            className="item-icon"
-            width={this.props.width}
-            height={this.props.height}
-          />
-        ) : (
-          <div className="item-icon" style={{ backgroundColor: '#3b3c40' }}></div>
-        )}
-      </React.Fragment>
-    );
-  }
-}
+  return !ctx.isLoading && iid > 0 ? (
+    <img
+      src={`${process.env.REACT_APP_CDN_ENDPOINT}/${ctx.version}/img/item/${iid}.png`}
+      alt="item_img"
+      className="item-icon"
+      width={width}
+      height={height}
+    />
+  ) : (
+    <div className="item-icon" style={{ backgroundColor: '#3b3c40' }}></div>
+  );
+};
 
 ItemIcon.defaultProps = {
   width: '25px',
