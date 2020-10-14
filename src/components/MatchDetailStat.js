@@ -120,7 +120,7 @@ class MatchDetailStat extends React.Component {
     return (
       <div className="flex-row flex-align-c">
         {teamData.bans.map((b, i) => {
-          return <ChampionIcon key={i} cid={b.cid} width="30" height="30" />;
+          return <ChampionIcon key={i} cid={b.cid} width="2.5rem" height="2.5rem" />;
         })}
       </div>
     );

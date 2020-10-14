@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ProfileIcon from './Icons/ProfileIcon';
 
 export default ({ statData, rank }) => {
   return (
@@ -9,13 +10,7 @@ export default ({ statData, rank }) => {
     >
       <div className="rank-desc">{`#${rank}`}</div>
       <div className="summoner-info flex-row flex-align-c">
-        <img
-          className="profile-icon"
-          src={`http://ddragon.leagueoflegends.com/cdn/10.18.1/img/profileicon/${statData.profile_icon_id}.png`}
-          alt={statData.profile_icon_id}
-          width="60"
-          height="60"
-        ></img>
+        <ProfileIcon iconId={statData.profile_icon_id} width={'3.5rem'} height={'3.5rem'} />
         <h2>{statData.name}</h2>
       </div>
       <div className="stat-info flex-row flex-align-c">

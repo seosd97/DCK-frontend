@@ -8,21 +8,23 @@ const SpellIcon = ({ sid, width, height }) => {
 
   return (
     !ctx.isLoading && (
-      <img
-        src={`${process.env.REACT_APP_CDN_ENDPOINT}/${ctx.version}/img/spell/${ctx.spellList[sid].image.full}`}
-        alt="spell_img"
-        className="spell-icon img-round"
-        width={width}
-        height={height}
-      />
+      <div style={{ width: width, height: height }}>
+        <img
+          src={`${process.env.REACT_APP_CDN_ENDPOINT}/${ctx.version}/img/spell/${ctx.spellList[sid].image.full}`}
+          alt="spell_img"
+          className="spell-icon img-round"
+          width="100%"
+          height="100%"
+        />
+      </div>
     )
   );
 };
 
 SpellIcon.defaultProps = {
   sid: '0',
-  width: '20px',
-  height: '20px'
+  width: '1.3rem',
+  height: '1.3rem'
 };
 
 export default SpellIcon;
