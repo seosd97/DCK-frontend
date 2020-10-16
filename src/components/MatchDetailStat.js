@@ -57,7 +57,7 @@ class MatchDetailStat extends React.Component {
       this.setState({ loading: true });
     }
 
-    Axios.get(`http://localhost:8080/matches/${gameId}`)
+    Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/matches/${gameId}`)
       .then(res => {
         matchDataCache.push(res.data);
         this.setState({ matchData: res.data, loading: false });

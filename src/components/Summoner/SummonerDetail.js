@@ -23,7 +23,7 @@ class SummonerDetail extends React.Component {
   async componentDidMount() {
     try {
       const res = await Axios.get(
-        `http://localhost:8080/summoners/by_name/${this.props.match.params.name}`
+        `${process.env.REACT_APP_API_ENDPOINT}/summoners/by_name/${this.props.match.params.name}`
       );
 
       this.setState({
@@ -41,7 +41,7 @@ class SummonerDetail extends React.Component {
 
     try {
       const res = await Axios.get(
-        `http://localhost:8080/summoners/by_name/${this.props.match.params.name}`
+        `${process.env.REACT_APP_API_ENDPOINT}/summoners/by_name/${this.props.match.params.name}`
       );
 
       this.setState({
@@ -61,7 +61,9 @@ class SummonerDetail extends React.Component {
     let classList = e.target.classList;
     classList.add('disabled');
 
-    const res = await Axios(`http://localhost:8080/riot/summoners/${oldData.summoner.uuid}`);
+    const res = await Axios(
+      `${process.env.REACT_APP_API_ENDPOINT}/riot/summoners/${oldData.summoner.uuid}`
+    );
 
     let newData = oldData;
     newData.summoner = res.data;

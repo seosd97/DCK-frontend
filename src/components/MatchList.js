@@ -21,7 +21,7 @@ class MatchList extends React.Component {
   }
 
   async componentDidMount() {
-    const res = await Axios.get('http://localhost:8080/tournaments');
+    const res = await Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/tournaments`);
     this.setState({
       tournaments: res.data
     });
@@ -30,7 +30,7 @@ class MatchList extends React.Component {
   }
 
   async loadMatchList(f) {
-    let endpoint = 'http://localhost:8080/matches';
+    let endpoint = `${process.env.REACT_APP_API_ENDPOINT}/matches`;
     if (f !== 'all') {
       endpoint = `${endpoint}?filter=${f}`;
     }

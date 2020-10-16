@@ -24,7 +24,7 @@ class RegisterMatch extends React.Component {
       return;
     }
 
-    Axios.get(`http://localhost:8080/riotapi/match/${id}`)
+    Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/riotapi/match/${id}`)
       .then(res => {
         this.setState({
           matchData: JSON.parse(res.data)
