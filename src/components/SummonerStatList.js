@@ -27,7 +27,7 @@ export default props => {
   });
 
   return (
-    <section
+    <div
       className={
         'summoner-stat-root flex-col flex-align-c width-100' + (teamStat.win ? ' winner' : '')
       }
@@ -56,6 +56,6 @@ export default props => {
           );
         })}
       </div>
-    </section>
+    </div>
   );
 };

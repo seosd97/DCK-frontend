@@ -1,28 +1,9 @@
-.img-20x20 {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .img-30x30 {
-    width: 30px;
-    height: 30px;
-  }
-  
-  .img-40x40 {
-    width: 40px;
-    height: 40px;
-  }
+.cui-champion-icon {
+  width: 3rem;
+  height: 3rem;
+}
 
-  .img-80x80 {
-    width: 80px;
-    height: 80px;
-  }
-
-  .img-120x120 {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .img-round {
-    border-radius: 30%;
-  }
+.cui-spell-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}

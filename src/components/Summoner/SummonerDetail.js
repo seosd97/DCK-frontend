@@ -92,7 +92,9 @@ class SummonerDetail extends React.Component {
         {summonerData !== null ? (
           <div className="summoner-detail-root m-w-auto flex-col">
             <div className="summoner-info flex-row flex-align-c">
-              <ProfileIcon iconId={summonerData.summoner.profile_icon_id} />
+              <div className="profile-icon">
+                <ProfileIcon iconId={summonerData.summoner.profile_icon_id} />
+              </div>
               <div className="summoner-desc">
                 <div className="flex-row flex-align-c">
                   <h1 className="text-align-right">{summonerData.summoner.name}</h1>
@@ -146,7 +148,9 @@ class SummonerDetail extends React.Component {
                   {summonerData.statics.slice(0, 3).map((s, i) => {
                     return (
                       <div key={i} className="champion-statics flex-row flex-align-c width-100">
-                        <ChampionIcon cid={s.cid} />
+                        <div className="champion-icon">
+                          <ChampionIcon cid={s.cid} />
+                        </div>
                         <div className="champ-info flex-col flex-j-c">
                           <div className="champ-name">{s.championData.name}</div>
                           <div className="champ-stat flex-row flex-align-c">

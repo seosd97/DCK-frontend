@@ -48,16 +48,24 @@ class SummonerStatElem extends React.Component {
         {/* {summonerStat.tripleKills > 0 && <div className="stat-penta">PENTA KILL</div>} */}
         <div className="stat-info flex-row flex-align-c">
           <div className="champion-icon">
-            <ChampionIcon cid={summonerStat.cid} size="40x40" />
+            <ChampionIcon cid={summonerStat.cid} />
             <div className="champion-level">{summonerStat.champion_level}</div>
           </div>
-          <div className="spell-icon flex-col flex-j-c">
-            <SpellIcon sid={summonerStat.spell1_id} />
-            <SpellIcon sid={summonerStat.spell2_id} />
+          <div className="flex-col flex-j-c">
+            <div className="spell-icon">
+              <SpellIcon sid={summonerStat.spell1_id} />
+            </div>
+            <div className="spell-icon">
+              <SpellIcon sid={summonerStat.spell2_id} />
+            </div>
           </div>
           <div className="rune-icon flex-col flex-j-c">
-            <RuneIcon styleId={summonerStat.perkPrimaryStyle} rid={summonerStat.rune0} />
-            <RuneIcon styleId={summonerStat.perkSubStyle} />
+            <div className="spell-icon">
+              <RuneIcon styleId={summonerStat.perkPrimaryStyle} rid={summonerStat.rune0} />
+            </div>
+            <div className="spell-icon">
+              <RuneIcon styleId={summonerStat.perkSubStyle} />
+            </div>
           </div>
           <Link to={`/summoners/${summonerData.name}`} className="summoner-name">
             {summonerData.name}

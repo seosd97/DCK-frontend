@@ -8,15 +8,14 @@ const ChampionIcon = ({ cid, width, height }) => {
 
   return (
     !ctx.isLoading && (
-      <div style={{ width: width, height: height }}>
-        <img
-          src={`${process.env.REACT_APP_CDN_ENDPOINT}/${ctx.version}/img/champion/${ctx.championList[cid].image.full}`}
-          alt="champion_icon"
-          className="cui-icon-champion"
-          width="100%"
-          height="100%"
-        />
-      </div>
+      // <div className="cui-icon-champion" style={{ width: width, height: height }}>
+      <img
+        src={`${process.env.REACT_APP_CDN_ENDPOINT}/${ctx.version}/img/champion/${ctx.championList[cid].image.full}`}
+        alt="champion_icon"
+        width="100%"
+        height="100%"
+      />
+      // </div>
     )
   );
 };

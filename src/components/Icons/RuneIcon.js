@@ -13,15 +13,15 @@ const RuneIcon = ({ styleId, rid, width, height }) => {
       : ctx.runeList[styleId].slots[0].runes.find(r => r.id === rid));
 
   return (
-    <div style={{ width: width, height: height }}>
-      <img
-        src={`${process.env.REACT_APP_CDN_ENDPOINT}/img/${!_.isEmpty(runeData) && runeData.icon}`}
-        alt="rune_img"
-        className="rune-icon img-round"
-        width="100%"
-        height="100%"
-      />
-    </div>
+    // <div style={{ width: width, height: height }}>
+    <img
+      src={`${process.env.REACT_APP_CDN_ENDPOINT}/img/${!_.isEmpty(runeData) && runeData.icon}`}
+      alt="rune_img"
+      // className="rune-icon"
+      width="100%"
+      height="100%"
+    />
+    // </div>
   );
 };
 

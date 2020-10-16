@@ -15,7 +15,7 @@ export default () => {
             alt="social_link_youtube"
           ></img>
         </a>
-        <a href="https://discord.gg/JgKqqp" target="_blank" rel="noopener noreferrer">
+        <a href="https://discord.gg/EJwBRjN" target="_blank" rel="noopener noreferrer">
           <img
             src={`${process.env.PUBLIC_URL}/icons/discord_icon_white.png`}
             alt="social_link_dicord"

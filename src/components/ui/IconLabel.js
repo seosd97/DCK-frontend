@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default ({ src = '', width = 20, height = 20, desc = '', fontSize = '1em' }) => {
+export default ({ src = '', width = 15, height = 15, desc = '', fontSize = '1em' }) => {
   const labelStyle = {
     fontSize: fontSize,
     lineHeight: fontSize,
-    paddingLeft: '4px'
+    paddingLeft: '2px'
   };
   return (
     <div className="cui-icon-label flex-row flex-align-c">

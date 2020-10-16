@@ -7,15 +7,15 @@ const ProfileIcon = ({ iconId, width, height }) => {
 
   return (
     !ctx.isLoading && (
-      <div style={{ width: width, height: height }}>
-        <img
-          src={`${process.env.REACT_APP_CDN_ENDPOINT}/${ctx.version}/img/profileicon/${iconId}.png`}
-          alt={`${iconId}.png`}
-          className="profile-icon img-round"
-          width="100%"
-          height="100%"
-        ></img>
-      </div>
+      // <div style={{ width: width, height: height }}>
+      <img
+        src={`${process.env.REACT_APP_CDN_ENDPOINT}/${ctx.version}/img/profileicon/${iconId}.png`}
+        alt={`${iconId}.png`}
+        className="profile-icon"
+        width="100%"
+        height="100%"
+      ></img>
+      // </div>
     )
   );
 };

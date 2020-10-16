@@ -10,7 +10,9 @@ export default ({ statData, rank }) => {
     >
       <div className="rank-desc">{`#${rank}`}</div>
       <div className="summoner-info flex-row flex-align-c">
-        <ProfileIcon iconId={statData.profile_icon_id} width={'3.5rem'} height={'3.5rem'} />
+        <div className="profile-icon">
+          <ProfileIcon iconId={statData.profile_icon_id} />
+        </div>
         <h2>{statData.name}</h2>
       </div>
       <div className="stat-info flex-row flex-align-c">

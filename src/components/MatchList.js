@@ -35,13 +35,10 @@ class MatchList extends React.Component {
       endpoint = `${endpoint}?filter=${f}`;
     }
 
-    console.log(f);
     const res = await Axios.get(endpoint);
     this.setState({
       matches: res.data
     });
-
-    console.log(res.data);
   }
 
   onChangeFilter(v) {

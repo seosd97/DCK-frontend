@@ -11,3 +11,31 @@
     margin: 0 6px;
     text-align: center;
 }
+
+.stat-graph-elem .champion-icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+@media screen and (max-width: 925px) {
+    .stat-graph-elem .champion-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+    .stat-graph-view {
+        flex-direction: column;
+    }
+    .stat-graph-view .team-blue, .stat-graph-view .team-red {
+        margin-top: 20px;
+    }
+    .stat-graph-elem .stat-progress .stat-desc {
+        width: 40px;
+        margin: 0 4px;
+    }
+    .stat-graph-elem, .stat-graph-elem .stat-progress {
+        flex-direction: row;
+    }
+    .stat-graph-elem, .stat-graph-elem .stat-progress .cui-progress-fill {
+        float: left !important;
+    }
+}

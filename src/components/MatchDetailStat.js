@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import numeral from 'numeral';
 import moment from 'moment';
 import _ from 'underscore';
 import './MatchDetailStat.css';
 import ChampionIcon from './Icons/ChampionIcon';
-import IconLabel from './ui/IconLabel';
 import DiffElement from './ui/DiffElement';
 import SummonerStatView from './SummonerStatView';
 import StatGraphView from './StatGraphView';
@@ -23,6 +21,8 @@ class MatchDetailStat extends React.Component {
       matchData: {},
       loading: true
     };
+
+    matchDataCache = [];
 
     this.updateMatchData = this.updateMatchData.bind(this);
   }
@@ -80,6 +80,22 @@ class MatchDetailStat extends React.Component {
     return summoner;
   }
 
+  renderTeamStat(desc, leftElem, rightElem) {
+    return (
+      <div className="team-stat-elem flex-row flex-j-c flex-align-c width-100">
+        <div className="team-stat-left">
+          <span className="team-stat-subdesc">{desc}</span>
+          {leftElem}
+        </div>
+        <div className="team-stat-desc">{desc}</div>
+        <div className="team-stat-right">
+          <span className="team-stat-subdesc">{desc}</span>
+          {rightElem}
+        </div>
+      </div>
+    );
+  }
+
   calcTotalGold(campId) {
     const { matchData } = this.state;
     let totalGold = 0;
@@ -120,7 +136,11 @@ class MatchDetailStat extends React.Component {
     return (
       <div className="flex-row flex-align-c">
         {teamData.bans.map((b, i) => {
-          return <ChampionIcon key={i} cid={b.cid} width="2.5rem" height="2.5rem" />;
+          return (
+            <div key={i} className="champion-icon-ban">
+              <ChampionIcon cid={b.cid} />
+            </div>
+          );
         })}
       </div>
     );
@@ -134,26 +154,46 @@ class MatchDetailStat extends React.Component {
 
     return (
       <div className="object-list flex-row flex-align-c">
-        <IconLabel
-          src={`${process.env.PUBLIC_URL}/icons/tower-${teamData.camp_id}.png`}
-          desc={teamData.towerKills}
-        />
-        <IconLabel
-          src={`${process.env.PUBLIC_URL}/icons/inhibitor-${teamData.camp_id}.png`}
-          desc={teamData.inhibitorKills}
-        />
-        <IconLabel
-          src={`${process.env.PUBLIC_URL}/icons/dragon-${teamData.camp_id}.png`}
-          desc={teamData.dragonKills}
-        />
-        <IconLabel
-          src={`${process.env.PUBLIC_URL}/icons/herald-${teamData.camp_id}.png`}
-          desc={teamData.riftHeraldKills}
-        />
-        <IconLabel
-          src={`${process.env.PUBLIC_URL}/icons/baron-${teamData.camp_id}.png`}
-          desc={teamData.baronKills}
-        />
+        <div className="object-elem flex-row flex-align-c">
+          <img
+            src={`${process.env.PUBLIC_URL}/icons/tower-${teamData.camp_id}.png`}
+            alt="tower-icon"
+            className="object-icon"
+          />
+          <span className="object-desc">{teamData.towerKills}</span>
+        </div>
+        <div className="object-elem flex-row flex-align-c">
+          <img
+            src={`${process.env.PUBLIC_URL}/icons/inhibitor-${teamData.camp_id}.png`}
+            alt="tower-icon"
+            className="object-icon"
+          />
+          <span className="object-desc">{teamData.inhibitorKills}</span>
+        </div>
+        <div className="object-elem flex-row flex-align-c">
+          <img
+            src={`${process.env.PUBLIC_URL}/icons/dragon-${teamData.camp_id}.png`}
+            alt="tower-icon"
+            className="object-icon"
+          />
+          <span className="object-desc">{teamData.dragonKills}</span>
+        </div>
+        <div className="object-elem flex-row flex-align-c">
+          <img
+            src={`${process.env.PUBLIC_URL}/icons/herald-${teamData.camp_id}.png`}
+            alt="tower-icon"
+            className="object-icon"
+          />
+          <span className="object-desc">{teamData.riftHeraldKills}</span>
+        </div>
+        <div className="object-elem flex-row flex-align-c">
+          <img
+            src={`${process.env.PUBLIC_URL}/icons/baron-${teamData.camp_id}.png`}
+            alt="tower-icon"
+            className="object-icon"
+          />
+          <span className="object-desc">{teamData.baronKills}</span>
+        </div>
       </div>
     );
   }
@@ -193,24 +233,19 @@ class MatchDetailStat extends React.Component {
                   {redTeam.win && <span className="winner-token">WIN</span>}
                 </div>
               </div>
-              <div className="team-stat-list flex-col flex-j-c width-100">
-                <DiffElement desc="밴">
-                  <LeftElement>{this.renderBan(100)}</LeftElement>
-                  <RightElement>{this.renderBan(200)}</RightElement>
-                </DiffElement>
-                <DiffElement desc="골드">
-                  <LeftElement>{numeral(this.calcTotalGold(100)).format('0.0a')}</LeftElement>
-                  <RightElement>{numeral(this.calcTotalGold(200)).format('0.0a')}</RightElement>
-                </DiffElement>
-                <DiffElement desc="KDA">
-                  <LeftElement>{`${blueKDA.kills}/${blueKDA.deaths}/${blueKDA.assists}`}</LeftElement>
-                  <RightElement>{`${redKDA.kills}/${redKDA.deaths}/${redKDA.assists}`}</RightElement>
-                </DiffElement>
-                <DiffElement desc="오브젝트">
-                  <LeftElement>{this.renderObject(100)}</LeftElement>
-                  <RightElement>{this.renderObject(200)}</RightElement>
-                </DiffElement>
-              </div>
+
+              {this.renderTeamStat('밴', this.renderBan(100), this.renderBan(200))}
+              {this.renderTeamStat(
+                '골드',
+                numeral(this.calcTotalGold(100)).format('0.0a'),
+                numeral(this.calcTotalGold(200)).format('0.0a')
+              )}
+              {this.renderTeamStat(
+                'KDA',
+                `${blueKDA.kills}/${blueKDA.deaths}/${blueKDA.assists}`,
+                `${redKDA.kills}/${redKDA.deaths}/${redKDA.assists}`
+              )}
+              {this.renderTeamStat('오브젝트', this.renderObject(100), this.renderObject(200))}
             </div>
             <SummonerStatView matchData={matchData} />
             <StatGraphView stats={matchData.stats} type="dealt" />
