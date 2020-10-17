@@ -21,7 +21,11 @@ class MatchList extends React.Component {
   }
 
   async componentDidMount() {
-    const res = await Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/tournaments`);
+    const res = await Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/tournaments`, {
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
     this.setState({
       tournaments: res.data
     });
@@ -35,7 +39,11 @@ class MatchList extends React.Component {
       endpoint = `${endpoint}?filter=${f}`;
     }
 
-    const res = await Axios.get(endpoint);
+    const res = await Axios.get(endpoint, {
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
     this.setState({
       matches: res.data
     });

@@ -24,7 +24,11 @@ class RegisterMatch extends React.Component {
       return;
     }
 
-    Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/riotapi/match/${id}`)
+    Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/riotapi/match/${id}`, {
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
       .then(res => {
         this.setState({
           matchData: JSON.parse(res.data)

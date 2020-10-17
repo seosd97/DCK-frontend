@@ -23,7 +23,12 @@ class SummonerDetail extends React.Component {
   async componentDidMount() {
     try {
       const res = await Axios.get(
-        `${process.env.REACT_APP_API_ENDPOINT}/summoners/by_name/${this.props.match.params.name}`
+        `${process.env.REACT_APP_API_ENDPOINT}/summoners/by_name/${this.props.match.params.name}`,
+        {
+          headers: {
+            'Access-Control-Allow-Origin': '*'
+          }
+        }
       );
 
       this.setState({
@@ -41,7 +46,12 @@ class SummonerDetail extends React.Component {
 
     try {
       const res = await Axios.get(
-        `${process.env.REACT_APP_API_ENDPOINT}/summoners/by_name/${this.props.match.params.name}`
+        `${process.env.REACT_APP_API_ENDPOINT}/summoners/by_name/${this.props.match.params.name}`,
+        {
+          headers: {
+            'Access-Control-Allow-Origin': '*'
+          }
+        }
       );
 
       this.setState({

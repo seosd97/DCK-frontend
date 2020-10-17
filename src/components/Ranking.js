@@ -31,7 +31,11 @@ class Ranking extends React.Component {
   }
 
   async componentDidMount() {
-    const stats = await Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/ranking`);
+    const stats = await Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/ranking`, {
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
 
     this.setState({
       statData: stats.data

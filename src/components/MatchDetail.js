@@ -20,7 +20,12 @@ class MatchDetail extends React.Component {
 
   async componentDidMount() {
     const res = await Axios.get(
-      `${process.env.REACT_APP_API_ENDPOINT}/matchlists/by_matchgroup/${this.props.match.params.id}`
+      `${process.env.REACT_APP_API_ENDPOINT}/matchlists/by_matchgroup/${this.props.match.params.id}`,
+      {
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        }
+      }
     );
 
     const team1 = res.data.Teams.find(t => {
