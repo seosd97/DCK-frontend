@@ -3,5 +3,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Deployed by Netlify
 
-## [dcklol.com](dcklol.com)
+## [dcklol.com](https://dcklol.com)
 
