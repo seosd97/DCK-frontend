@@ -23,7 +23,7 @@
     "react-scripts": "3.4.1",
     "react-vis": "^1.11.7",
     "short-number": "^1.0.7",
-    "underscore": "^1.10.2"
+    "underscore": "^1.12.1"
   },
   "scripts": {
     "start": "react-scripts start",
